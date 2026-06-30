@@ -9,6 +9,7 @@ export interface IMockEnvelope<T> {
     classification: string
     synthetic: boolean
     referenceBasis: string[]
+    counts?: Record<string, number>
   }
   data: T[]
 }
@@ -50,4 +51,8 @@ export interface IMbisFixtureState {
   border: TFixtureRecord | null
   entities: TFixtureRecord | null
   operations: TFixtureRecord | null
+  nmpEntities: import('@/features/mbis/types/nmp.types').INmpEntitiesFixture | null
+  nmpGeography: import('@/features/mbis/types/nmp.types').INmpGeographyFixture | null
+  nmpIntelligence: import('@/features/mbis/types/nmp.types').INmpIntelligenceFixture | null
+  nmpReplay: import('@/features/mbis/types/nmp.types').INmpReplayFixture | null
 }

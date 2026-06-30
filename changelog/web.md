@@ -6,6 +6,18 @@ Append-only. Newest entries at the top. Updated whenever a frontend task is crea
 
 ---
 
+### 2026-06-30 · NMP neon operational layers · COMPLETE
+
+**Event:** Tactical operational layer enhancement
+**Files:** `apps/web/src/features/mbis/`, `apps/web/src/config/map/layer-paint.config.ts`, `apps/web/public/data/nmp-*.json`
+> Strengthened neon AIS/ADS-B symbols, split vessel and aircraft route/trail families for exact toggle behavior, expanded Indonesia-focused corridors to 33, added animated alert/sensor pulses, four primary choke-point cards, tactical alert popup evidence, and a replay-aware no-WebGL vector fallback. Frontend-only scope remained intact.
+
+### 2026-06-30 · National Maritime Picture tactical visual and replay · COMPLETE
+
+**Event:** Frontend NMP rebuilt from the operational reference
+**Files:** `apps/web/src/features/mbis/`, `apps/web/public/data/nmp-*.json`, `apps/web/src/styles/components.css`, `apps/web/public/data/SOURCES.md`
+> Added a persistent Satellite Streets v12/Globe tactical map bridge, neon layer registry, moving vessel and aircraft tracks, 24-hour replay controls, alert-aware heatmap, ALKI/EEZ/watch-area overlays, functional panels, and deterministic research-backed local fixtures. Backend, agents, MCP, Supabase, database, and live APIs remain untouched.
+
 ### 2026-06-30 · Security cleanup · MAPBOX TOKEN DOCUMENTATION
 
 **Event:** Secret reference cleanup  

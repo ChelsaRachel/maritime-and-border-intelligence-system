@@ -11,11 +11,15 @@ import { merge } from 'webpack-merge'
 
 import common from './rspack.config'
 
+const buildPath = process.env.BUILD_OUTPUT_PATH
+  ? path.resolve(process.env.BUILD_OUTPUT_PATH)
+  : path.resolve(__dirname, 'build')
+
 module.exports = merge(common, {
   mode: 'production',
   devtool: false,
   output: {
-    path: path.resolve(__dirname, 'build'),
+    path: buildPath,
     filename: '[name].[contenthash].js',
     publicPath: '/',
   },
@@ -61,7 +65,7 @@ module.exports = merge(common, {
       patterns: [
         {
           from: path.resolve(__dirname, 'public', ''),
-          to: path.resolve(__dirname, 'build', ''),
+          to: buildPath,
         },
       ],
     }),
