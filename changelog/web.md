@@ -6,6 +6,12 @@ Append-only. Newest entries at the top. Updated whenever a frontend task is crea
 
 ---
 
+### 2026-06-30 · NMP native route hierarchy tuning · COMPLETE
+
+**Event:** Mapbox operational route visibility and visual-density correction
+**Files:** `apps/web/src/features/mbis/components/NmpMapBridge.tsx`, `apps/web/src/features/mbis/config/nmp-layers.config.ts`, `apps/web/src/config/map/layer-paint.config.ts`, `apps/web/public/data/nmp-geography.json`
+> Corrected native Mapbox layer registration, introduced ordered glow/casing/core passes and native SDF direction arrows, then tuned line weight, glow opacity, trail sampling, and icon density against the NMP reference. Satellite Streets v12, globe projection, replay source updates, and frontend-only scope remain unchanged.
+
 ### 2026-06-30 · NMP neon operational layers · COMPLETE
 
 **Event:** Tactical operational layer enhancement

@@ -191,7 +191,7 @@ function geographySourceData(geography: INmpGeographyFixture) {
     route.coordinates,
     { id: route.id, routeId: route.id, label: route.name, kind: route.kind, severity: route.kind === 'RISK_CORRIDOR' ? 'HIGH' : 'NORMAL' },
     `route-arrow-${route.id}`,
-    1.35,
+    2.6,
   ))
   return {
     [NMP_SOURCES.dim]: collection([polygonFeature([[[-180, -85], [180, -85], [180, 85], [-180, 85], [-180, -85]]], {})]),
@@ -211,20 +211,22 @@ function geographySourceData(geography: INmpGeographyFixture) {
 function dynamicSourceData(entities: INmpCurrentEntity[], activeAlerts: INmpAlert[], selectedId: string | null) {
   const vessels = entities.filter((entity) => entity.category === 'VESSEL')
   const aircraft = entities.filter((entity) => entity.category === 'AIRCRAFT')
-  const visibleVesselRoutes = vessels.filter((entity, index) => index % 3 === 0 && entity.route.length > 1)
-  const aircraftRouteArrowPoints = aircraft.flatMap((entity) => arrowPointFeatures(
+  const visibleVesselRoutes = vessels.filter((entity, index) => index % 6 === 0 && entity.route.length > 1)
+  const visibleVesselTrails = vessels.filter((entity, index) => index % 3 === 0 && entity.trail.length > 1)
+  const visibleAircraftRoutes = aircraft.filter((entity, index) => index % 2 === 0 && entity.route.length > 1)
+  const aircraftRouteArrowPoints = visibleAircraftRoutes.flatMap((entity) => arrowPointFeatures(
     entity.route,
     { id: entity.id, entityId: entity.id, severity: entity.severity, category: entity.category },
     `air-route-arrow-${entity.id}`,
-    2.8,
+    4.5,
   ))
   return {
     [NMP_SOURCES.vessels]: collection(vessels.map((entity) => pointFeature(entity.coordinates, { id: entity.id, label: entity.label, heading: entity.heading, speed: entity.speed, severity: entity.severity, category: entity.category, selected: entity.id === selectedId }, entity.id))),
     [NMP_SOURCES.aircraft]: collection(aircraft.map((entity) => pointFeature(entity.coordinates, { id: entity.id, label: entity.label, heading: entity.heading, speed: entity.speed, severity: entity.severity, category: entity.category, selected: entity.id === selectedId }, entity.id))),
     [NMP_SOURCES.vesselRoutes]: collection(visibleVesselRoutes.map((entity) => lineFeature(entity.route, { id: entity.id, severity: entity.severity, category: entity.category }, `vessel-route-${entity.id}`))),
-    [NMP_SOURCES.vesselTrails]: collection(vessels.filter((entity) => entity.trail.length > 1).map((entity) => lineFeature(entity.trail, { id: entity.id, severity: entity.severity, category: entity.category }, `vessel-trail-${entity.id}`))),
+    [NMP_SOURCES.vesselTrails]: collection(visibleVesselTrails.map((entity) => lineFeature(entity.trail, { id: entity.id, severity: entity.severity, category: entity.category }, `vessel-trail-${entity.id}`))),
     [NMP_SOURCES.aircraftTrails]: collection(aircraft.filter((entity) => entity.trail.length > 1).map((entity) => lineFeature(entity.trail, { id: entity.id, severity: entity.severity, category: entity.category }, `aircraft-trail-${entity.id}`))),
-    [NMP_SOURCES.airRoutes]: collection(aircraft.filter((entity) => entity.route.length > 1).map((entity) => lineFeature(entity.route, { id: entity.id, severity: entity.severity, category: entity.category }, `air-route-${entity.id}`))),
+    [NMP_SOURCES.airRoutes]: collection(visibleAircraftRoutes.map((entity) => lineFeature(entity.route, { id: entity.id, severity: entity.severity, category: entity.category }, `air-route-${entity.id}`))),
     [NMP_SOURCES.aircraftRouteArrowPoints]: collection(aircraftRouteArrowPoints),
     [NMP_SOURCES.alerts]: collection(activeAlerts.map((alert) => pointFeature(alert.coordinates, { id: alert.id, label: alert.title, severity: alert.severity, entityId: alert.entityId, timestamp: alert.timestamp, source: alert.source, confidence: alert.confidence, suggestedAction: alert.suggestedAction }, alert.id))),
     [NMP_SOURCES.activity]: collection([
@@ -250,8 +252,12 @@ function featureCount(sourceData: unknown) {
 function renderedUniqueCount(map: mapboxgl.Map, layerIds: string[]) {
   const layers = layerIds.filter((layerId) => map.getLayer(layerId))
   if (!layers.length) return 0
-  const keys = new Set(map.queryRenderedFeatures({ layers }).map((feature, index) => String(feature.id ?? feature.properties?.id ?? `${feature.layer?.id ?? 'feature'}-${index}`)))
-  return keys.size
+  try {
+    const keys = new Set(map.queryRenderedFeatures({ layers }).map((feature, index) => String(feature.id ?? feature.properties?.id ?? `${feature.layer?.id ?? 'feature'}-${index}`)))
+    return keys.size
+  } catch {
+    return 0
+  }
 }
 
 function publishRuntimeAudit(map: mapboxgl.Map, sourceData: Record<string, unknown>) {
@@ -288,11 +294,19 @@ export function NmpMapBridge({ geography, entities, activeAlerts, visibility, se
   const onSelectAlertRef = useRef(onSelectAlert)
   const markersRef = useRef<IMarkerHandle[]>([])
   const animationRef = useRef<number | null>(null)
+  const auditTimerRef = useRef<number | null>(null)
   const geographySourceDataRef = useRef<Record<string, unknown>>({})
   const dynamicSourceDataRef = useRef<Record<string, unknown>>({})
   const [loaded, setLoaded] = useState(false)
   const [mapError, setMapError] = useState<string | null>(null)
   const accessToken = process.env.MAPBOX_ACCESS_TOKEN ?? ''
+
+  const scheduleRuntimeAudit = (map: mapboxgl.Map) => {
+    if (auditTimerRef.current !== null) window.clearTimeout(auditTimerRef.current)
+    auditTimerRef.current = window.setTimeout(() => {
+      if (mapRef.current === map) publishRuntimeAudit(map, { ...geographySourceDataRef.current, ...dynamicSourceDataRef.current })
+    }, 900)
+  }
 
   useEffect(() => { onSelectRef.current = onSelectEntity }, [onSelectEntity])
   useEffect(() => { onSelectAlertRef.current = onSelectAlert }, [onSelectAlert])
@@ -364,7 +378,7 @@ export function NmpMapBridge({ geography, entities, activeAlerts, visibility, se
         dynamicSourceDataRef.current = dynamicSourceData(entities, activeAlerts, selectedId)
         setSourceData(map, geographySourceDataRef.current)
         setSourceData(map, dynamicSourceDataRef.current)
-        map.on('idle', () => publishRuntimeAudit(map, { ...geographySourceDataRef.current, ...dynamicSourceDataRef.current }))
+        scheduleRuntimeAudit(map)
         setLoaded(true)
       })
 
@@ -404,6 +418,7 @@ export function NmpMapBridge({ geography, entities, activeAlerts, visibility, se
       return () => {
         observer.disconnect()
         if (animationRef.current !== null) window.cancelAnimationFrame(animationRef.current)
+        if (auditTimerRef.current !== null) window.clearTimeout(auditTimerRef.current)
         markersRef.current.forEach(({ marker, root }) => { root.unmount(); marker.remove() })
         markersRef.current = []
         map.remove()
@@ -419,6 +434,7 @@ export function NmpMapBridge({ geography, entities, activeAlerts, visibility, se
     if (!map || !loaded) return
     geographySourceDataRef.current = geographySourceData(geography)
     setSourceData(map, geographySourceDataRef.current)
+    scheduleRuntimeAudit(map)
   }, [geography, loaded])
 
   useEffect(() => {
@@ -426,6 +442,7 @@ export function NmpMapBridge({ geography, entities, activeAlerts, visibility, se
     if (!map || !loaded) return
     dynamicSourceDataRef.current = dynamicSourceData(entities, activeAlerts, selectedId)
     setSourceData(map, dynamicSourceDataRef.current)
+    scheduleRuntimeAudit(map)
   }, [activeAlerts, entities, loaded, selectedId])
 
   useEffect(() => {
@@ -435,6 +452,7 @@ export function NmpMapBridge({ geography, entities, activeAlerts, visibility, se
       if (entry.group === 'always' || !map.getLayer(entry.id)) return
       map.setLayoutProperty(entry.id, 'visibility', visibility[entry.group] ? 'visible' : 'none')
     })
+    scheduleRuntimeAudit(map)
   }, [loaded, visibility])
 
   useEffect(() => {
