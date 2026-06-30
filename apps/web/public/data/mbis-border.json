@@ -1,0 +1,66 @@
+{
+  "metaData": {
+    "status": true,
+    "title": "Border Intelligence — frontend fixture",
+    "generatedAt": "2026-06-29T09:42:18+07:00",
+    "classification": "INTERNAL // DEMONSTRATION",
+    "synthetic": true,
+    "referenceBasis": ["BNPP official PLBN directory", "Indonesian border geography"]
+  },
+  "data": [
+    {
+      "metrics": {"officialPosts":18,"informalRoutes":47,"vulnerablePoints":32,"incidents24h":18,"activePatrolRoutes":26,"patrolCoverage":98},
+      "posts": [
+        {"id":"PLBN-ENT","name":"PLBN Entikong","province":"Kalimantan Barat","border":"Malaysia","coordinates":[110.36,0.99],"status":"ONLINE","people24h":1245,"goods24h":312,"risk":"HIGH"},
+        {"id":"PLBN-ARU","name":"PLBN Aruk","province":"Kalimantan Barat","border":"Malaysia","coordinates":[109.45,1.68],"status":"ONLINE","people24h":937,"goods24h":241,"risk":"HIGH"},
+        {"id":"PLBN-BAD","name":"PLBN Badau","province":"Kalimantan Barat","border":"Malaysia","coordinates":[111.96,0.83],"status":"DEGRADED","people24h":386,"goods24h":92,"risk":"MEDIUM"},
+        {"id":"PLBN-MOT","name":"PLBN Motaain","province":"Nusa Tenggara Timur","border":"Timor-Leste","coordinates":[125.02,-9.33],"status":"ONLINE","people24h":432,"goods24h":122,"risk":"MEDIUM"},
+        {"id":"PLBN-MMS","name":"PLBN Motamasin","province":"Nusa Tenggara Timur","border":"Timor-Leste","coordinates":[125.06,-9.57],"status":"ONLINE","people24h":214,"goods24h":48,"risk":"LOW"},
+        {"id":"PLBN-WIN","name":"PLBN Wini","province":"Nusa Tenggara Timur","border":"Timor-Leste","coordinates":[124.49,-9.18],"status":"ONLINE","people24h":301,"goods24h":61,"risk":"LOW"},
+        {"id":"PLBN-SKW","name":"PLBN Skouw","province":"Papua","border":"Papua Nugini","coordinates":[140.91,-2.60],"status":"ONLINE","people24h":276,"goods24h":86,"risk":"LOW"},
+        {"id":"PLBN-SOT","name":"PLBN Sota","province":"Papua Selatan","border":"Papua Nugini","coordinates":[141.01,-8.43],"status":"ONLINE","people24h":119,"goods24h":35,"risk":"MEDIUM"},
+        {"id":"PLBN-SEB","name":"Pos Sebatik","province":"Kalimantan Utara","border":"Malaysia","coordinates":[117.79,4.16],"status":"ONLINE","people24h":654,"goods24h":189,"risk":"MEDIUM"}
+      ],
+      "routes": [
+        {"id":"BR-01","name":"Koridor Entikong–Tebedu","kind":"OFFICIAL","coordinates":[[110.23,0.78],[110.36,0.99],[110.46,1.15]],"risk":"LOW"},
+        {"id":"BR-02","name":"Jalur Nanga Badau–Lubok Antu","kind":"OFFICIAL","coordinates":[[111.79,0.72],[111.96,0.83],[112.08,0.97]],"risk":"MEDIUM"},
+        {"id":"BR-03","name":"Lintasan Sungai Sekayam","kind":"INFORMAL","coordinates":[[110.21,1.04],[110.52,1.18],[110.74,1.32]],"risk":"HIGH"},
+        {"id":"BR-04","name":"Jalur Hutan Sajingan Besar","kind":"INFORMAL","coordinates":[[109.36,1.49],[109.52,1.75],[109.81,1.91]],"risk":"CRITICAL"},
+        {"id":"BR-05","name":"Lintasan Pulau Sebatik","kind":"INFORMAL","coordinates":[[117.72,4.05],[117.83,4.16],[117.93,4.25]],"risk":"HIGH"},
+        {"id":"BR-06","name":"Koridor Motaain–Batugade","kind":"OFFICIAL","coordinates":[[124.89,-9.27],[125.02,-9.33],[125.16,-9.28]],"risk":"LOW"},
+        {"id":"BR-07","name":"Lintasan Sungai Maro","kind":"INFORMAL","coordinates":[[140.72,-8.35],[140.89,-8.41],[141.01,-8.43]],"risk":"HIGH"},
+        {"id":"BR-08","name":"Koridor Skouw–Wutung","kind":"OFFICIAL","coordinates":[[140.72,-2.56],[140.91,-2.60],[141.08,-2.59]],"risk":"LOW"}
+      ],
+      "vulnerablePoints": [
+        {"id":"VP-01","name":"Sajingan Besar Utara","coordinates":[109.61,1.86],"type":"Smuggling","severity":"CRITICAL","sensor":"Patrol report"},
+        {"id":"VP-02","name":"Nanga Badau Timur","coordinates":[112.18,0.91],"type":"People movement","severity":"HIGH","sensor":"Geofence"},
+        {"id":"VP-03","name":"Sebatik Tengah","coordinates":[117.86,4.13],"type":"Goods transfer","severity":"HIGH","sensor":"Coastal observation"},
+        {"id":"VP-04","name":"Merauke–Sota Sector","coordinates":[140.82,-8.22],"type":"Unauthorized crossing","severity":"HIGH","sensor":"Drone fixture"},
+        {"id":"VP-05","name":"Skouw Ridge","coordinates":[140.79,-2.72],"type":"Informal route","severity":"MEDIUM","sensor":"Patrol report"},
+        {"id":"VP-06","name":"Motamasin Selatan","coordinates":[124.97,-9.63],"type":"Goods transfer","severity":"MEDIUM","sensor":"Checkpoint correlation"}
+      ],
+      "activities": [
+        {"id":"BA-101","time":"09:31","kind":"PEOPLE","title":"Perlintasan orang — resmi","location":"PLBN Entikong","detail":"12 WNI masuk","severity":"LOW"},
+        {"id":"BA-102","time":"09:28","kind":"GOODS","title":"Pemeriksaan barang elektronik","location":"Pos Sebatik","detail":"1 truk, dokumen lengkap","severity":"LOW"},
+        {"id":"BA-103","time":"09:17","kind":"INCIDENT","title":"Aktivitas mencurigakan","location":"Jalur Sungai Sekayam","detail":"3 orang bergerak ke utara","severity":"CRITICAL"},
+        {"id":"BA-104","time":"09:16","kind":"PEOPLE","title":"Perlintasan orang — resmi","location":"PLBN Motamasin","detail":"7 WNI keluar","severity":"LOW"},
+        {"id":"BA-105","time":"09:11","kind":"GEOFENCE","title":"Pelanggaran geofence","location":"Area Merauke Timur","detail":"Objek masuk zona sensor","severity":"HIGH"},
+        {"id":"BA-106","time":"08:58","kind":"GOODS","title":"Inspeksi muatan hasil pertanian","location":"PLBN Aruk","detail":"2 kendaraan diverifikasi","severity":"LOW"},
+        {"id":"BA-107","time":"08:46","kind":"INCIDENT","title":"Jejak kendaraan di jalur informal","location":"Sajingan Besar Utara","detail":"Arah pergerakan barat laut","severity":"HIGH"},
+        {"id":"BA-108","time":"08:32","kind":"PEOPLE","title":"Perlintasan pelajar perbatasan","location":"PLBN Motaain","detail":"28 orang terverifikasi","severity":"LOW"},
+        {"id":"BA-109","time":"08:19","kind":"GEOFENCE","title":"Beacon patroli memasuki sektor","location":"Skouw Ridge","detail":"Tim Patroli Papua-03","severity":"LOW"},
+        {"id":"BA-110","time":"08:04","kind":"GOODS","title":"Pemeriksaan komoditas laut","location":"Pos Sebatik","detail":"Dokumen karantina sesuai","severity":"LOW"}
+      ],
+      "timeline": [
+        {"date":"23 Jun","low":4,"medium":2,"high":1},
+        {"date":"24 Jun","low":7,"medium":3,"high":1},
+        {"date":"25 Jun","low":5,"medium":3,"high":1},
+        {"date":"26 Jun","low":8,"medium":5,"high":1},
+        {"date":"27 Jun","low":7,"medium":4,"high":2},
+        {"date":"28 Jun","low":9,"medium":5,"high":4},
+        {"date":"29 Jun","low":8,"medium":4,"high":3}
+      ],
+      "immigration": {"peopleCrossings":3616,"goodsCrossings":1287,"maritimeObservations":23,"documentsProcessed":2945,"watchlistMatches":18,"integratedAgencies":19,"activeCheckpoints":8}
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "metaData": {
+    "status": true,
+    "title": "National Maritime Picture — frontend fixture",
+    "generatedAt": "2026-06-29T09:42:18+07:00",
+    "classification": "INTERNAL // DEMONSTRATION",
+    "synthetic": true,
+    "referenceBasis": ["IMO AIS field guidance", "Global Fishing Watch AIS activity model", "BMKG maritime wave scale"]
+  },
+  "data": [
+    {
+      "summary": {
+        "trackedVessels": 5284,
+        "highRiskVessels": 156,
+        "activeAnomalies": 23,
+        "monitoredAircraft": 198,
+        "waterActivities": 18,
+        "sourceFusion": 97.8
+      },
+      "weather": [
+        {"area":"Selat Malaka","condition":"Hujan ringan","waveHeight":1.2,"waveClass":"Rendah","windKnots":11,"visibilityNm":9,"currentKnots":0.6},
+        {"area":"Laut Natuna Utara","condition":"Berawan tebal","waveHeight":2.4,"waveClass":"Sedang","windKnots":19,"visibilityNm":7,"currentKnots":0.9},
+        {"area":"Selat Makassar","condition":"Cerah berawan","waveHeight":1.4,"waveClass":"Sedang","windKnots":13,"visibilityNm":10,"currentKnots":0.7},
+        {"area":"Laut Arafura","condition":"Hujan lokal","waveHeight":2.8,"waveClass":"Tinggi","windKnots":23,"visibilityNm":5,"currentKnots":1.1},
+        {"area":"Samudra Hindia Selatan Jawa","condition":"Berawan","waveHeight":3.2,"waveClass":"Tinggi","windKnots":26,"visibilityNm":8,"currentKnots":1.4}
+      ],
+      "chokepoints": [
+        {"id":"CP-MALAKA","name":"Selat Malaka","coordinates":[101.42,2.61],"risk":"CRITICAL","traffic":"Padat","vesselsPerDay":2360},
+        {"id":"CP-SUNDA","name":"Selat Sunda","coordinates":[105.87,-5.88],"risk":"HIGH","traffic":"Meningkat","vesselsPerDay":418},
+        {"id":"CP-LOMBOK","name":"Selat Lombok","coordinates":[115.73,-8.55],"risk":"HIGH","traffic":"Stabil","vesselsPerDay":307},
+        {"id":"CP-MAKASSAR","name":"Selat Makassar","coordinates":[118.73,-2.26],"risk":"CRITICAL","traffic":"Padat","vesselsPerDay":684}
+      ],
+      "vessels": [
+        {"id":"VS-001","name":"KM Laut Natuna 05","mmsi":"525019842","imo":"9841275","callSign":"YBNA2","type":"Fishing","flag":"Indonesia","coordinates":[108.42,4.08],"course":123,"speed":4.2,"status":"HIGH","lastSeen":"09:41:52 WIB","provenance":"AIS coastal fixture"},
+        {"id":"VS-002","name":"MV Nusantara Jaya","mmsi":"525025731","imo":"9764520","callSign":"YBQC7","type":"Cargo","flag":"Indonesia","coordinates":[106.31,-5.71],"course":78,"speed":13.7,"status":"NORMAL","lastSeen":"09:42:03 WIB","provenance":"AIS satellite fixture"},
+        {"id":"VS-003","name":"MT Samudra Arunika","mmsi":"525112046","imo":"9817648","callSign":"YDKM3","type":"Tanker","flag":"Indonesia","coordinates":[104.34,1.35],"course":142,"speed":11.1,"status":"MEDIUM","lastSeen":"09:41:47 WIB","provenance":"AIS terrestrial fixture"},
+        {"id":"VS-004","name":"MV Eastern Coral","mmsi":"563184900","imo":"9704386","callSign":"9V2617","type":"Bulk Carrier","flag":"Singapore","coordinates":[103.74,1.18],"course":96,"speed":12.8,"status":"NORMAL","lastSeen":"09:41:59 WIB","provenance":"AIS terrestrial fixture"},
+        {"id":"VS-005","name":"FV Hai Sheng 16","mmsi":"412786430","imo":"8732403","callSign":"BZXN8","type":"Fishing","flag":"China","coordinates":[110.18,5.32],"course":214,"speed":2.7,"status":"CRITICAL","lastSeen":"09:18:21 WIB","provenance":"AIS gap reconstruction fixture"},
+        {"id":"VS-006","name":"KM Bintang Selatan 88","mmsi":"525901732","imo":"9317523","callSign":"YDMF8","type":"Fishing","flag":"Indonesia","coordinates":[115.94,-9.03],"course":276,"speed":5.4,"status":"MEDIUM","lastSeen":"09:40:18 WIB","provenance":"AIS coastal fixture"},
+        {"id":"VS-007","name":"MV Celebes Pioneer","mmsi":"525677104","imo":"9884203","callSign":"YCJN5","type":"Container","flag":"Indonesia","coordinates":[119.31,-3.71],"course":14,"speed":15.2,"status":"NORMAL","lastSeen":"09:42:11 WIB","provenance":"AIS satellite fixture"},
+        {"id":"VS-008","name":"MT Andalas Energy","mmsi":"525114388","imo":"9793349","callSign":"YDEE4","type":"Tanker","flag":"Indonesia","coordinates":[98.91,3.54],"course":131,"speed":10.6,"status":"HIGH","lastSeen":"09:39:33 WIB","provenance":"AIS terrestrial fixture"},
+        {"id":"VS-009","name":"MV Pacific Merauke","mmsi":"525803125","imo":"9907823","callSign":"YDPR6","type":"General Cargo","flag":"Indonesia","coordinates":[137.61,-8.49],"course":102,"speed":12.1,"status":"NORMAL","lastSeen":"09:41:38 WIB","provenance":"AIS satellite fixture"},
+        {"id":"VS-010","name":"FV Sinar Banda 21","mmsi":"525907418","imo":"8621848","callSign":"YDPB2","type":"Fishing","flag":"Indonesia","coordinates":[128.32,-4.77],"course":31,"speed":3.8,"status":"HIGH","lastSeen":"09:35:02 WIB","provenance":"AIS coastal fixture"},
+        {"id":"VS-011","name":"MV Borneo Strait","mmsi":"533184221","imo":"9859935","callSign":"9M2841","type":"Container","flag":"Malaysia","coordinates":[117.28,3.44],"course":190,"speed":14.5,"status":"NORMAL","lastSeen":"09:41:56 WIB","provenance":"AIS satellite fixture"},
+        {"id":"VS-012","name":"SV Archipelago Surveyor","mmsi":"525500816","imo":"9671424","callSign":"YBOS8","type":"Research","flag":"Indonesia","coordinates":[123.58,-5.21],"course":248,"speed":7.9,"status":"NORMAL","lastSeen":"09:40:49 WIB","provenance":"AIS satellite fixture"},
+        {"id":"VS-013","name":"MV Timor Sejahtera","mmsi":"525702384","imo":"9740380","callSign":"YCMU4","type":"Ro-Ro","flag":"Indonesia","coordinates":[124.21,-9.12],"course":61,"speed":12.4,"status":"NORMAL","lastSeen":"09:41:31 WIB","provenance":"AIS coastal fixture"},
+        {"id":"VS-014","name":"MT Seram Cahaya","mmsi":"525116704","imo":"9865207","callSign":"YDFT7","type":"Tanker","flag":"Indonesia","coordinates":[130.15,-3.09],"course":314,"speed":9.6,"status":"MEDIUM","lastSeen":"09:38:14 WIB","provenance":"AIS satellite fixture"}
+      ],
+      "aircraft": [
+        {"id":"AC-001","callSign":"GIA89","icao24":"8a057e","registration":"PK-GND","type":"B737-800","coordinates":[110.88,-6.92],"altitudeFt":35100,"groundSpeedKt":448,"heading":91,"status":"NORMAL"},
+        {"id":"AC-002","callSign":"LNI712","icao24":"8a03f1","registration":"PK-LHR","type":"B737-900ER","coordinates":[114.82,-2.73],"altitudeFt":33000,"groundSpeedKt":431,"heading":58,"status":"NORMAL"},
+        {"id":"AC-003","callSign":"QTR9832","icao24":"06a2c7","registration":"A7-BCS","type":"B777-300ER","coordinates":[108.74,3.86],"altitudeFt":34000,"groundSpeedKt":462,"heading":126,"status":"CRITICAL"},
+        {"id":"AC-004","callSign":"PKR205","icao24":"8a0c42","registration":"PK-RJD","type":"C208B","coordinates":[137.32,-4.58],"altitudeFt":9800,"groundSpeedKt":146,"heading":241,"status":"HIGH"},
+        {"id":"AC-005","callSign":"TNI327","icao24":"8a1b04","registration":"A-1327","type":"C-130J","coordinates":[125.09,-2.14],"altitudeFt":22000,"groundSpeedKt":326,"heading":284,"status":"NORMAL"},
+        {"id":"AC-006","callSign":"SIA956","icao24":"76ce41","registration":"9V-SMA","type":"A350-900","coordinates":[104.92,0.42],"altitudeFt":39000,"groundSpeedKt":487,"heading":152,"status":"NORMAL"},
+        {"id":"AC-007","callSign":"WXR12","icao24":"8a4d72","registration":"PK-WXR","type":"Cessna 208B","coordinates":[131.28,-1.43],"altitudeFt":11500,"groundSpeedKt":153,"heading":87,"status":"HIGH"},
+        {"id":"AC-008","callSign":"TGW227","icao24":"8a2f18","registration":"PK-TGW","type":"Gulfstream G550","coordinates":[107.98,2.14],"altitudeFt":28000,"groundSpeedKt":421,"heading":133,"status":"MEDIUM"}
+      ],
+      "shippingRoutes": [
+        {"id":"RT-01","name":"ALKI I / Natuna–Sunda","coordinates":[[104.1,4.9],[105.2,1.1],[106.1,-3.2],[105.9,-5.9]],"status":"ACTIVE"},
+        {"id":"RT-02","name":"ALKI II / Sulawesi–Lombok","coordinates":[[119.2,4.2],[118.8,0.1],[117.9,-4.4],[115.8,-8.6]],"status":"ACTIVE"},
+        {"id":"RT-03","name":"ALKI III-A / Maluku–Timor","coordinates":[[127.1,3.1],[127.7,-1.8],[126.2,-5.8],[124.3,-9.3]],"status":"ACTIVE"},
+        {"id":"RT-04","name":"Koridor Barat Sumatra–Jawa","coordinates":[[96.2,4.8],[99.4,0.7],[102.7,-3.8],[106.0,-6.2]],"status":"MONITORED"}
+      ],
+      "alerts": [
+        {"id":"AL-0629-041","time":"09:39 WIB","severity":"CRITICAL","title":"Pola AIS terputus di Laut Natuna Utara","entity":"FV Hai Sheng 16","source":"AIS + coastal radar"},
+        {"id":"AL-0629-040","time":"09:34 WIB","severity":"HIGH","title":"Deviasi koridor udara ALKI II","entity":"QTR9832","source":"ADS-B fixture"},
+        {"id":"AL-0629-039","time":"09:27 WIB","severity":"HIGH","title":"Kecepatan transfer tidak lazim","entity":"MT Andalas Energy","source":"AIS behavior rule"},
+        {"id":"AL-0629-038","time":"09:16 WIB","severity":"MEDIUM","title":"Kepadatan kapal meningkat","entity":"Selat Sunda","source":"Traffic baseline"}
+      ],
+      "replay": [42,48,55,51,64,71,68,74,69,82,91,88,77,73,80,96,103,98,109,117,111,126,119,132,128,141,137,149,156,144,152,161,173,168,179,171,188,196,184,201,193,212,205,219,226,214,231,224]
+    }
+  ]
+}

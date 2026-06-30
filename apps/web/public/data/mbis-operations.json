@@ -1,0 +1,87 @@
+{
+  "metaData": {
+    "status": true,
+    "title": "Operational Intelligence — frontend fixture",
+    "generatedAt": "2026-06-29T09:42:18+07:00",
+    "classification": "INTERNAL // DEMONSTRATION",
+    "synthetic": true,
+    "referenceBasis": ["FRD MBIS lifecycle contracts", "BMKG maritime area naming", "BNPP PLBN directory"]
+  },
+  "data": [
+    {
+      "alerts": [
+        {"id":"IN-2026-0629-062","title":"Foreign vessel incursion pattern in North Natuna Sea","domain":"MARITIME","region":"Laut Natuna Utara","severity":"CRITICAL","status":"NEW","createdAt":"09:40 WIB","owner":"Unassigned","slaMinutes":15,"elapsedMinutes":3,"sources":["Coastal radar","AIS fixture"]},
+        {"id":"IN-2026-0629-061","title":"AIS-dark vessel east of Sulawesi","domain":"MARITIME","region":"Laut Sulawesi","severity":"HIGH","status":"INVESTIGATING","createdAt":"09:38 WIB","owner":"Analis 02","slaMinutes":30,"elapsedMinutes":5,"sources":["SIGINT fixture","Radar"]},
+        {"id":"IN-2026-0629-060","title":"Irregular rendezvous in Makassar Strait","domain":"DUAL","region":"Selat Makassar","severity":"HIGH","status":"INVESTIGATING","createdAt":"09:35 WIB","owner":"Analis 02","slaMinutes":30,"elapsedMinutes":8,"sources":["AIS fixture","Satellite fixture"]},
+        {"id":"IN-2026-0629-059","title":"Traffic volume increase in Malacca Strait","domain":"MARITIME","region":"Selat Malaka","severity":"HIGH","status":"NEW","createdAt":"09:30 WIB","owner":"Unassigned","slaMinutes":30,"elapsedMinutes":13,"sources":["AIS aggregation"]},
+        {"id":"IN-2026-0629-058","title":"High-wave weather impact south of Java","domain":"MARITIME","region":"Samudra Hindia Selatan Jawa","severity":"MEDIUM","status":"ASSIGNED","createdAt":"09:25 WIB","owner":"Analis 03","slaMinutes":60,"elapsedMinutes":18,"sources":["BMKG reference fixture"]},
+        {"id":"IN-2026-0629-057","title":"Communication system integrity check","domain":"CYBER","region":"Western sensor grid","severity":"LOW","status":"RESOLVED","createdAt":"09:20 WIB","owner":"Analis 05","slaMinutes":240,"elapsedMinutes":23,"sources":["Internal fixture"]},
+        {"id":"IN-2026-0629-056","title":"Informal border route activity","domain":"BORDER","region":"Sajingan Besar","severity":"HIGH","status":"ESCALATED","createdAt":"09:12 WIB","owner":"Supervisor 01","slaMinutes":30,"elapsedMinutes":31,"sources":["Patrol fixture","Geofence"]},
+        {"id":"IN-2026-0629-055","title":"Unscheduled aircraft near strategic zone","domain":"AIR","region":"Natuna monitoring area","severity":"HIGH","status":"INVESTIGATING","createdAt":"09:04 WIB","owner":"Analis 04","slaMinutes":30,"elapsedMinutes":39,"sources":["ADS-B fixture"]}
+      ],
+      "alertDistribution":{"critical":7,"high":15,"medium":28,"low":36,"total":86,"byDomain":[{"label":"Maritime","value":52},{"label":"Land Border","value":24},{"label":"Air","value":8},{"label":"Cyber","value":6},{"label":"Other","value":10}]},
+      "sla":[
+        {"severity":"CRITICAL","response":"15 min","resolution":"2 h","compliance":92},
+        {"severity":"HIGH","response":"30 min","resolution":"6 h","compliance":86},
+        {"severity":"MEDIUM","response":"1 h","resolution":"12 h","compliance":78},
+        {"severity":"LOW","response":"4 h","resolution":"24 h","compliance":75}
+      ],
+      "threat": {
+        "nationalIndex":66,"change":8,
+        "domains":[{"name":"Maritime","score":78,"level":"HIGH","trend":8},{"name":"Border","score":62,"level":"MEDIUM","trend":6},{"name":"Air","score":59,"level":"MEDIUM","trend":5}],
+        "regions":[
+          {"name":"Selat Malaka","score":86,"trend":12,"coordinates":[101.42,2.61]},
+          {"name":"Laut Natuna Utara","score":79,"trend":9,"coordinates":[108.42,4.08]},
+          {"name":"Perairan Barat Sumatra","score":74,"trend":11,"coordinates":[98.13,-1.12]},
+          {"name":"Laut Sulawesi","score":72,"trend":9,"coordinates":[122.13,2.01]},
+          {"name":"Perairan Kepulauan Riau","score":68,"trend":7,"coordinates":[104.25,1.22]},
+          {"name":"Laut Jawa","score":61,"trend":2,"coordinates":[110.13,-5.12]},
+          {"name":"Perairan Selat Surabaya","score":59,"trend":2,"coordinates":[112.72,-7.22]},
+          {"name":"Selatan Selat Makassar","score":53,"trend":-1,"coordinates":[118.73,-3.66]},
+          {"name":"Nusa Tenggara Timur","score":51,"trend":-1,"coordinates":[123.51,-9.21]},
+          {"name":"Laut Arafura","score":47,"trend":-2,"coordinates":[135.42,-8.04]}
+        ],
+        "drivers":[{"name":"Illegal fishing","score":82},{"name":"Smuggling","score":75},{"name":"Piracy","score":68},{"name":"Cross-border trafficking","score":62},{"name":"Airspace anomaly","score":58}],
+        "trend":[{"date":"23 Jun","national":58,"maritime":70,"border":56,"air":54},{"date":"24 Jun","national":59,"maritime":71,"border":55,"air":50},{"date":"25 Jun","national":62,"maritime":75,"border":58,"air":52},{"date":"26 Jun","national":60,"maritime":73,"border":61,"air":53},{"date":"27 Jun","national":64,"maritime":80,"border":60,"air":55},{"date":"28 Jun","national":65,"maritime":77,"border":63,"air":57},{"date":"29 Jun","national":66,"maritime":78,"border":62,"air":59}],
+        "forecast":[{"region":"Selat Malaka","probability":75,"level":"HIGH","confidence":"70–85%"},{"region":"Laut Natuna Utara","probability":70,"level":"HIGH","confidence":"65–80%"},{"region":"Perairan Barat Sumatra","probability":65,"level":"HIGH","confidence":"55–75%"},{"region":"Laut Sulawesi","probability":55,"level":"MEDIUM","confidence":"50–65%"},{"region":"Laut Arafura","probability":50,"level":"MEDIUM","confidence":"45–60%"}]
+      },
+      "reports": [
+        {"id":"RPT-260629-001","title":"Daily Intelligence Brief — 29 June 2026","type":"Daily Brief","classification":"SECRET","createdAt":"29 Jun 2026 08:30","author":"Analis Maritime","status":"AWAITING_APPROVAL","recipients":4},
+        {"id":"RPT-260628-004","title":"Weekly Strategic Assessment — Week 26","type":"Strategic Assessment","classification":"TOP_SECRET","createdAt":"28 Jun 2026 16:15","author":"Supervisor Intelijen","status":"DISTRIBUTED","recipients":8},
+        {"id":"RPT-260628-003","title":"Maritime Threat Update — Natuna","type":"Threat Update","classification":"SECRET","createdAt":"28 Jun 2026 11:45","author":"Analis Maritime","status":"DISTRIBUTED","recipients":6},
+        {"id":"RPT-260628-002","title":"Border Security Report — West Kalimantan","type":"Border Report","classification":"RESTRICTED","createdAt":"28 Jun 2026 11:10","author":"Analis Border","status":"DISTRIBUTED","recipients":5},
+        {"id":"RPT-260627-007","title":"Illegal Fishing Activity Review — Natuna Sector","type":"Special Report","classification":"SECRET","createdAt":"27 Jun 2026 14:30","author":"Analis Maritime","status":"ARCHIVED","recipients":3},
+        {"id":"RPT-260627-003","title":"Unscheduled Air Activity Review","type":"Air Intelligence","classification":"SECRET","createdAt":"27 Jun 2026 09:20","author":"Analis Udara","status":"REVIEW","recipients":4},
+        {"id":"RPT-260626-011","title":"PLBN Activity Summary — Entikong and Aruk","type":"Border Report","classification":"RESTRICTED","createdAt":"26 Jun 2026 18:45","author":"Analis Border","status":"ARCHIVED","recipients":7}
+      ],
+      "reportMetrics":{"receivedToday":124,"distributed30d":41,"activeEvents":86,"criticalIntelligence":15,"productAccuracy":92},
+      "dailySummary":[{"label":"Illegal fishing observations","value":15,"severity":"HIGH"},{"label":"Border activities reviewed","value":9,"severity":"MEDIUM"},{"label":"Regional violations","value":3,"severity":"CRITICAL"},{"label":"Sea robbery notifications","value":1,"severity":"CRITICAL"},{"label":"Weather impact advisories","value":7,"severity":"LOW"}],
+      "approvalFlow":[{"step":1,"label":"Draft report","owner":"Content analyst","status":"DONE"},{"step":2,"label":"Intelligence review","owner":"Senior analyst","status":"DONE"},{"step":3,"label":"Leadership approval","owner":"Duty commander","status":"ACTIVE"},{"step":4,"label":"Distribution","owner":"Distribution cell","status":"WAITING"}],
+      "sources": [
+        {"id":"SRC-AIS-01","name":"AIS Coastal Network","kind":"AIS","status":"ONLINE","freshness":"4 sec","coverage":96.8,"records24h":"8.42M","provenance":"Local fixture modeled on IMO AIS fields"},
+        {"id":"SRC-AIS-02","name":"Satellite AIS Relay","kind":"AIS","status":"DEGRADED","freshness":"3 min","coverage":88.2,"records24h":"2.17M","provenance":"Synthetic satellite coverage"},
+        {"id":"SRC-ADS-01","name":"National ADS-B Mesh","kind":"ADS-B","status":"ONLINE","freshness":"2 sec","coverage":99.2,"records24h":"1.26M","provenance":"Modeled on OpenSky state vectors"},
+        {"id":"SRC-BDR-01","name":"PLBN Activity Exchange","kind":"BORDER","status":"ONLINE","freshness":"15 min","coverage":94.1,"records24h":"14.8K","provenance":"Locations referenced from BNPP"},
+        {"id":"SRC-WX-01","name":"Maritime Weather Grid","kind":"WEATHER","status":"ONLINE","freshness":"30 min","coverage":97.4,"records24h":"82.4K","provenance":"Wave categories referenced from BMKG"},
+        {"id":"SRC-REG-01","name":"Vessel Registry Mirror","kind":"REGISTRY","status":"STALE","freshness":"14 h","coverage":91.7,"records24h":"412K","provenance":"Synthetic registry reconciliation"},
+        {"id":"SRC-OSINT-01","name":"Maritime OSINT Desk","kind":"OSINT","status":"ONLINE","freshness":"11 min","coverage":83.6,"records24h":"9.7K","provenance":"Curated synthetic records"},
+        {"id":"SRC-SAR-01","name":"SAR Imagery Index","kind":"SATELLITE","status":"DEGRADED","freshness":"2 h","coverage":72.8,"records24h":"386","provenance":"Synthetic image metadata only"},
+        {"id":"SRC-INT-01","name":"Internal Intelligence Notes","kind":"INTERNAL","status":"ONLINE","freshness":"8 min","coverage":100,"records24h":"1.2K","provenance":"Local fixture"}
+      ],
+      "users": [
+        {"username":"Administrator","role":"Administrator","unit":"System Operations","access":"FULL","status":"ACTIVE"},
+        {"username":"Pimpinan","role":"Pimpinan","unit":"Strategic Command","access":"DECISION","status":"ACTIVE"},
+        {"username":"Supervisor","role":"Supervisor","unit":"Operations Review","access":"APPROVAL","status":"ACTIVE"},
+        {"username":"Analis","role":"Analis","unit":"Intelligence Analysis","access":"INVESTIGATION","status":"ACTIVE"},
+        {"username":"Auditor","role":"Auditor","unit":"Governance & Audit","access":"READ_ONLY","status":"ACTIVE"}
+      ],
+      "auditEvents": [
+        {"time":"09:41:48","actor":"Supervisor","action":"Reviewed anomaly","object":"ANM-2026-0629-003","result":"SUCCESS"},
+        {"time":"09:39:12","actor":"Analis","action":"Added evidence note","object":"IN-2026-0629-061","result":"SUCCESS"},
+        {"time":"09:33:51","actor":"Pimpinan","action":"Viewed strategic assessment","object":"RPT-260628-004","result":"SUCCESS"},
+        {"time":"09:28:04","actor":"Administrator","action":"Updated source threshold","object":"SRC-AIS-02","result":"SUCCESS"},
+        {"time":"09:17:29","actor":"Auditor","action":"Exported audit snapshot","object":"AUDIT-260629-A","result":"SUCCESS"}
+      ]
+    }
+  ]
+}
