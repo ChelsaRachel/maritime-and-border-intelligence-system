@@ -6,6 +6,12 @@ Append-only. Newest entries at the top. Updated whenever a frontend task is crea
 
 ---
 
+### 2026-06-30 · NMP replay discontinuity guard · COMPLETE
+
+**Event:** Removed unrealistic closed-loop route geometry around Natuna
+**Files:** `apps/web/src/features/mbis/hooks/useNmpReplay.ts`
+> Split replay-derived vessel and aircraft route/trail geometry at implausible geographic jumps before publishing it to native Mapbox GeoJSON sources. This removes end-to-start track-wrap diamonds while preserving replay movement, short trails, route layers, Satellite Streets v12, and globe projection.
+
 ### 2026-06-30 · NMP native route hierarchy tuning · COMPLETE
 
 **Event:** Mapbox operational route visibility and visual-density correction

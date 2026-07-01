@@ -1,7 +1,35 @@
-import type { INmpAlert, INmpCurrentEntity, INmpEntitiesFixture, INmpReplayFixture } from '@/features/mbis/types/nmp.types'
+import type { INmpAlert, INmpCurrentEntity, INmpEntitiesFixture, INmpReplayFixture, INmpTrackPoint, TCoordinates } from '@/features/mbis/types/nmp.types'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 
 export type TNmpReplaySpeed = 1 | 2 | 4
+
+const MAX_CONTINUOUS_JUMP_DEGREES = {
+  VESSEL: 1.5,
+  AIRCRAFT: 3,
+} as const
+
+function approximateDistanceDegrees(start: TCoordinates, end: TCoordinates) {
+  const meanLatitude = (start[1] + end[1]) * Math.PI / 360
+  return Math.hypot((end[0] - start[0]) * Math.cos(meanLatitude), end[1] - start[1])
+}
+
+function latestContinuousTrack(track: INmpTrackPoint[], currentIndex: number, maximumJumpDegrees: number) {
+  const endIndex = Math.min(currentIndex, track.length - 1)
+  let startIndex = 0
+  for (let index = endIndex; index > 0; index -= 1) {
+    if (approximateDistanceDegrees(track[index - 1].coordinates, track[index].coordinates) > maximumJumpDegrees) {
+      startIndex = index
+      break
+    }
+  }
+  return track.slice(startIndex, endIndex + 1)
+}
+
+function sampledRoute(track: INmpTrackPoint[]) {
+  return track
+    .filter((_, index) => index % 8 === 0 || index === track.length - 1)
+    .map((trackPoint) => trackPoint.coordinates)
+}
 
 export function useNmpReplay(entitiesFixture: INmpEntitiesFixture, replayFixture: INmpReplayFixture, alerts: INmpAlert[]) {
   const lastIndex = replayFixture.replayFrames.length - 1
@@ -55,6 +83,7 @@ export function useNmpReplay(entitiesFixture: INmpEntitiesFixture, replayFixture
   const currentEntities = useMemo<INmpCurrentEntity[]>(() => {
     const vesselEntities = entitiesFixture.vessels.map((vessel) => {
       const point = vessel.track[Math.min(trackIndex, vessel.track.length - 1)]
+      const continuousTrack = latestContinuousTrack(vessel.track, trackIndex, MAX_CONTINUOUS_JUMP_DEGREES.VESSEL)
       return {
         id: vessel.id,
         label: vessel.name,
@@ -63,13 +92,14 @@ export function useNmpReplay(entitiesFixture: INmpEntitiesFixture, replayFixture
         coordinates: point.coordinates,
         heading: point.heading,
         speed: point.speed,
-        trail: vessel.track.slice(Math.max(0, trackIndex - 13), trackIndex + 1).map((trackPoint) => trackPoint.coordinates),
-        route: vessel.track.slice(0, trackIndex + 1).filter((_, index) => index % 8 === 0 || index === trackIndex).map((trackPoint) => trackPoint.coordinates),
+        trail: continuousTrack.slice(-14).map((trackPoint) => trackPoint.coordinates),
+        route: sampledRoute(continuousTrack),
         detail: vessel,
       }
     })
     const aircraftEntities = entitiesFixture.aircraft.map((aircraft) => {
       const point = aircraft.track[Math.min(trackIndex, aircraft.track.length - 1)]
+      const continuousTrack = latestContinuousTrack(aircraft.track, trackIndex, MAX_CONTINUOUS_JUMP_DEGREES.AIRCRAFT)
       return {
         id: aircraft.id,
         label: aircraft.callSign,
@@ -78,8 +108,8 @@ export function useNmpReplay(entitiesFixture: INmpEntitiesFixture, replayFixture
         coordinates: point.coordinates,
         heading: point.heading,
         speed: point.speed,
-        trail: aircraft.track.slice(Math.max(0, trackIndex - 13), trackIndex + 1).map((trackPoint) => trackPoint.coordinates),
-        route: aircraft.track.slice(0, trackIndex + 1).filter((_, index) => index % 8 === 0 || index === trackIndex).map((trackPoint) => trackPoint.coordinates),
+        trail: continuousTrack.slice(-14).map((trackPoint) => trackPoint.coordinates),
+        route: sampledRoute(continuousTrack),
         detail: aircraft,
       }
     })
