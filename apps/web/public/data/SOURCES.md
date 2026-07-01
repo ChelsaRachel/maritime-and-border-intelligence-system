@@ -16,6 +16,13 @@ All operational records in this folder are static synthetic data for a frontend 
 - BIG IGT catalogue — Indonesian nautical-chart feature categories including maritime boundaries and prohibited/restricted areas: https://simpatig.big.go.id/peta/detail/198
 - ReCAAP Information Sharing Centre — maritime incident categorisation and reporting patterns in the Straits of Malacca and Singapore: https://www.recaap.org/resources/ck/files/reports/quarterly/Q1%202025%20report%28final%29.pdf
 - BNPP — official PLBN names and integrated border-service context: https://bnpp.go.id/plbn
+- BNPP — PLBN Sei Nyamuk identification survey of unofficial crossing routes on Sebatik Island: https://bnpp.go.id/berita/plbn-sei-nyamuk-laksanakan-giat-identifikasi-jalur-tidak-resmi-di-pulau-sebatik
+- BNPP — Sebatik community awareness context for narcotics and illegal-goods smuggling risk: https://bnpp.go.id/berita/sosialisasi-bahaya-narkoba-dan-penyelundupan-di-perbatasan-plbn-sei-nyamuk-tingkatkan-kesadaran-warga-sebatik
+- Bea Cukai Sintete — joint patrol and inspection pattern on the right-side border inspection route at PLBN Aruk: https://sintete.beacukai.go.id/berita/operasi-gabungan-pengawasan-batas-negara-di-jalur-inspeksi-patroli-perbatasan-sektor-kanan-plbn-aruk
+- Bea Cukai Sintete — intelligence mapping and interdiction context from Aruk to Sambas/Galing: https://sintete.beacukai.go.id/berita/bea-cukai-sintete-dan-bnnp-kalbar-gagalkan-penyelundupan-10-kilogram-sabu-di-perbatasan-darat-malaysia
+- Imigrasi Putussibau — joint monitoring of unofficial Badau routes toward Pos Tiga and Pos Mentari: https://putussibau.imigrasi.go.id/berita-utama/operasi-gabungan-pengawasan-orang-asing-di-perbatasan-desa-badau-berjalan-lancar-tanpa-temuan-pelanggaran
+- Direktorat Jenderal Imigrasi — non-procedural migrant movement through an unofficial route in Seriang, Badau: https://www.imigrasi.go.id/berita/2021/09/27/imigrasi-putussibau-amankan-pemulangan-41-tki-ilegal-ke-sambas
+- Polri Tribrata — K9 patrol and inspection model for unofficial routes around Aruk and Jagoi Babang: https://tribratanews.polri.go.id/blog/nasional-3/polda-kalbar-patroli-gunakan-anjing-pelacak-di-perbatasan-21225
 
 ## Generated NMP coverage
 

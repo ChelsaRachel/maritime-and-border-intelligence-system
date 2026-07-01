@@ -6,6 +6,12 @@ Append-only. Newest entries at the top. Updated whenever a frontend task is crea
 
 ---
 
+### 2026-07-01 · Border geofence warning analysis · COMPLETE
+
+**Event:** Added an analyst-ready geofence warning widget and detail workflow
+**Files:** `apps/web/src/features/mbis/components/GeofenceWarnings.tsx`, `apps/web/src/features/mbis/components/OperationsWorkspace.tsx`, `apps/web/public/data/mbis-border.json`, `apps/web/public/data/SOURCES.md`, `apps/web/src/components/wrappers/PerfectScrollArea.tsx`, `apps/web/src/index.css`, `apps/web/src/styles/components.css`
+> Added three severity-coded priority warnings, a functional full-warning modal, seven summary metrics, severity/category filters, a 24-record research-grounded synthetic fixture, internal tactical table scrolling, and selectable analyst detail with chronology, coordinates, source fusion, confidence, recommended action, and escalation status.
+
 ### 2026-07-01 · Border Intelligence readability pass · COMPLETE
 
 **Event:** Rebalanced Border Intelligence typography and visual scale for 1920×1080

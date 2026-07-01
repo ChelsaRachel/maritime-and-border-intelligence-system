@@ -7,6 +7,7 @@ import { MetricCard } from '@/components/common/MetricCard'
 import { Panel } from '@/components/common/Panel'
 import { SeverityBadge } from '@/components/common/SeverityBadge'
 import { TacticalMap } from '@/features/tactical/components/TacticalMap'
+import { GeofenceWarnings } from '@/features/mbis/components/GeofenceWarnings'
 import { useAuthStore } from '@/stores/useAuthStore'
 import { useMbisStore } from '@/stores/useMbisStore'
 import { type CSSProperties, useMemo, useState } from 'react'
@@ -46,7 +47,7 @@ export function OperationsWorkspace({ module }: { module: TWorkspaceModule }) {
       <Panel title="Timeline Insiden Perbatasan" eyebrow="Last 7 Days" className="span-7"><BorderIncidentTimeline points={border!.timeline} incidents={border!.incidentLog} /></Panel>
       <Panel title="Top Aktivitas Perbatasan" eyebrow="Last 5 minutes" className="span-5"><RowList rows={border!.posts.slice(0, 5).map((item: any) => ({ ...item, title: item.name, detail: `${item.people24h.toLocaleString('id-ID')} orang · ${item.goods24h} barang` }))} /></Panel>
       <ImmigrationIntegrationSummary data={border!.immigrationIntegration} />
-      <Panel title="Geofence Warnings" eyebrow="Priority sectors" className="span-4"><RowList rows={border!.vulnerablePoints.slice(0, 4).map((item: any) => ({ ...item, title: item.name, detail: item.type }))} /></Panel>
+      <GeofenceWarnings featuredWarnings={border!.featuredWarnings} warnings={border!.geofenceWarnings} />
     </div>
   )
 
