@@ -337,6 +337,79 @@ progress::-moz-progress-bar { background: linear-gradient(90deg,var(--signal-cya
 .incident-log__tag i { color: var(--signal-teal); font-size: 12px; }
 .incident-log__source { display: inline-flex; align-items: center; gap: 4px; color: var(--text-tertiary); font-family: var(--font-mono); font-size: 10px; }
 .incident-log__source i { color: var(--signal-cyan); font-size: 12px; }
+
+/* Border Intelligence — Immigration Integration Summary */
+.imm-more-btn { display: inline-flex; align-items: center; gap: 5px; padding: 6px 12px; border: 1px solid rgba(0,224,255,.38); color: var(--signal-cyan-soft); background: linear-gradient(180deg, rgba(0,224,255,.12), rgba(0,224,255,.03)); font-family: var(--font-sans); font-size: 11px; font-weight: 500; cursor: pointer; transition: .16s ease; }
+.imm-more-btn:hover { color: var(--signal-cyan); border-color: var(--signal-cyan); box-shadow: 0 0 12px rgba(0,224,255,.22); }
+.imm-more-btn i { font-size: 13px; }
+.imm-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.imm-card { position: relative; display: flex; min-height: 92px; flex-direction: column; padding: 12px 13px; border: 1px solid var(--wire); background: linear-gradient(160deg, rgba(6,28,42,.7), rgba(3,16,27,.85)); }
+.imm-card__label { color: var(--text-tertiary); font-family: var(--font-mono); font-size: 9px; letter-spacing: .06em; }
+.imm-card__value { margin-top: auto; padding-top: 8px; font-family: var(--font-mono); font-size: 28px; font-weight: 600; line-height: 1; color: var(--text-primary); }
+.imm-card__delta { display: inline-flex; align-items: center; gap: 4px; margin-top: 7px; color: var(--severity-low); font-family: var(--font-mono); font-size: 12px; font-weight: 600; }
+.imm-card__delta i { font-size: 11px; }
+.imm-card__delta small { color: var(--text-tertiary); font-weight: 400; font-size: 9px; letter-spacing: .03em; }
+.imm-card__hit { display: inline-flex; align-items: center; gap: 5px; margin-top: 7px; color: var(--severity-critical); font-family: var(--font-mono); font-size: 11px; }
+.imm-card__hit i { font-size: 13px; }
+.imm-card--integration .imm-integration { display: flex; align-items: center; gap: 14px; margin-top: auto; padding-top: 10px; }
+.imm-integration > div { display: flex; flex-direction: column; gap: 5px; }
+.imm-integration__name { color: var(--text-secondary); font-family: var(--font-mono); font-size: 12px; font-weight: 600; }
+.imm-integration__status { display: inline-flex; align-items: center; gap: 5px; color: var(--severity-low); font-size: 11px; }
+.imm-integration__divider { width: 1px; height: 34px; background: var(--wire-strong); }
+.status-dot { display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--text-tertiary); flex: none; }
+.status-dot--online { background: var(--severity-low); box-shadow: 0 0 7px var(--severity-low); }
+
+/* Immigration detail modal (shadcn Dialog themed to tactical glass) */
+.immigration-modal { width: min(780px, 95vw) !important; max-width: 780px !important; max-height: 88vh; padding: 0 !important; gap: 0 !important; overflow: hidden; border: 1px solid rgba(0,196,235,.5) !important; background: linear-gradient(150deg, rgba(4,24,37,.98), rgba(2,12,21,.98)) !important; box-shadow: 0 30px 80px rgba(0,0,0,.6), 0 0 40px rgba(0,178,220,.08) !important; backdrop-filter: blur(16px) saturate(128%); display: flex !important; flex-direction: column; }
+.immigration-modal::before { position: absolute; top: -1px; left: -1px; width: 60px; height: 1px; content: ''; background: var(--signal-cyan); box-shadow: 0 0 10px var(--signal-cyan); }
+.immigration-modal > button { position: absolute; right: 12px; top: 12px; z-index: 6; display: grid; width: 30px; height: 30px; place-items: center; border: 1px solid var(--wire); border-radius: 0; color: var(--text-secondary); background: rgba(2,12,21,.82); opacity: 1; }
+.immigration-modal > button:hover { color: var(--signal-cyan); border-color: var(--wire-strong); }
+.immigration-modal__title { padding: 16px 44px 0 18px; color: var(--text-primary); font-family: var(--font-sans); font-size: 17px; font-weight: 600; }
+.immigration-modal__subtitle { padding: 4px 18px 14px; color: var(--text-secondary); font-size: 11.5px; border-bottom: 1px solid var(--wire); }
+.immigration-modal__scroll { flex: 1; min-height: 0; overflow-y: auto; padding: 4px 18px 18px; }
+.imm-detail-section { margin-top: 18px; }
+.imm-detail-section h3 { margin: 0 0 9px; color: var(--signal-cyan); font-family: var(--font-mono); font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+.imm-detail-summary { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }
+.imm-detail-summary > div { display: flex; flex-direction: column; gap: 4px; padding: 10px; border: 1px solid var(--wire); background: rgba(0,224,255,.02); }
+.imm-detail-summary span { color: var(--text-tertiary); font-size: 9.5px; }
+.imm-detail-summary strong { font-family: var(--font-mono); font-size: 19px; font-weight: 600; color: var(--text-primary); }
+.imm-detail-summary em { color: var(--text-tertiary); font-family: var(--font-mono); font-size: 10px; font-style: normal; }
+.imm-detail-summary em.is-up { color: var(--severity-low); }
+.imm-table-wrap { overflow-x: auto; border: 1px solid var(--wire); }
+.imm-table { width: 100%; border-collapse: collapse; font-size: 11.5px; }
+.imm-table thead th { position: sticky; top: 0; padding: 8px 10px; border-bottom: 1px solid var(--wire-strong); color: var(--text-tertiary); background: rgba(2,14,23,.96); font-family: var(--font-mono); font-size: 9.5px; font-weight: 500; letter-spacing: .05em; text-align: left; text-transform: uppercase; }
+.imm-table th.is-num, .imm-table td.is-num { text-align: right; font-family: var(--font-mono); }
+.imm-table tbody td { padding: 9px 10px; border-bottom: 1px solid rgba(54,190,220,.09); color: var(--text-secondary); vertical-align: middle; }
+.imm-table tbody tr:last-child td { border-bottom: 0; }
+.imm-table tbody tr:hover td { background: rgba(0,224,255,.04); }
+.imm-table td strong { display: block; color: var(--text-primary); font-size: 12px; }
+.imm-table td small { display: block; margin-top: 1px; color: var(--text-tertiary); font-family: var(--font-mono); font-size: 9px; }
+.imm-sync { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 10px; letter-spacing: .04em; }
+.imm-sync--low { color: var(--severity-low); }
+.imm-sync--low .status-dot { background: var(--severity-low); box-shadow: 0 0 6px var(--severity-low); }
+.imm-sync--medium { color: var(--severity-medium); }
+.imm-sync--medium .status-dot { background: var(--severity-medium); box-shadow: 0 0 6px var(--severity-medium); }
+.imm-sync--high { color: var(--severity-critical); }
+.imm-sync--high .status-dot { background: var(--severity-critical); box-shadow: 0 0 6px var(--severity-critical); }
+.imm-agency-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.imm-agency { display: flex; flex-direction: column; gap: 5px; padding: 11px; border: 1px solid var(--wire); background: rgba(61,218,135,.03); }
+.imm-agency header { display: flex; align-items: center; gap: 6px; }
+.imm-agency header strong { min-width: 0; overflow: hidden; flex: 1; color: var(--text-primary); font-size: 12px; text-overflow: ellipsis; white-space: nowrap; }
+.imm-agency header b { color: var(--severity-low); font-family: var(--font-mono); font-size: 8.5px; }
+.imm-agency > small { overflow: hidden; color: var(--text-secondary); font-size: 10px; text-overflow: ellipsis; white-space: nowrap; }
+.imm-agency footer { display: flex; flex-direction: column; gap: 2px; color: var(--text-tertiary); font-family: var(--font-mono); font-size: 9px; }
+.imm-sync-note { margin: 9px 0 0; color: var(--text-tertiary); font-family: var(--font-mono); font-size: 10px; }
+.imm-events { display: flex; flex-direction: column; }
+.imm-event { display: flex; align-items: center; gap: 11px; padding: 9px 4px; border-bottom: 1px solid rgba(54,190,220,.09); }
+.imm-event:last-child { border-bottom: 0; }
+.imm-event time { color: var(--text-tertiary); font-family: var(--font-mono); font-size: 11px; flex: none; }
+.imm-event > div { min-width: 0; flex: 1; }
+.imm-event strong { display: block; overflow: hidden; color: var(--text-primary); font-size: 12px; text-overflow: ellipsis; white-space: nowrap; }
+.imm-event small { display: block; margin-top: 2px; overflow: hidden; color: var(--text-secondary); font-size: 10px; text-overflow: ellipsis; white-space: nowrap; }
+.imm-notes { display: flex; flex-direction: column; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.imm-notes li { display: flex; align-items: flex-start; gap: 9px; padding: 10px 11px; border-left: 2px solid var(--signal-cyan); background: rgba(0,224,255,.035); color: var(--text-secondary); font-size: 11.5px; line-height: 1.5; }
+.imm-notes li i { margin-top: 1px; color: var(--signal-cyan); font-size: 15px; flex: none; }
+.imm-notes li b { color: var(--text-primary); }
 .operations-workspace--border .timeline-bars { height: 190px; gap: 14px; padding: 22px 16px 12px; }
 .operations-workspace--border .timeline-bars i { width: 7px; min-height: 28px; }
 .operations-workspace--border .timeline-bars span { bottom: -22px; font-size: 10px; }

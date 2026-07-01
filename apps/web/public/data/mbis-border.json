@@ -83,6 +83,48 @@
         {"id":"INC-0613-4","iso":"2026-06-13","date":"13 Jun 2026","time":"18:45 WIB","location":"Pesisir Mempawah (Kalbar)","border":"Malaysia","type":"Interdiksi Laut","severity":"HIGH","entities":"12.563 botol","summary":"Miras dan rokok ilegal tanpa cukai disita dalam operasi interdiksi pesisir.","status":"Ditangani","source":"Lantamal XII · Bea Cukai"}
       ],
       "immigration": {"peopleCrossings":3616,"goodsCrossings":1287,"maritimeObservations":23,"documentsProcessed":2945,"watchlistMatches":18,"integratedAgencies":19,"activeCheckpoints":8},
+      "immigrationIntegration": {
+        "summary": {
+          "peopleCrossings24h":3616,"peopleCrossingsDelta":18,
+          "goodsCrossings24h":1287,"goodsCrossingsDelta":15,
+          "entryRefusals":23,"entryRefusalsDelta":5,
+          "documentsProcessed":2945,"documentsProcessedDelta":14,
+          "watchlistHits":18,
+          "activeIntegrations":{"immigration":"online","customs":"online"}
+        },
+        "checkpoints": [
+          {"id":"CP-ENT","name":"PLBN Entikong","province":"Kalimantan Barat","border":"Malaysia","people":1245,"goods":312,"documents":1010,"refusals":7,"sync":"SINKRON"},
+          {"id":"CP-ARU","name":"PLBN Aruk","province":"Kalimantan Barat","border":"Malaysia","people":612,"goods":208,"documents":498,"refusals":4,"sync":"SINKRON"},
+          {"id":"CP-MOT","name":"PLBN Motaain","province":"Nusa Tenggara Timur","border":"Timor-Leste","people":498,"goods":176,"documents":402,"refusals":3,"sync":"SINKRON"},
+          {"id":"CP-SKW","name":"PLBN Skouw","province":"Papua","border":"Papua Nugini","people":421,"goods":142,"documents":342,"refusals":2,"sync":"SINKRON"},
+          {"id":"CP-SEB","name":"PLBN Sei Nyamuk (Sebatik)","province":"Kalimantan Utara","border":"Malaysia","people":356,"goods":168,"documents":289,"refusals":3,"sync":"SINKRON"},
+          {"id":"CP-BAD","name":"PLBN Badau","province":"Kalimantan Barat","border":"Malaysia","people":214,"goods":92,"documents":172,"refusals":2,"sync":"TERTUNDA"},
+          {"id":"CP-WIN","name":"PLBN Wini","province":"Nusa Tenggara Timur","border":"Timor-Leste","people":118,"goods":68,"documents":95,"refusals":1,"sync":"SINKRON"},
+          {"id":"CP-MMS","name":"PLBN Motamasin","province":"Nusa Tenggara Timur","border":"Timor-Leste","people":92,"goods":71,"documents":76,"refusals":1,"sync":"SINKRON"},
+          {"id":"CP-SOT","name":"PLBN Sota","province":"Papua Selatan","border":"Papua Nugini","people":60,"goods":50,"documents":61,"refusals":0,"sync":"SINKRON"}
+        ],
+        "agencyStatus": [
+          {"id":"AG-IMI","name":"Imigrasi","unit":"Ditjen Imigrasi · TPI/PAU","status":"ONLINE","lastUpdate":"Baru saja","latency":"1,2 dtk"},
+          {"id":"AG-BC","name":"Bea Cukai","unit":"DJBC · CEISA","status":"ONLINE","lastUpdate":"1 mnt lalu","latency":"1,8 dtk"},
+          {"id":"AG-PLBN","name":"PLBN","unit":"BNPP · 15 pos terpadu","status":"ONLINE","lastUpdate":"2 mnt lalu","latency":"2,4 dtk"},
+          {"id":"AG-PAM","name":"Patroli Perbatasan","unit":"Satgas Pamtas TNI AD","status":"ONLINE","lastUpdate":"3 mnt lalu","latency":"3,1 dtk"}
+        ],
+        "relatedEvents": [
+          {"id":"IE-01","time":"09:41","location":"PLBN Entikong","title":"Dokumen perlintasan tidak lengkap","type":"Verifikasi dokumen","severity":"MEDIUM"},
+          {"id":"IE-02","time":"09:33","location":"PLBN Aruk","title":"Perlintasan kelompok kecil terverifikasi","type":"Pola perlintasan","severity":"LOW"},
+          {"id":"IE-03","time":"09:21","location":"PLBN Sei Nyamuk","title":"Pemeriksaan barang lintas batas","type":"Koordinasi Bea Cukai","severity":"LOW"},
+          {"id":"IE-04","time":"09:08","location":"PLBN Skouw","title":"Penolakan masuk — visa tidak sesuai","type":"Penolakan masuk","severity":"HIGH"},
+          {"id":"IE-05","time":"08:52","location":"PLBN Entikong","title":"Hit daftar cegah cekal (DPO Imigrasi)","type":"Cegah cekal","severity":"CRITICAL"},
+          {"id":"IE-06","time":"08:37","location":"PLBN Motaain","title":"Anomali lonjakan pola perlintasan pagi","type":"Anomali pola","severity":"MEDIUM"}
+        ],
+        "operationalNotes": {
+          "risingArea":"Sektor Kalbar (Entikong–Aruk) naik 18% menjelang akhir pekan.",
+          "topVolume":"PLBN Entikong volume tertinggi — 1.245 perlintasan orang / 24 jam.",
+          "recommendation":"Perketat Passenger Analysis Unit di Entikong & Aruk; pulihkan sinkronisasi data PLBN Badau yang tertunda."
+        },
+        "lastSync":"2026-06-29T09:42:00+07:00",
+        "dataLatency":"1,2 dtk"
+      },
       "activityFeed": [
         {"id":"AF-901","category":"orang","time":"09:47","title":"Perlintasan Orang — Resmi","location":"PLBN Entikong","primaryValue":"12","primaryUnitOrLabel":"Orang","secondaryValue":"","secondaryLabel":"WNI masuk","status":"LOW","iconType":"person"},
         {"id":"AF-902","category":"barang","time":"09:46","title":"Ekspor Kelapa Bulat","location":"PLBN Aruk","primaryValue":"24","primaryUnitOrLabel":"ton","secondaryValue":"","secondaryLabel":"Tujuan Malaysia","status":"LOW","iconType":"goods"},
