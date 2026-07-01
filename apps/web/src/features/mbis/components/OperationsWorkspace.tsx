@@ -1,5 +1,6 @@
 import { DataState } from '@/components/common/DataState'
 import { BorderActivityFeed } from '@/features/mbis/components/BorderActivityFeed'
+import { BorderIncidentTimeline } from '@/features/mbis/components/BorderIncidentTimeline'
 import { BorderKpiStrip } from '@/features/mbis/components/BorderKpiStrip'
 import { MetricCard } from '@/components/common/MetricCard'
 import { Panel } from '@/components/common/Panel'
@@ -41,7 +42,7 @@ export function OperationsWorkspace({ module }: { module: TWorkspaceModule }) {
       <Panel title="Land Border Situation Map" eyebrow="National perimeter" className="span-8 map-panel"><TacticalMap id="border" points={borderPoints} routes={border!.routes} center={[124.6, -3.2]} zoom={2.7} /></Panel>
       <Panel title="Aktivitas Real-time" eyebrow="Perlintasan & insiden terkini" className="span-4 activity-panel"><BorderActivityFeed items={border!.activityFeed} /></Panel>
       <BorderKpiStrip metrics={border!.metrics} />
-      <Panel title="Border Incident Timeline" eyebrow="Last 7 days" className="span-7"><div className="timeline-bars">{border!.timeline.map((item: any) => <div key={item.date}><span>{item.date}</span><i style={{ height: `${Math.min(150, 36 + item.high * 18 + item.medium * 6 + item.low * 2)}px` }} /><b>{item.low + item.medium + item.high}</b></div>)}</div></Panel>
+      <Panel title="Timeline Insiden Perbatasan" eyebrow="(7 HARI TERAKHIR)" className="span-7"><BorderIncidentTimeline points={border!.timeline} incidents={border!.incidentLog} /></Panel>
       <Panel title="Top Aktivitas Perbatasan" eyebrow="Last 5 minutes" className="span-5"><RowList rows={border!.posts.slice(0, 5).map((item: any) => ({ ...item, title: item.name, detail: `${item.people24h.toLocaleString('id-ID')} orang · ${item.goods24h} barang` }))} /></Panel>
       <Panel title="Immigration Integration Summary" eyebrow="Cross-agency fixture" className="span-8"><div className="mini-metrics">{Object.entries(border!.immigration).map(([label, value]) => <article key={label}><span>{label.replace(/([A-Z])/g, ' $1')}</span><strong>{Number(value).toLocaleString('id-ID')}</strong></article>)}</div></Panel>
       <Panel title="Geofence Warnings" eyebrow="Priority sectors" className="span-4"><RowList rows={border!.vulnerablePoints.slice(0, 4).map((item: any) => ({ ...item, title: item.name, detail: item.type }))} /></Panel>
