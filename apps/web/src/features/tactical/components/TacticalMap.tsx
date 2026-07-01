@@ -43,6 +43,7 @@ export function TacticalMap({ id, points = EMPTY_POINTS, routes = EMPTY_ROUTES, 
   const mapRef = useRef<mapboxgl.Map | null>(null)
   const [mapError, setMapError] = useState<string | null>(null)
   const accessToken = process.env.MAPBOX_ACCESS_TOKEN ?? ''
+  const isBorderIntelligence = id === 'border'
 
   useEffect(() => {
     if (!hostRef.current || mapRef.current || !accessToken) return
@@ -110,12 +111,12 @@ export function TacticalMap({ id, points = EMPTY_POINTS, routes = EMPTY_ROUTES, 
         map.addLayer({ id: `${prefix}-zones-line`, type: 'line', source: `${prefix}-zones-source`, paint: { 'line-color': severityColorExpression(colors), 'line-width': 1.6, 'line-dasharray': [2, 2] } })
 
         map.addSource(`${prefix}-routes-source`, { type: 'geojson', data: routeData as any })
-        map.addLayer({ id: `${prefix}-routes-line`, type: 'line', source: `${prefix}-routes-source`, paint: { 'line-color': severityColorExpression(colors), 'line-width': 1.7, 'line-opacity': 0.9, 'line-dasharray': [3, 2] } })
+        map.addLayer({ id: `${prefix}-routes-line`, type: 'line', source: `${prefix}-routes-source`, paint: { 'line-color': severityColorExpression(colors), 'line-width': isBorderIntelligence ? 2.6 : 1.7, 'line-opacity': 0.9, 'line-dasharray': [3, 2] } })
 
         map.addSource(`${prefix}-points-source`, { type: 'geojson', data: pointData as any })
-        map.addLayer({ id: `${prefix}-points-heat`, type: 'heatmap', source: `${prefix}-points-source`, maxzoom: 8, paint: { 'heatmap-weight': 0.65, 'heatmap-intensity': 0.8, 'heatmap-radius': 22, 'heatmap-opacity': 0.48, 'heatmap-color': ['interpolate', ['linear'], ['heatmap-density'], 0, 'rgba(0,0,0,0)', 0.25, colors.cyan, 0.55, colors.yellow, 0.8, colors.orange, 1, colors.red] } })
-        map.addLayer({ id: `${prefix}-points-circle`, type: 'circle', source: `${prefix}-points-source`, paint: { 'circle-radius': ['interpolate', ['linear'], ['zoom'], 2, 3.5, 8, 7], 'circle-color': severityColorExpression(colors), 'circle-stroke-color': colors.ink, 'circle-stroke-width': 1.4, 'circle-opacity': 0.95 } })
-        map.addLayer({ id: `${prefix}-points-symbol`, type: 'symbol', source: `${prefix}-points-source`, minzoom: compact ? 5 : 4, layout: { 'text-field': ['get', 'label'], 'text-size': 10, 'text-offset': [0, 1.3], 'text-anchor': 'top', 'text-allow-overlap': false }, paint: { 'text-color': colors.cyan, 'text-halo-color': colors.ink, 'text-halo-width': 1.5 } })
+        map.addLayer({ id: `${prefix}-points-heat`, type: 'heatmap', source: `${prefix}-points-source`, maxzoom: 8, paint: { 'heatmap-weight': 0.65, 'heatmap-intensity': isBorderIntelligence ? 1 : 0.8, 'heatmap-radius': isBorderIntelligence ? 30 : 22, 'heatmap-opacity': 0.48, 'heatmap-color': ['interpolate', ['linear'], ['heatmap-density'], 0, 'rgba(0,0,0,0)', 0.25, colors.cyan, 0.55, colors.yellow, 0.8, colors.orange, 1, colors.red] } })
+        map.addLayer({ id: `${prefix}-points-circle`, type: 'circle', source: `${prefix}-points-source`, paint: { 'circle-radius': isBorderIntelligence ? ['interpolate', ['linear'], ['zoom'], 2, 5.5, 8, 9] : ['interpolate', ['linear'], ['zoom'], 2, 3.5, 8, 7], 'circle-color': severityColorExpression(colors), 'circle-stroke-color': colors.ink, 'circle-stroke-width': isBorderIntelligence ? 2 : 1.4, 'circle-opacity': 0.95 } })
+        map.addLayer({ id: `${prefix}-points-symbol`, type: 'symbol', source: `${prefix}-points-source`, minzoom: isBorderIntelligence ? 2 : compact ? 5 : 4, layout: { 'text-field': ['get', 'label'], 'text-size': isBorderIntelligence ? 13 : 10, 'text-offset': [0, isBorderIntelligence ? 1.15 : 1.3], 'text-anchor': 'top', 'text-allow-overlap': false }, paint: { 'text-color': colors.cyan, 'text-halo-color': colors.ink, 'text-halo-width': isBorderIntelligence ? 2.2 : 1.5 } })
 
         map.on('mouseenter', `${prefix}-points-circle`, () => { map.getCanvas().style.cursor = 'pointer' })
         map.on('mouseleave', `${prefix}-points-circle`, () => { map.getCanvas().style.cursor = '' })
@@ -135,7 +136,7 @@ export function TacticalMap({ id, points = EMPTY_POINTS, routes = EMPTY_ROUTES, 
     } catch {
       setMapError('Mapbox gagal diinisialisasi. Verifikasi dukungan WebGL browser dan token publik.')
     }
-  }, [accessToken, center, compact, id, onSelectPoint, points, routes, zones, zoom])
+  }, [accessToken, center, compact, id, isBorderIntelligence, onSelectPoint, points, routes, zones, zoom])
 
   if (!accessToken) {
     return (

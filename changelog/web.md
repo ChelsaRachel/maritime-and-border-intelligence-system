@@ -6,6 +6,12 @@ Append-only. Newest entries at the top. Updated whenever a frontend task is crea
 
 ---
 
+### 2026-07-01 · Border Intelligence readability pass · COMPLETE
+
+**Event:** Rebalanced Border Intelligence typography and visual scale for 1920×1080
+**Files:** `apps/web/src/features/mbis/components/OperationsWorkspace.tsx`, `apps/web/src/features/tactical/components/TacticalMap.tsx`, `apps/web/src/styles/components.css`
+> Increased Border-only panel headings, list and status text, KPI metrics, immigration summaries, timeline geometry, and map height. Border map labels now render from the initial zoom with larger markers, heat radius, route weight, label size, and halo while all other operational modules retain their existing density.
+
 ### 2026-07-01 · NMP vertical operational KPI rail · COMPLETE
 
 **Event:** Rebalanced the full-map command layout around a left-side KPI overlay

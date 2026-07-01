@@ -178,6 +178,39 @@ progress::-moz-progress-bar { background: linear-gradient(90deg,var(--signal-cya
 .score-ring > small { position: absolute; bottom: 32px; color: var(--severity-high); font-family: var(--font-mono); font-size: 7px; }
 .workspace-footer { display: flex; justify-content: space-between; padding: 12px 2px 0; color: var(--text-tertiary); font-family: var(--font-mono); font-size: 7px; letter-spacing: .08em; }
 
+/* Border Intelligence — readable 1920×1080 operational density. */
+.operations-workspace--border { padding: 18px 20px 24px; }
+.operations-workspace--border .workspace-grid--border { gap: 14px; }
+.operations-workspace--border .intel-panel__header { min-height: 56px; padding: 10px 14px; }
+.operations-workspace--border .intel-panel__header h2 { font-size: 14px; letter-spacing: .045em; }
+.operations-workspace--border .intel-panel__eyebrow { font-size: 9px; letter-spacing: .13em; }
+.operations-workspace--border .intel-panel__body { padding: 13px 15px; }
+.operations-workspace--border .map-panel .intel-panel__body { height: 374px; padding: 0; }
+.operations-workspace--border .row-list article { min-height: 52px; gap: 10px; padding: 8px 0; }
+.operations-workspace--border .row-list strong { font-size: 12px; }
+.operations-workspace--border .row-list small { margin-top: 3px; font-size: 10px; }
+.operations-workspace--border .row-list time,.operations-workspace--border .row-list b { font-size: 9px; }
+.operations-workspace--border .row-index { width: 30px; height: 30px; font-size: 9px; }
+.operations-workspace--border .severity-badge--compact { min-height: 22px; padding: 2px 7px; font-size: 9px; }
+.operations-workspace--border .metric-strip { gap: 12px; }
+.operations-workspace--border .metric-card { min-height: 126px; padding: 15px; }
+.operations-workspace--border .metric-card__label { gap: 8px; font-size: 10px; }
+.operations-workspace--border .metric-card__label i { font-size: 16px; }
+.operations-workspace--border .metric-card__value { margin-top: 10px; font-size: 32px; }
+.operations-workspace--border .metric-card__footer { margin-top: 12px; font-size: 9px; }
+.operations-workspace--border .metric-card__spark { right: 12px; bottom: 9px; height: 24px; gap: 3px; }
+.operations-workspace--border .metric-card__spark i { width: 3px; }
+.operations-workspace--border .timeline-bars { height: 190px; gap: 14px; padding: 22px 16px 12px; }
+.operations-workspace--border .timeline-bars i { width: 7px; min-height: 28px; }
+.operations-workspace--border .timeline-bars span { bottom: -22px; font-size: 10px; }
+.operations-workspace--border .timeline-bars b { margin-bottom: 5px; font-size: 11px; }
+.operations-workspace--border .mini-metrics { gap: 12px; }
+.operations-workspace--border .mini-metrics article { min-height: 92px; padding: 15px; }
+.operations-workspace--border .mini-metrics span { font-size: 10px; }
+.operations-workspace--border .mini-metrics strong { margin-top: 9px; font-size: 27px; }
+.operations-workspace--border .map-contract-chip span { padding: 4px 7px; font-size: 8px; }
+.operations-workspace--border .workspace-footer { padding-top: 16px; font-size: 9px; }
+
 /* Mapbox and tactical maps */
 .tactical-map { position: relative; width: 100%; height: 100%; min-height: 0; overflow: hidden; background: var(--ocean-950); }
 .tactical-map__canvas { position: absolute; inset: 0; }
