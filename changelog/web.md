@@ -6,6 +6,12 @@ Append-only. Newest entries at the top. Updated whenever a frontend task is crea
 
 ---
 
+### 2026-07-01 · NMP vertical operational KPI rail · COMPLETE
+
+**Event:** Rebalanced the full-map command layout around a left-side KPI overlay
+**Files:** `apps/web/src/features/mbis/components/NationalMaritimePicture.tsx`, `apps/web/src/features/mbis/components/NmpMapBridge.tsx`, `apps/web/src/styles/components.css`
+> Moved all seven operational metrics from the bottom strip into a compact vertical glass rail, reserved the lower map region for legend and 24-hour replay, and applied camera padding around the left KPI, right tactical controls, top weather/search, and bottom replay surfaces. Satellite Streets v12, globe projection, and native Mapbox operational layers remain unchanged.
+
 ### 2026-06-30 · NMP replay discontinuity guard · COMPLETE
 
 **Event:** Removed unrealistic closed-loop route geometry around Natuna

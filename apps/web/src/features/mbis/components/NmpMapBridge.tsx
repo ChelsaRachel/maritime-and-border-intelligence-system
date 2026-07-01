@@ -48,6 +48,7 @@ declare global {
 
 const emptyFeatureCollection = () => ({ type: 'FeatureCollection', features: [] })
 const collection = (features: unknown[]) => ({ type: 'FeatureCollection', features })
+const NMP_CAMERA_PADDING = { top: 110, right: 260, bottom: 155, left: 310 }
 const pointFeature = (coordinates: TCoordinates, properties: Record<string, unknown>, id?: string) => ({ type: 'Feature', id, geometry: { type: 'Point', coordinates }, properties })
 const lineFeature = (coordinates: TCoordinates[], properties: Record<string, unknown>, id?: string) => ({ type: 'Feature', id, geometry: { type: 'LineString', coordinates }, properties })
 const polygonFeature = (coordinates: TCoordinates[][], properties: Record<string, unknown>, id?: string) => ({ type: 'Feature', id, geometry: { type: 'Polygon', coordinates }, properties })
@@ -345,6 +346,13 @@ export function NmpMapBridge({ geography, entities, activeAlerts, visibility, se
       map.on('load', () => {
         // Pastikan globe projection benar-benar aktif setelah style termuat (bukan mercator flat).
         map.setProjection(MAP_PROJECTION)
+        map.jumpTo({
+          center: [118.5, -2.2],
+          zoom: 3.75,
+          padding: NMP_CAMERA_PADDING,
+          bearing: 0,
+          pitch: 0,
+        })
         map.setFog({ color: colors.ink, 'high-color': colors.cyan, 'horizon-blend': 0.08, 'space-color': colors.ink, 'star-intensity': 0.08 })
         registerMapIcons(map)
         const sourceIds = [...Object.values(NMP_SOURCES)]
