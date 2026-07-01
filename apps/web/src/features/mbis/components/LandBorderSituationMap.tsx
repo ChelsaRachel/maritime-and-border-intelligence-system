@@ -21,6 +21,8 @@ const SECTOR_CAMERA: Record<string, { center: [number, number]; zoom: number }> 
   'Papua Selatan': { center: [140.85, -7.45], zoom: 6.0 },
 }
 
+const DEFAULT_SECTOR = 'Kalimantan Barat'
+
 const collection = (features: unknown[]) => ({ type: 'FeatureCollection', features })
 const point = (item: any) => ({ type: 'Feature', id: item.id, geometry: { type: 'Point', coordinates: item.coordinates }, properties: { ...item, coordinates: undefined, sourceFusion: undefined } })
 const line = (item: any) => ({ type: 'Feature', id: item.id, geometry: { type: 'LineString', coordinates: item.coordinates }, properties: { ...item, coordinates: undefined } })
@@ -40,7 +42,7 @@ export function LandBorderSituationMap({ data }: { data: any }) {
   const mapRef = useRef<mapboxgl.Map | null>(null)
   const popupRef = useRef<mapboxgl.Popup | null>(null)
   const [loaded, setLoaded] = useState(false)
-  const [sector, setSector] = useState('Semua Sektor')
+  const [sector, setSector] = useState(DEFAULT_SECTOR)
   const [mapError, setMapError] = useState<string | null>(null)
   const [visibility, setVisibility] = useState<Record<TLayerKey, boolean>>({ posts: true, informal: true, hotspots: true, patrols: true, incidents: true })
   const accessToken = process.env.MAPBOX_ACCESS_TOKEN ?? ''
@@ -59,7 +61,7 @@ export function LandBorderSituationMap({ data }: { data: any }) {
     if (!accessToken || !hostRef.current || mapRef.current) return
     mapboxgl.accessToken = accessToken
     try {
-      const map = new mapboxgl.Map({ container: hostRef.current, style: MAP_STYLE, projection: MAP_PROJECTION, center: SECTOR_CAMERA['Semua Sektor'].center, zoom: SECTOR_CAMERA['Semua Sektor'].zoom, minZoom: 2.8, maxZoom: 11, pitch: 0, bearing: 0, attributionControl: false, antialias: true })
+      const map = new mapboxgl.Map({ container: hostRef.current, style: MAP_STYLE, projection: MAP_PROJECTION, center: SECTOR_CAMERA[DEFAULT_SECTOR].center, zoom: SECTOR_CAMERA[DEFAULT_SECTOR].zoom, minZoom: 2.8, maxZoom: 11, pitch: 0, bearing: 0, attributionControl: false, antialias: true })
       mapRef.current = map
       map.addControl(new mapboxgl.NavigationControl({ showCompass: false }), 'bottom-left')
       map.addControl(new mapboxgl.ScaleControl({ unit: 'metric', maxWidth: 110 }), 'bottom-left')
