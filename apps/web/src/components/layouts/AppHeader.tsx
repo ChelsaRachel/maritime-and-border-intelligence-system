@@ -26,7 +26,7 @@ export default function AppHeader() {
 
   return (
     <header className="app-header">
-      <div className="app-header__title"><span>OPERATIONAL WORKSPACE</span><strong>{current.display}</strong></div>
+      <div className="app-header__title"><strong>{current.display}</strong>{current.subtitle && <small>{current.subtitle}</small>}</div>
       <div className="app-header__status">
         <time>{clock.toLocaleTimeString('id-ID', { hour12: false })} WIB</time>
         <span className="live-chip"><i />REAL-TIME FIXTURE</span>

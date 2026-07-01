@@ -9,27 +9,6 @@ import { type CSSProperties, useMemo, useState } from 'react'
 
 export type TWorkspaceModule = 'border' | 'vessel' | 'aircraft' | 'anomaly' | 'warning' | 'threat' | 'reporting' | 'data' | 'administration'
 
-const MODULE_META: Record<TWorkspaceModule, { title: string; subtitle: string; code: string }> = {
-  border: { title: 'Border Intelligence Dashboard', subtitle: 'Status perbatasan darat nasional, ancaman, dan aktivitas lintas batas', code: 'BORDER/COP' },
-  vessel: { title: 'Vessel Intelligence', subtitle: 'Investigasi identitas, jejak pelayaran, kepemilikan, dan risiko kapal', code: 'VESSEL/INV' },
-  aircraft: { title: 'Aircraft Intelligence', subtitle: 'Pemantauan penerbangan nasional, FIR, dan zona strategis', code: 'AIR/COP' },
-  anomaly: { title: 'Anomaly Detection Engine', subtitle: 'Deteksi anomali lintas-domain dengan bukti yang dapat dijelaskan', code: 'ANOMALY/AI' },
-  warning: { title: 'Early Warning Center', subtitle: 'Pusat peringatan dini, eskalasi, dan manajemen insiden', code: 'EWC/OPS' },
-  threat: { title: 'Threat Assessment Center', subtitle: 'Analisis ancaman strategis dan keamanan kelautan', code: 'THREAT/STRAT' },
-  reporting: { title: 'Intelligence Reporting Center', subtitle: 'Pembuatan produk intelijen dan pelaporan eksekutif', code: 'REPORT/INTEL' },
-  data: { title: 'Data Integration Management', subtitle: 'Kesehatan sumber, provenance, freshness, dan kualitas data fixture', code: 'DATA/FUSION' },
-  administration: { title: 'Administration', subtitle: 'Kontrol pengguna, kebijakan akses, ambang, dan audit sistem', code: 'ADMIN/CTRL' },
-}
-
-function WorkspaceHeader({ module }: { module: TWorkspaceModule }) {
-  const meta = MODULE_META[module]
-  return (
-    <header className="workspace-heading">
-      <div><span>{meta.code} · LOCAL FIXTURE</span><h1>{meta.title}</h1><p>{meta.subtitle}</p></div>
-      <div className="workspace-heading__actions"><button type="button"><i className="ph ph-funnel" />Filter</button><button type="button"><i className="ph ph-export" />Export view</button><span className="live-chip"><i />SYNCED</span></div>
-    </header>
-  )
-}
 
 function RowList({ rows, kind = 'default' }: { rows: any[]; kind?: string }) {
   return <div className={`row-list row-list--${kind}`}>{rows.map((row, index) => <article key={row.id ?? row.name ?? row.title ?? index}><span className="row-index">{String(index + 1).padStart(2, '0')}</span><div><strong>{row.title ?? row.name ?? row.label ?? row.callSign}</strong><small>{row.location ?? row.region ?? row.detail ?? row.type ?? row.country ?? row.source}</small></div>{row.time && <time>{row.time}</time>}{row.value !== undefined && <b>{row.value}</b>}{(row.severity || row.risk || row.status) && <SeverityBadge value={row.severity ?? row.risk ?? row.status} compact />}</article>)}</div>
@@ -175,5 +154,5 @@ export function OperationsWorkspace({ module }: { module: TWorkspaceModule }) {
     return renderAdministration()
   }
 
-  return <DataState loading={loading} error={error} ready={ready}><div className={`operations-workspace operations-workspace--${module}`}><WorkspaceHeader module={module}/>{ready && renderModule()}<footer className="workspace-footer"><span>MBIS FRONTEND FIXTURE · DATA IS SYNTHETIC</span><span>Last synchronized 29 JUN 2026 · 09:42:18 WIB</span></footer></div></DataState>
+  return <DataState loading={loading} error={error} ready={ready}><div className={`operations-workspace operations-workspace--${module}`}>{ready && renderModule()}<footer className="workspace-footer"><span>MBIS FRONTEND FIXTURE · DATA IS SYNTHETIC</span><span>Last synchronized 29 JUN 2026 · 09:42:18 WIB</span></footer></div></DataState>
 }

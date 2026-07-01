@@ -10,8 +10,8 @@ export const MAP_STYLE = MAP_STYLE_SATELLITE
 export const MAP_PROJECTION = 'globe' as const
 
 export const MAP_DEFAULTS = {
-  center: [117.3, -2.1] as [number, number],
-  zoom: 3.45,
+  center: [118.0, 0] as [number, number],
+  zoom: 3.6,
   minZoom: 1.6,
   maxZoom: 16,
 }

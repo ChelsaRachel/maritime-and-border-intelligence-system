@@ -29,6 +29,7 @@ export interface IMenu {
   icon: string
   seo: { title: string; description: string }
   privileges: IPrivilege[] | null
+  subtitle?: string
   tactical?: boolean
   additional?: IMenuAdditional
 }
