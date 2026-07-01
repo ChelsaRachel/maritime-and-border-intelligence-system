@@ -44,8 +44,8 @@ export function OperationsWorkspace({ module }: { module: TWorkspaceModule }) {
       <Panel title="Land Border Situation Map" eyebrow="Koridor perbatasan darat nasional" className="span-8 map-panel land-border-panel"><LandBorderSituationMap data={border!.landBorderMap} /></Panel>
       <Panel title="Aktivitas Real-time" eyebrow="Perlintasan & insiden terkini" className="span-4 activity-panel"><BorderActivityFeed items={border!.activityFeed} /></Panel>
       <BorderKpiStrip metrics={border!.metrics} />
-      <Panel title="Timeline Insiden Perbatasan" eyebrow="Last 7 Days" className="span-7"><BorderIncidentTimeline points={border!.timeline} incidents={border!.incidentLog} /></Panel>
-      <Panel title="Top Aktivitas Perbatasan" eyebrow="Last 5 minutes" className="span-5"><RowList rows={border!.posts.slice(0, 5).map((item: any) => ({ ...item, title: item.name, detail: `${item.people24h.toLocaleString('id-ID')} orang · ${item.goods24h} barang` }))} /></Panel>
+      <Panel title="Timeline Insiden Perbatasan" eyebrow="Last 7 Days" className="span-7 border-timeline-panel"><BorderIncidentTimeline points={border!.timeline} incidents={border!.incidentLog} /></Panel>
+      <Panel title="Top Aktivitas Perbatasan" eyebrow="Last 5 minutes" className="span-5 border-top-activity-panel"><RowList rows={border!.posts.slice(0, 5).map((item: any) => ({ ...item, title: item.name, detail: `${item.people24h.toLocaleString('id-ID')} orang · ${item.goods24h} barang` }))} /></Panel>
       <ImmigrationIntegrationSummary data={border!.immigrationIntegration} />
       <GeofenceWarnings featuredWarnings={border!.featuredWarnings} warnings={border!.geofenceWarnings} />
     </div>

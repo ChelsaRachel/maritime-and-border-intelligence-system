@@ -33,20 +33,17 @@ function sampledRoute(track: INmpTrackPoint[]) {
 
 export function useNmpReplay(entitiesFixture: INmpEntitiesFixture, replayFixture: INmpReplayFixture, alerts: INmpAlert[]) {
   const lastIndex = replayFixture.replayFrames.length - 1
-  const [currentIndex, setCurrentIndex] = useState(lastIndex)
-  const [isPlaying, setIsPlaying] = useState(false)
-  const [speed, setSpeed] = useState<TNmpReplaySpeed>(1)
+  // Data belum tersambung ke sumber real-time, jadi NMP default memutar replay
+  // 24 jam secara berulang (loop) pada kecepatan 2× agar peta selalu terlihat hidup.
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [isPlaying, setIsPlaying] = useState(true)
+  const [speed, setSpeed] = useState<TNmpReplaySpeed>(2)
 
   useEffect(() => {
     if (!isPlaying) return
     const timer = window.setInterval(() => {
-      setCurrentIndex((index) => {
-        if (index >= lastIndex) {
-          setIsPlaying(false)
-          return lastIndex
-        }
-        return index + 1
-      })
+      // Saat mencapai frame terakhir, kembali ke awal alih-alih berhenti (continuous loop).
+      setCurrentIndex((index) => (index >= lastIndex ? 0 : index + 1))
     }, 700 / speed)
     return () => window.clearInterval(timer)
   }, [isPlaying, lastIndex, speed])

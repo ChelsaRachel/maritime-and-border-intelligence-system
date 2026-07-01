@@ -31,12 +31,12 @@ export interface IBorderIncident {
 
 const LEVEL_LABEL: Record<TIncidentLevel, string> = { rendah: 'Rendah', sedang: 'Sedang', tinggi: 'Tinggi' }
 
-// Chart is drawn in a fixed 700×160 viewBox and scaled responsively; keeps geometry math simple.
+// Chart is drawn in a compact fixed viewBox and scaled responsively; keeps geometry math simple.
 const VB_W = 700
-const VB_H = 160
+const VB_H = 140
 const PAD_X = 46
-const TOP_Y = 40
-const BASE_Y = 96
+const TOP_Y = 34
+const BASE_Y = 78
 
 function pointX(index: number, count: number) {
   if (count <= 1) return VB_W / 2
@@ -77,7 +77,9 @@ export function BorderIncidentTimeline({ points, incidents }: { points: IBorderT
   return (
     <div className="incident-timeline">
       <div className="incident-timeline__chart">
-        <svg viewBox={`0 0 ${VB_W} ${VB_H}`} preserveAspectRatio="none" role="img" aria-label="Timeline insiden perbatasan 7 hari terakhir">
+        {/* Only the connecting line lives in the stretched SVG; text/dots are HTML overlays so
+            preserveAspectRatio="none" never distorts them (numbers stayed crisp, dots stay round). */}
+        <svg className="incident-timeline__svg" viewBox={`0 0 ${VB_W} ${VB_H}`} preserveAspectRatio="none" aria-hidden="true">
           {coords.slice(0, -1).map((from, index) => {
             const to = coords[index + 1]
             return (
@@ -88,14 +90,16 @@ export function BorderIncidentTimeline({ points, incidents }: { points: IBorderT
               />
             )
           })}
+        </svg>
+
+        <div className="incident-timeline__nodes">
           {coords.map(({ point, x, y }) => {
             const isActive = activeIso === point.iso
-            const isHover = hoverIso === point.iso
             return (
-              <g
+              <div
                 key={point.iso}
                 className={`incident-timeline__node incident-timeline__node--${point.level} ${isActive ? 'is-active' : ''}`}
-                transform={`translate(${x} ${y})`}
+                style={{ left: `${(x / VB_W) * 100}%`, top: `${(y / VB_H) * 100}%` }}
                 onMouseEnter={() => setHoverIso(point.iso)}
                 onMouseLeave={() => setHoverIso((current) => (current === point.iso ? null : current))}
                 onClick={() => setActiveIso((current) => (current === point.iso ? null : point.iso))}
@@ -104,14 +108,13 @@ export function BorderIncidentTimeline({ points, incidents }: { points: IBorderT
                 onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); setActiveIso((current) => (current === point.iso ? null : point.iso)) } }}
                 aria-label={`${point.date}: ${point.total} insiden, risiko ${LEVEL_LABEL[point.level]}`}
               >
-                <text className="incident-timeline__count" y={-20} textAnchor="middle">{point.total}</text>
-                {(isHover || isActive) && <circle className="incident-timeline__halo" r={13} />}
-                <circle className="incident-timeline__dot" r={8} />
-                <text className="incident-timeline__date" y={34} textAnchor="middle">{point.date}</text>
-              </g>
+                <span className="incident-timeline__count">{point.total}</span>
+                <span className="incident-timeline__dot" />
+                <span className="incident-timeline__date">{point.date}</span>
+              </div>
             )
           })}
-        </svg>
+        </div>
 
         {hovered && hoveredCoord && (
           <div

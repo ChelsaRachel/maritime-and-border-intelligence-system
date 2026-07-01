@@ -232,6 +232,9 @@ progress::-moz-progress-bar { background: linear-gradient(90deg,var(--signal-cya
 .operations-workspace--border .metric-card__footer { margin-top: 12px; font-size: 9px; }
 .operations-workspace--border .metric-card__spark { right: 12px; bottom: 9px; height: 24px; gap: 3px; }
 .operations-workspace--border .metric-card__spark i { width: 3px; }
+.operations-workspace--border .border-timeline-panel .intel-panel__body,
+.operations-workspace--border .border-top-activity-panel .intel-panel__body { height: 250px; }
+.operations-workspace--border .border-top-activity-panel .row-list article { min-height: 44px; padding: 5px 0; }
 
 /* Border Intelligence — KPI strip (tone-accented cards) */
 .border-kpi { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
@@ -261,28 +264,31 @@ progress::-moz-progress-bar { background: linear-gradient(90deg,var(--signal-cya
 
 /* Border Intelligence — incident timeline widget */
 .incident-timeline { display: flex; height: 100%; min-height: 0; flex-direction: column; }
-.incident-timeline__chart { position: relative; flex: 1; min-height: 172px; margin: 4px 2px 2px; border: 1px solid var(--wire); border-radius: 2px; background: linear-gradient(180deg, rgba(2,14,23,.5), rgba(2,10,18,.32)); }
-.incident-timeline__chart svg { display: block; width: 100%; height: 100%; overflow: visible; }
-.incident-timeline__line { stroke: #6b7f8a; stroke-width: 2.4; vector-effect: non-scaling-stroke; }
+.incident-timeline__chart { position: relative; flex: 1; min-height: 148px; margin: 2px; border: 1px solid var(--wire); border-radius: 2px; background: linear-gradient(180deg, rgba(2,14,23,.5), rgba(2,10,18,.32)); }
+.incident-timeline__svg { position: absolute; inset: 0; display: block; width: 100%; height: 100%; overflow: visible; }
+.incident-timeline__line { stroke: #6b7f8a; stroke-width: 2; vector-effect: non-scaling-stroke; }
 .incident-timeline__line--rendah { stroke: var(--severity-low); filter: drop-shadow(0 0 3px rgba(61,218,135,.5)); }
 .incident-timeline__line--sedang { stroke: var(--severity-medium); filter: drop-shadow(0 0 3px rgba(255,213,79,.5)); }
 .incident-timeline__line--tinggi { stroke: var(--severity-critical); filter: drop-shadow(0 0 4px rgba(255,66,80,.55)); }
-.incident-timeline__node { cursor: pointer; }
+/* HTML overlay nodes — not scaled by SVG preserveAspectRatio, so numbers stay crisp and dots stay round. */
+.incident-timeline__nodes { position: absolute; inset: 0; }
+.incident-timeline__node { position: absolute; width: 60px; height: 66px; margin: -33px 0 0 -30px; cursor: pointer; }
 .incident-timeline__node:focus { outline: none; }
-.incident-timeline__count { fill: var(--text-primary); font-family: var(--font-mono); font-size: 16px; font-weight: 700; }
-.incident-timeline__date { fill: var(--text-secondary); font-family: var(--font-mono); font-size: 11px; }
-.incident-timeline__dot { fill: var(--ocean-950); stroke-width: 3.4; vector-effect: non-scaling-stroke; transition: r .14s ease; }
-.incident-timeline__halo { fill: none; stroke-width: 1.4; opacity: .5; vector-effect: non-scaling-stroke; }
-.incident-timeline__node--rendah .incident-timeline__dot { stroke: var(--severity-low); filter: drop-shadow(0 0 5px rgba(61,218,135,.7)); }
-.incident-timeline__node--rendah .incident-timeline__count { fill: var(--severity-low); }
-.incident-timeline__node--rendah .incident-timeline__halo { stroke: var(--severity-low); }
-.incident-timeline__node--sedang .incident-timeline__dot { stroke: var(--severity-medium); filter: drop-shadow(0 0 5px rgba(255,213,79,.7)); }
-.incident-timeline__node--sedang .incident-timeline__count { fill: var(--severity-medium); }
-.incident-timeline__node--sedang .incident-timeline__halo { stroke: var(--severity-medium); }
-.incident-timeline__node--tinggi .incident-timeline__dot { stroke: var(--severity-critical); filter: drop-shadow(0 0 6px rgba(255,66,80,.8)); }
-.incident-timeline__node--tinggi .incident-timeline__count { fill: var(--severity-critical); }
-.incident-timeline__node--tinggi .incident-timeline__halo { stroke: var(--severity-critical); }
-.incident-timeline__node.is-active .incident-timeline__dot { fill: currentColor; }
+.incident-timeline__node:focus-visible .incident-timeline__dot { box-shadow: 0 0 0 2px var(--ocean-950), 0 0 0 4px currentColor; }
+.incident-timeline__count { position: absolute; left: 50%; bottom: calc(50% + 12px); transform: translateX(-50%); color: var(--text-primary); font-family: var(--font-mono); font-size: 15px; font-weight: 700; line-height: 1; white-space: nowrap; }
+.incident-timeline__date { position: absolute; left: 50%; top: calc(50% + 12px); transform: translateX(-50%); color: var(--text-secondary); font-family: var(--font-mono); font-size: 11px; line-height: 1; white-space: nowrap; }
+.incident-timeline__dot { position: absolute; left: 50%; top: 50%; width: 13px; height: 13px; transform: translate(-50%, -50%); border: 2.6px solid currentColor; border-radius: 50%; background: var(--ocean-950); transition: transform .14s ease, box-shadow .14s ease; }
+.incident-timeline__node:hover .incident-timeline__dot { transform: translate(-50%, -50%) scale(1.18); }
+.incident-timeline__node.is-active .incident-timeline__dot { background: currentColor; box-shadow: 0 0 0 3px color-mix(in srgb, currentColor 30%, transparent); }
+.incident-timeline__node--rendah { color: var(--severity-low); }
+.incident-timeline__node--rendah .incident-timeline__dot { box-shadow: 0 0 8px rgba(61,218,135,.65); }
+.incident-timeline__node--rendah .incident-timeline__count { color: var(--severity-low); }
+.incident-timeline__node--sedang { color: var(--severity-medium); }
+.incident-timeline__node--sedang .incident-timeline__dot { box-shadow: 0 0 8px rgba(255,213,79,.65); }
+.incident-timeline__node--sedang .incident-timeline__count { color: var(--severity-medium); }
+.incident-timeline__node--tinggi { color: var(--severity-critical); }
+.incident-timeline__node--tinggi .incident-timeline__dot { box-shadow: 0 0 9px rgba(255,66,80,.75); }
+.incident-timeline__node--tinggi .incident-timeline__count { color: var(--severity-critical); }
 .incident-timeline__tooltip { position: absolute; z-index: 5; display: flex; flex-direction: column; gap: 3px; min-width: 150px; padding: 8px 10px; transform: translate(-50%, calc(-100% - 18px)); border: 1px solid var(--wire-strong); background: rgba(2,14,23,.97); box-shadow: 0 12px 30px rgba(0,0,0,.5); pointer-events: none; }
 .incident-timeline__tooltip strong { color: var(--text-primary); font-size: 12px; }
 .incident-timeline__tip-level { font-family: var(--font-mono); font-size: 10px; font-weight: 600; }
@@ -290,7 +296,7 @@ progress::-moz-progress-bar { background: linear-gradient(90deg,var(--signal-cya
 .incident-timeline__tip-level--sedang { color: var(--severity-medium); }
 .incident-timeline__tip-level--tinggi { color: var(--severity-critical); }
 .incident-timeline__tooltip small { color: var(--text-secondary); font-size: 9.5px; }
-.incident-timeline__footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 12px; padding-top: 11px; border-top: 1px solid var(--wire); }
+.incident-timeline__footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--wire); }
 .incident-timeline__legend { display: flex; gap: 16px; }
 .incident-timeline__legend span { display: inline-flex; align-items: center; gap: 6px; color: var(--text-secondary); font-size: 11px; }
 .incident-dot { display: block; width: 9px; height: 9px; border-radius: 50%; box-shadow: 0 0 7px currentColor; }
