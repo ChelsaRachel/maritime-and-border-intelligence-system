@@ -512,8 +512,6 @@ export function NmpMapBridge({ geography, entities, activeAlerts, visibility, se
       <div ref={hostRef} className="tactical-map__canvas" />
       <div className={`tactical-map__neon-grid ${visibility.grid ? '' : 'is-hidden'}`} aria-hidden="true" />
       <div className="tactical-map__scan" aria-hidden="true" />
-      <div className="tactical-map__sweep" aria-hidden="true" />
-      <div className="map-contract-chip"><span>SATELLITE STREETS V12</span><span>GLOBE</span><span>TACTICAL OVERLAY</span></div>
       {mapError && <div className="map-error" role="alert">{mapError}</div>}
     </div>
   )
