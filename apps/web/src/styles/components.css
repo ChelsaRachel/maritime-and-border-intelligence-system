@@ -195,7 +195,7 @@ progress::-moz-progress-bar { background: linear-gradient(90deg,var(--signal-cya
 .operations-workspace--border .metric-strip { gap: 12px; }
 .operations-workspace--border .metric-card { min-height: 126px; padding: 15px; }
 
-/* Border Intelligence — Real-time Activity feed (tabbed) */
+/* Border Intelligence — Aktivitas Real-time feed (tabbed) */
 .activity-panel .intel-panel__body { height: 374px; padding: 0; }
 .activity-feed { display: flex; height: 100%; min-height: 0; flex-direction: column; }
 .activity-feed__tabs { display: flex; gap: 4px; padding: 10px 12px; border-bottom: 1px solid var(--wire); background: rgba(2,12,21,.5); }
@@ -232,6 +232,32 @@ progress::-moz-progress-bar { background: linear-gradient(90deg,var(--signal-cya
 .operations-workspace--border .metric-card__footer { margin-top: 12px; font-size: 9px; }
 .operations-workspace--border .metric-card__spark { right: 12px; bottom: 9px; height: 24px; gap: 3px; }
 .operations-workspace--border .metric-card__spark i { width: 3px; }
+
+/* Border Intelligence — KPI strip (tone-accented cards) */
+.border-kpi { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+.border-kpi__card { --kpi: var(--signal-cyan); position: relative; display: flex; min-width: 0; min-height: 128px; flex-direction: column; overflow: hidden; padding: 14px 15px; border: 1px solid var(--wire); border-top: 2px solid var(--kpi); background: linear-gradient(160deg, color-mix(in srgb, var(--kpi) 11%, rgba(3,17,28,.94)), rgba(3,16,27,.95) 62%); }
+.border-kpi__card::after { position: absolute; right: -34px; top: -34px; width: 96px; height: 96px; content: ''; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--kpi) 24%, transparent), transparent 68%); pointer-events: none; }
+.border-kpi__card--safe { --kpi: var(--severity-low); }
+.border-kpi__card--warning { --kpi: var(--severity-medium); }
+.border-kpi__card--critical { --kpi: var(--severity-critical); }
+.border-kpi__card--info { --kpi: var(--signal-blue); }
+.border-kpi__card--patrol { --kpi: var(--signal-teal); }
+.border-kpi__card header { position: relative; z-index: 2; display: flex; align-items: center; gap: 8px; }
+.border-kpi__icon { display: grid; width: 26px; height: 26px; place-items: center; border: 1px solid color-mix(in srgb, var(--kpi) 55%, transparent); border-radius: 50%; color: var(--kpi); background: color-mix(in srgb, var(--kpi) 14%, transparent); font-size: 14px; flex: none; box-shadow: 0 0 12px -4px var(--kpi); }
+.border-kpi__title { min-width: 0; overflow: hidden; color: var(--kpi); font-family: var(--font-mono); font-size: 9.5px; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; text-overflow: ellipsis; white-space: nowrap; }
+.border-kpi__values { position: relative; z-index: 2; display: flex; align-items: flex-end; gap: 18px; margin-top: auto; }
+.border-kpi__values.is-dual { gap: 22px; }
+.border-kpi__value { display: flex; min-width: 0; flex-direction: column; }
+.border-kpi__value strong { font-family: var(--font-mono); font-size: 34px; font-weight: 600; line-height: 1; color: var(--text-primary); text-shadow: 0 0 16px color-mix(in srgb, var(--kpi) 35%, transparent); }
+.border-kpi__value small { margin-top: 6px; overflow: hidden; color: var(--text-secondary); font-size: 10px; text-overflow: ellipsis; white-space: nowrap; }
+.border-kpi__card--safe .border-kpi__value:nth-child(2) strong,
+.border-kpi__card--patrol .border-kpi__value:nth-child(2) strong { color: var(--kpi); }
+.border-kpi__delta { display: flex; flex-direction: column; gap: 4px; padding-bottom: 3px; }
+.border-kpi__delta span { display: inline-flex; align-items: center; gap: 3px; font-family: var(--font-mono); font-size: 12px; font-weight: 600; }
+.border-kpi__delta span i { font-size: 11px; }
+.border-kpi__delta span.is-up { color: var(--kpi); }
+.border-kpi__delta span.is-down { color: var(--severity-low); }
+.border-kpi__delta small { color: var(--text-tertiary); font-family: var(--font-mono); font-size: 8.5px; letter-spacing: .04em; }
 .operations-workspace--border .timeline-bars { height: 190px; gap: 14px; padding: 22px 16px 12px; }
 .operations-workspace--border .timeline-bars i { width: 7px; min-height: 28px; }
 .operations-workspace--border .timeline-bars span { bottom: -22px; font-size: 10px; }

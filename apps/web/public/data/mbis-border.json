@@ -9,7 +9,7 @@
   },
   "data": [
     {
-      "metrics": {"officialPosts":18,"informalRoutes":47,"vulnerablePoints":32,"incidents24h":18,"activePatrolRoutes":26,"patrolCoverage":98},
+      "metrics": {"officialPosts":18,"postsNonOperational":2,"informalRoutes":47,"informalRoutesDelta":12,"vulnerablePoints":32,"vulnerablePointsDelta":8,"incidents24h":18,"incidents24hDelta":20,"activePatrolRoutes":26,"patrolCoverage":98},
       "posts": [
         {"id":"PLBN-ENT","name":"PLBN Entikong","province":"Kalimantan Barat","border":"Malaysia","coordinates":[110.36,0.99],"status":"ONLINE","people24h":1245,"goods24h":312,"risk":"HIGH"},
         {"id":"PLBN-ARU","name":"PLBN Aruk","province":"Kalimantan Barat","border":"Malaysia","coordinates":[109.45,1.68],"status":"ONLINE","people24h":937,"goods24h":241,"risk":"HIGH"},
