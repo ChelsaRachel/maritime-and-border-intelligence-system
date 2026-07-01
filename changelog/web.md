@@ -6,6 +6,12 @@ Append-only. Newest entries at the top. Updated whenever a frontend task is crea
 
 ---
 
+### 2026-07-01 · Land Border Situation Map · COMPLETE
+
+**Event:** Rebuilt the Border Intelligence map around operational land-border corridors
+**Files:** `apps/web/src/features/mbis/components/LandBorderSituationMap.tsx`, `apps/web/src/features/mbis/components/OperationsWorkspace.tsx`, `apps/web/public/data/mbis-border.json`, `apps/web/public/data/SOURCES.md`, `apps/web/src/styles/components.css`
+> Added a dedicated native Mapbox land-border renderer with official PLBN posts, international boundary emphasis, informal crossings, smuggling hotspots, patrol routes, border incidents, sector camera filters, working layer controls, analyst popups, and research-grounded local fixtures. Satellite Streets v12 and globe projection remain the shared map contract; no backend or live API was introduced.
+
 ### 2026-07-01 · Border geofence warning analysis · COMPLETE
 
 **Event:** Added an analyst-ready geofence warning widget and detail workflow

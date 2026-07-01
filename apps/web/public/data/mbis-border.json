@@ -31,6 +31,83 @@
         {"id":"BR-07","name":"Lintasan Sungai Maro","kind":"INFORMAL","coordinates":[[140.72,-8.35],[140.89,-8.41],[141.01,-8.43]],"risk":"HIGH"},
         {"id":"BR-08","name":"Koridor Skouw–Wutung","kind":"OFFICIAL","coordinates":[[140.72,-2.56],[140.91,-2.60],[141.08,-2.59]],"risk":"LOW"}
       ],
+      "landBorderMap": {
+        "lastUpdated":"2026-06-29T09:42:18+07:00",
+        "officialPosts":[
+          {"id":"LBP-ENT","name":"PLBN Entikong","province":"Kalimantan Barat","sector":"Entikong–Tebedu","country":"Malaysia","coordinates":[110.36,0.99],"status":"ONLINE","people24h":1245,"activity":"312 pergerakan barang"},
+          {"id":"LBP-ARU","name":"PLBN Aruk","province":"Kalimantan Barat","sector":"Sajingan Besar–Biawak","country":"Malaysia","coordinates":[109.45,1.68],"status":"ONLINE","people24h":937,"activity":"241 pergerakan barang"},
+          {"id":"LBP-BAD","name":"PLBN Badau","province":"Kalimantan Barat","sector":"Nanga Badau–Lubok Antu","country":"Malaysia","coordinates":[111.96,0.83],"status":"DEGRADED","people24h":386,"activity":"92 pergerakan barang"},
+          {"id":"LBP-SEB","name":"PLBN Sei Nyamuk","province":"Kalimantan Utara","sector":"Sebatik–Sabah","country":"Malaysia","coordinates":[117.9,4.16],"status":"ONLINE","people24h":654,"activity":"189 observasi barang"},
+          {"id":"LBP-MID","name":"PLBN Long Midang","province":"Kalimantan Utara","sector":"Krayan–Ba Kelalan","country":"Malaysia","coordinates":[115.58,4.17],"status":"MONITORED","people24h":142,"activity":"Koridor tradisional"},
+          {"id":"LBP-NAW","name":"PLBN Long Nawang","province":"Kalimantan Utara","sector":"Kayan Hulu–Sarawak","country":"Malaysia","coordinates":[114.9,3.84],"status":"MONITORED","people24h":84,"activity":"Patroli berkala"},
+          {"id":"LBP-MOT","name":"PLBN Motaain","province":"Nusa Tenggara Timur","sector":"Belu–Batugade","country":"Timor Leste","coordinates":[125.02,-9.33],"status":"ONLINE","people24h":669,"activity":"122 pergerakan barang"},
+          {"id":"LBP-WIN","name":"PLBN Wini","province":"Nusa Tenggara Timur","sector":"TTU–Oecusse","country":"Timor Leste","coordinates":[124.49,-9.18],"status":"ONLINE","people24h":160,"activity":"61 pergerakan barang"},
+          {"id":"LBP-MMS","name":"PLBN Motamasin","province":"Nusa Tenggara Timur","sector":"Malaka–Suai","country":"Timor Leste","coordinates":[125.06,-9.57],"status":"ONLINE","people24h":140,"activity":"48 pergerakan barang"},
+          {"id":"LBP-SKW","name":"PLBN Skouw","province":"Papua","sector":"Jayapura–Wutung","country":"Papua Nugini","coordinates":[140.91,-2.6],"status":"ONLINE","people24h":276,"activity":"86 pergerakan barang"},
+          {"id":"LBP-SOT","name":"PLBN Sota","province":"Papua Selatan","sector":"Merauke–Weam","country":"Papua Nugini","coordinates":[141.01,-8.43],"status":"ONLINE","people24h":119,"activity":"35 pergerakan barang"},
+          {"id":"LBP-YET","name":"PLBN Yetetkun","province":"Papua Selatan","sector":"Boven Digoel–Western Province","country":"Papua Nugini","coordinates":[140.99,-6.31],"status":"MONITORED","people24h":47,"activity":"Pos terpadu"}
+        ],
+        "informalRoutes":[
+          {"id":"LBI-01","name":"Jalur Kebun Sajingan","province":"Kalimantan Barat","coordinates":[[109.34,1.55],[109.48,1.69],[109.63,1.84]],"severity":"HIGH"},
+          {"id":"LBI-02","name":"Lintasan Sungai Sekayam","province":"Kalimantan Barat","coordinates":[[110.2,1.04],[110.43,1.12],[110.68,1.3]],"severity":"CRITICAL"},
+          {"id":"LBI-03","name":"Jalur Seriang–Pos Tiga","province":"Kalimantan Barat","coordinates":[[111.82,0.72],[111.94,0.88],[112.09,0.96]],"severity":"HIGH"},
+          {"id":"LBI-04","name":"Akses Paralel Jagoi","province":"Kalimantan Barat","coordinates":[[109.86,1.21],[109.99,1.36],[110.15,1.48]],"severity":"MEDIUM"},
+          {"id":"LBI-05","name":"Koridor Aji Kuning","province":"Kalimantan Utara","coordinates":[[117.73,4.05],[117.83,4.16],[117.94,4.25]],"severity":"CRITICAL"},
+          {"id":"LBI-06","name":"Jalur Krayan Barat","province":"Kalimantan Utara","coordinates":[[115.42,4.03],[115.58,4.17],[115.72,4.3]],"severity":"HIGH"},
+          {"id":"LBI-07","name":"Akses Lumbis Pansiangan","province":"Kalimantan Utara","coordinates":[[116.46,4.05],[116.62,4.21],[116.76,4.34]],"severity":"HIGH"},
+          {"id":"LBI-08","name":"Jalur Motamasin Selatan","province":"Nusa Tenggara Timur","coordinates":[[124.96,-9.64],[125.06,-9.57],[125.16,-9.5]],"severity":"HIGH"},
+          {"id":"LBI-09","name":"Jalur Setapak Mosso","province":"Papua","coordinates":[[140.74,-2.73],[140.88,-2.68],[141.01,-2.65]],"severity":"MEDIUM"},
+          {"id":"LBI-10","name":"Lintasan Sungai Maro","province":"Papua Selatan","coordinates":[[140.7,-8.34],[140.85,-8.4],[141.01,-8.43]],"severity":"HIGH"}
+        ],
+        "hotspots":[
+          {"id":"LBH-01","name":"Sajingan Besar Utara","province":"Kalimantan Barat","coordinates":[109.61,1.86],"severity":"CRITICAL","type":"Rawan penyelundupan"},
+          {"id":"LBH-02","name":"Sekayam Hulu","province":"Kalimantan Barat","coordinates":[110.52,1.18],"severity":"HIGH","type":"Transfer barang"},
+          {"id":"LBH-03","name":"Nanga Badau Timur","province":"Kalimantan Barat","coordinates":[112.18,0.91],"severity":"HIGH","type":"Perlintasan informal"},
+          {"id":"LBH-04","name":"Aji Kuning","province":"Kalimantan Utara","coordinates":[117.82,4.17],"severity":"CRITICAL","type":"Pergerakan nonprosedural"},
+          {"id":"LBH-05","name":"Lumbis Pansiangan","province":"Kalimantan Utara","coordinates":[116.62,4.21],"severity":"HIGH","type":"Koridor sungai"},
+          {"id":"LBH-06","name":"Wini Utara","province":"Nusa Tenggara Timur","coordinates":[124.5,-9.17],"severity":"MEDIUM","type":"Akses sekunder"},
+          {"id":"LBH-07","name":"Motamasin Selatan","province":"Nusa Tenggara Timur","coordinates":[124.97,-9.63],"severity":"HIGH","type":"Jejak lintas batas"},
+          {"id":"LBH-08","name":"Skouw Ridge","province":"Papua","coordinates":[140.79,-2.72],"severity":"HIGH","type":"Jalur setapak"},
+          {"id":"LBH-09","name":"Yetetkun Utara","province":"Papua Selatan","coordinates":[140.9,-6.18],"severity":"MEDIUM","type":"Koridor hutan"},
+          {"id":"LBH-10","name":"Sota Timur","province":"Papua Selatan","coordinates":[140.82,-8.22],"severity":"HIGH","type":"Pergerakan paket"}
+        ],
+        "patrolRoutes":[
+          {"id":"LBP-R01","name":"Patroli Aruk–Kaliau","province":"Kalimantan Barat","coordinates":[[109.37,1.58],[109.45,1.68],[109.55,1.74],[109.64,1.84]]},
+          {"id":"LBP-R02","name":"Patroli Entikong–Segumon","province":"Kalimantan Barat","coordinates":[[110.22,0.88],[110.36,0.99],[110.48,1.08],[110.6,1.15]]},
+          {"id":"LBP-R03","name":"Patroli Badau–Mentari","province":"Kalimantan Barat","coordinates":[[111.82,0.75],[111.96,0.83],[112.08,0.9]]},
+          {"id":"LBP-R04","name":"Patroli Sebatik Tengah","province":"Kalimantan Utara","coordinates":[[117.75,4.08],[117.86,4.13],[117.92,4.21]]},
+          {"id":"LBP-R05","name":"Patroli Krayan–Long Midang","province":"Kalimantan Utara","coordinates":[[115.4,4.0],[115.52,4.1],[115.58,4.17],[115.68,4.24]]},
+          {"id":"LBP-R06","name":"Patroli Motaain–Silawan","province":"Nusa Tenggara Timur","coordinates":[[124.86,-9.3],[125.02,-9.33],[125.14,-9.29]]},
+          {"id":"LBP-R07","name":"Patroli Skouw–Mosso","province":"Papua","coordinates":[[140.72,-2.72],[140.84,-2.65],[140.91,-2.6],[141.03,-2.58]]},
+          {"id":"LBP-R08","name":"Patroli Sota–Rawa Biru","province":"Papua Selatan","coordinates":[[140.74,-8.18],[140.88,-8.3],[141.01,-8.43]]}
+        ],
+        "incidents":[
+          {"id":"LBC-01","name":"Interdiksi pangan ilegal","province":"Kalimantan Barat","coordinates":[110.29,1.03],"severity":"CRITICAL","time":"08:48 WIB","status":"Ditangani"},
+          {"id":"LBC-02","name":"Aktivitas jalur inspeksi","province":"Kalimantan Barat","coordinates":[109.52,1.76],"severity":"HIGH","time":"08:21 WIB","status":"Investigasi"},
+          {"id":"LBC-03","name":"Kelompok tanpa dokumen","province":"Kalimantan Barat","coordinates":[112.08,0.78],"severity":"CRITICAL","time":"07:31 WIB","status":"Dieskalasi"},
+          {"id":"LBC-04","name":"Transfer barang dekat patok","province":"Kalimantan Utara","coordinates":[117.84,4.14],"severity":"HIGH","time":"09:04 WITA","status":"Investigasi"},
+          {"id":"LBC-05","name":"Muatan tidak teridentifikasi","province":"Kalimantan Utara","coordinates":[114.98,3.9],"severity":"HIGH","time":"06:42 WITA","status":"Dipantau"},
+          {"id":"LBC-06","name":"Kendaraan keluar koridor","province":"Nusa Tenggara Timur","coordinates":[125.04,-9.36],"severity":"MEDIUM","time":"05:36 WITA","status":"Diverifikasi"},
+          {"id":"LBC-07","name":"Lintas batas nonprosedural","province":"Papua","coordinates":[140.94,-2.63],"severity":"HIGH","time":"07:44 WIT","status":"Dieskalasi"},
+          {"id":"LBC-08","name":"Paket lintas batas","province":"Papua Selatan","coordinates":[140.98,-8.4],"severity":"CRITICAL","time":"06:51 WIT","status":"Operasi aktif"}
+        ],
+        "borderLines":[
+          {"id":"LBB-01","name":"Batas RI–Malaysia Kalimantan Barat","province":"Kalimantan Barat","coordinates":[[109.35,1.85],[110.0,1.42],[110.5,1.2],[111.2,1.02],[111.95,0.84],[112.6,1.1]]},
+          {"id":"LBB-02","name":"Batas RI–Malaysia Kalimantan Utara","province":"Kalimantan Utara","coordinates":[[114.7,3.75],[115.5,4.15],[116.4,4.25],[117.2,4.2],[117.95,4.3]]},
+          {"id":"LBB-03","name":"Batas RI–Timor Leste","province":"Nusa Tenggara Timur","coordinates":[[124.45,-9.18],[124.72,-9.28],[125.02,-9.33],[125.2,-9.48],[125.07,-9.58]]},
+          {"id":"LBB-04","name":"Batas RI–Papua Nugini","province":"Papua","coordinates":[[141.01,-9.0],[141.0,-7.4],[140.99,-6.2],[141.0,-4.4],[140.99,-2.6]]}
+        ],
+        "areaLabels":[
+          {"id":"LBL-01","name":"MALAYSIA","province":"Kalimantan Barat","coordinates":[112.5,2.35]},
+          {"id":"LBL-02","name":"KALIMANTAN BARAT","province":"Kalimantan Barat","coordinates":[110.7,0.15]},
+          {"id":"LBL-03","name":"KALIMANTAN UTARA","province":"Kalimantan Utara","coordinates":[116.3,3.2]},
+          {"id":"LBL-04","name":"TIMOR LESTE","province":"Nusa Tenggara Timur","coordinates":[125.7,-8.9]},
+          {"id":"LBL-05","name":"NUSA TENGGARA TIMUR","province":"Nusa Tenggara Timur","coordinates":[124.3,-9.7]},
+          {"id":"LBL-06","name":"PAPUA NUGINI","province":"Papua","coordinates":[142.0,-5.1]},
+          {"id":"LBL-07","name":"PAPUA","province":"Papua","coordinates":[139.8,-3.8]},
+          {"id":"LBL-08","name":"PAPUA SELATAN","province":"Papua Selatan","coordinates":[139.7,-7.4]}
+        ]
+      },
       "vulnerablePoints": [
         {"id":"VP-01","name":"Sajingan Besar Utara","coordinates":[109.61,1.86],"type":"Smuggling","severity":"CRITICAL","sensor":"Patrol report"},
         {"id":"VP-02","name":"Nanga Badau Timur","coordinates":[112.18,0.91],"type":"People movement","severity":"HIGH","sensor":"Geofence"},

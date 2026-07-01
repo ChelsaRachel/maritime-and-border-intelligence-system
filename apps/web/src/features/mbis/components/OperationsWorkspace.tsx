@@ -8,6 +8,7 @@ import { Panel } from '@/components/common/Panel'
 import { SeverityBadge } from '@/components/common/SeverityBadge'
 import { TacticalMap } from '@/features/tactical/components/TacticalMap'
 import { GeofenceWarnings } from '@/features/mbis/components/GeofenceWarnings'
+import { LandBorderSituationMap } from '@/features/mbis/components/LandBorderSituationMap'
 import { useAuthStore } from '@/stores/useAuthStore'
 import { useMbisStore } from '@/stores/useMbisStore'
 import { type CSSProperties, useMemo, useState } from 'react'
@@ -35,13 +36,12 @@ export function OperationsWorkspace({ module }: { module: TWorkspaceModule }) {
   const ready = Boolean(border && entities && operations && overview)
   const anomaly = entities?.anomalies.find((item: any) => item.id === selectedAnomalyId) ?? entities?.anomalies[0]
 
-  const borderPoints = useMemo(() => border ? [...border.posts.map((item: any) => ({ ...item, severity: item.risk })), ...border.vulnerablePoints.map((item: any) => ({ ...item, severity: item.severity }))] : [], [border])
   const threatPoints = useMemo(() => operations ? operations.threat.regions.map((item: any, index: number) => ({ id: `THR-${index}`, name: item.name, coordinates: item.coordinates, severity: item.score >= 75 ? 'CRITICAL' : item.score >= 60 ? 'HIGH' : 'MEDIUM', score: item.score })) : [], [operations])
   const aircraftPoints = useMemo(() => overview ? overview.aircraft.map((item: any) => ({ ...item, name: item.callSign, severity: item.status })) : [], [overview])
 
   const renderBorder = () => (
     <div className="workspace-grid workspace-grid--border">
-      <Panel title="Land Border Situation Map" eyebrow="National perimeter" className="span-8 map-panel"><TacticalMap id="border" points={borderPoints} routes={border!.routes} center={[124.6, -3.2]} zoom={2.7} /></Panel>
+      <Panel title="Land Border Situation Map" eyebrow="Koridor perbatasan darat nasional" className="span-8 map-panel land-border-panel"><LandBorderSituationMap data={border!.landBorderMap} /></Panel>
       <Panel title="Aktivitas Real-time" eyebrow="Perlintasan & insiden terkini" className="span-4 activity-panel"><BorderActivityFeed items={border!.activityFeed} /></Panel>
       <BorderKpiStrip metrics={border!.metrics} />
       <Panel title="Timeline Insiden Perbatasan" eyebrow="Last 7 Days" className="span-7"><BorderIncidentTimeline points={border!.timeline} incidents={border!.incidentLog} /></Panel>

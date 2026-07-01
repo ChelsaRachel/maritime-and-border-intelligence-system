@@ -23,6 +23,11 @@ All operational records in this folder are static synthetic data for a frontend 
 - Imigrasi Putussibau — joint monitoring of unofficial Badau routes toward Pos Tiga and Pos Mentari: https://putussibau.imigrasi.go.id/berita-utama/operasi-gabungan-pengawasan-orang-asing-di-perbatasan-desa-badau-berjalan-lancar-tanpa-temuan-pelanggaran
 - Direktorat Jenderal Imigrasi — non-procedural migrant movement through an unofficial route in Seriang, Badau: https://www.imigrasi.go.id/berita/2021/09/27/imigrasi-putussibau-amankan-pemulangan-41-tki-ilegal-ke-sambas
 - Polri Tribrata — K9 patrol and inspection model for unofficial routes around Aruk and Jagoi Babang: https://tribratanews.polri.go.id/blog/nasional-3/polda-kalbar-patroli-gunakan-anjing-pelacak-di-perbatasan-21225
+- BNPP — completed/new PLBN locations including Sei Nyamuk, Jagoi Babang, Napan, Yetetkun, Long Midang, Long Nawang, Labang, Sota, and Sei Kelik: https://bnpp.go.id/berita/plbn-yang-selesai-secara-fisik-mana-saja
+- BNPP — official Motamasin location and Indonesia–Timor-Leste border context: https://bnpp.go.id/plbn/plbn-motamasin
+- BNPP — TIMPORA Sebatik monitoring anchors around PB 02 Aji Kuning, Desa Seberang, and Desa Pancang: https://bnpp.go.id/berita/plbn-sei-nyamuk-perkuat-sinergi-timpora-dalam-operasi-gabungan-pengawasan-orang-asing-di-sebatik
+- Imigrasi Atambua — operational crossing context for Motaain, Wini, and Motamasin: https://atambua.imigrasi.go.id/berita-utama/perlintasan-di-plbn-motaain-wini-dan-motamasin-selama-libur-isra-mi-raj-dan-imlek-berjalan-lancar
+- Bea Cukai Entikong — mapped joint-patrol route from Segumon toward Gunabanir: https://bengkulu.beacukai.go.id/berita/amankan-perbatasan-bea-cukai-entikong-lakukan-patroli-gabungan
 
 ## Generated NMP coverage
 
