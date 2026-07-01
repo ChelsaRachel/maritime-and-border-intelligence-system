@@ -1,4 +1,5 @@
 import { DataState } from '@/components/common/DataState'
+import { BorderActivityFeed } from '@/features/mbis/components/BorderActivityFeed'
 import { MetricCard } from '@/components/common/MetricCard'
 import { Panel } from '@/components/common/Panel'
 import { SeverityBadge } from '@/components/common/SeverityBadge'
@@ -37,7 +38,7 @@ export function OperationsWorkspace({ module }: { module: TWorkspaceModule }) {
   const renderBorder = () => (
     <div className="workspace-grid workspace-grid--border">
       <Panel title="Land Border Situation Map" eyebrow="National perimeter" className="span-8 map-panel"><TacticalMap id="border" points={borderPoints} routes={border!.routes} center={[124.6, -3.2]} zoom={2.7} /></Panel>
-      <Panel title="Real-time Activity" eyebrow="Latest crossings" className="span-4"><RowList rows={border!.activities.slice(0, 7)} /></Panel>
+      <Panel title="Real-time Activity" eyebrow="Perlintasan & insiden terkini" className="span-4 activity-panel"><BorderActivityFeed items={border!.activityFeed} /></Panel>
       <div className="metric-strip span-12">
         <MetricCard label="Official Posts" value={border!.metrics.officialPosts} delta="+0" icon="shield-check" />
         <MetricCard label="Informal Routes" value={border!.metrics.informalRoutes} delta="+12%" severity="HIGH" icon="path" />
