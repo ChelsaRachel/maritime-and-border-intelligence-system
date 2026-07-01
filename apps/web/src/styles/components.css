@@ -423,6 +423,7 @@ progress::-moz-progress-bar { background: linear-gradient(90deg,var(--signal-cya
 
 /* Border Intelligence — native Mapbox land-border situation canvas. */
 .operations-workspace--border .land-border-panel .intel-panel__body { height: 470px; }
+.operations-workspace--border .activity-panel .intel-panel__body { height: 470px; }
 .land-border-map { position: relative; width: 100%; height: 100%; overflow: hidden; background: var(--ocean-950); }
 .land-border-map__canvas { position: absolute; inset: 0; }
 .land-border-map::after { position: absolute; z-index: 2; inset: 0; pointer-events: none; content: ''; background: linear-gradient(180deg,rgba(1,8,13,.18),transparent 28%,transparent 72%,rgba(1,8,13,.25)),repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,224,255,.018) 4px); }
