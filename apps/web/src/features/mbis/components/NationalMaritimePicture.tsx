@@ -8,15 +8,13 @@ import { useMbisStore } from '@/stores/useMbisStore'
 import { useEffect, useMemo, useRef, useState } from 'react'
 
 const LAYER_CONTROLS: Array<{ key: TNmpLayerGroup; label: string; icon: string }> = [
-  { key: 'vessels', label: 'Kapal / AIS', icon: 'boat' },
+  { key: 'vessels', label: 'Posisi Kapal', icon: 'boat' },
+  { key: 'routes', label: 'Jalur Pelayaran Resmi', icon: 'path' },
   { key: 'aircraft', label: 'Pesawat / ADS-B', icon: 'airplane-tilt' },
-  { key: 'boundaries', label: 'Batas ZEE indikatif', icon: 'bounding-box' },
-  { key: 'routes', label: 'ALKI & jalur resmi', icon: 'path' },
-  { key: 'zones', label: 'Restricted / watch area', icon: 'polygon' },
+  { key: 'boundaries', label: 'Batas ZEE', icon: 'bounding-box' },
+  { key: 'zones', label: 'Zona Sengketa', icon: 'polygon' },
   { key: 'activity', label: 'Heatmap & alert', icon: 'fire' },
   { key: 'ports', label: 'Pelabuhan', icon: 'anchor' },
-  { key: 'sensors', label: 'Sensor fusion', icon: 'broadcast' },
-  { key: 'grid', label: 'Neon tactical grid', icon: 'grid-four' },
   { key: 'labels', label: 'Label taktis', icon: 'tag' },
 ]
 

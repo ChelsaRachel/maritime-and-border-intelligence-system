@@ -138,14 +138,14 @@ export const NMP_LAYER_REGISTRY: INmpLayerRegistryEntry[] = [
 ]
 
 export const DEFAULT_NMP_LAYER_VISIBILITY: Record<TNmpLayerGroup, boolean> = {
-  grid: true,
-  routes: true,
-  boundaries: true,
-  zones: true,
-  activity: true,
+  grid: false,
+  routes: false,
+  boundaries: false,
+  zones: false,
+  activity: false,
   vessels: true,
-  aircraft: true,
-  ports: true,
-  sensors: true,
+  aircraft: false,
+  ports: false,
+  sensors: false,
   labels: true,
 }

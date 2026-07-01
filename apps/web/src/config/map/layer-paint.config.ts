@@ -50,15 +50,15 @@ export function nmpLayerPaint() {
     dimFill: { 'fill-color': colors.ink, 'fill-opacity': 0.24 },
     gridLine: { 'line-color': colors.cyan, 'line-width': ['interpolate', ['linear'], ['zoom'], 2, 0.45, 7, 0.9], 'line-opacity': 0.22 },
 
-    // ── ALKI: strong glow → opaque dark casing → bright cyan core ────────────
-    alkiGlow: { 'line-color': colors.routeCyan, 'line-width': ['interpolate', ['linear'], ['zoom'], 2, 9, 7, 12], 'line-opacity': 0.36, 'line-blur': 6 },
-    alkiCasing: { 'line-color': casing, 'line-width': ['interpolate', ['linear'], ['zoom'], 2, 3.8, 7, 4.8], 'line-opacity': 0.92, 'line-blur': 0.15 },
-    alkiCore: { 'line-color': colors.routeCyan, 'line-width': ['interpolate', ['linear'], ['zoom'], 2, 2, 7, 2.6], 'line-opacity': 1, 'line-dasharray': [3, 1.5] },
+    // ── ALKI: subtle reference visual — muted glow, thin casing, low-opacity core ────
+    alkiGlow: { 'line-color': colors.routeCyan, 'line-width': ['interpolate', ['linear'], ['zoom'], 2, 4, 7, 6], 'line-opacity': 0.14, 'line-blur': 4 },
+    alkiCasing: { 'line-color': casing, 'line-width': ['interpolate', ['linear'], ['zoom'], 2, 2, 7, 2.6], 'line-opacity': 0.55, 'line-blur': 0.1 },
+    alkiCore: { 'line-color': colors.routeCyan, 'line-width': ['interpolate', ['linear'], ['zoom'], 2, 1, 7, 1.4], 'line-opacity': 0.45, 'line-dasharray': [3, 1.5] },
 
-    // ── Official commercial shipping route ───────────────────────────────────
-    commercialGlow: { 'line-color': colors.routeCyan, 'line-width': ['interpolate', ['linear'], ['zoom'], 2, 7, 7, 10], 'line-opacity': 0.3, 'line-blur': 5 },
-    commercialCasing: { 'line-color': casing, 'line-width': ['interpolate', ['linear'], ['zoom'], 2, 3, 7, 4], 'line-opacity': 0.9, 'line-blur': 0.15 },
-    commercialCore: { 'line-color': colors.routeCyan, 'line-width': ['interpolate', ['linear'], ['zoom'], 2, 1.45, 7, 2], 'line-opacity': 1, 'line-dasharray': [2.2, 1.6] },
+    // ── Official commercial shipping route — light reference, not dominant ───
+    commercialGlow: { 'line-color': colors.routeCyan, 'line-width': ['interpolate', ['linear'], ['zoom'], 2, 3, 7, 5], 'line-opacity': 0.1, 'line-blur': 3 },
+    commercialCasing: { 'line-color': casing, 'line-width': ['interpolate', ['linear'], ['zoom'], 2, 1.6, 7, 2.2], 'line-opacity': 0.45, 'line-blur': 0.1 },
+    commercialCore: { 'line-color': colors.routeCyan, 'line-width': ['interpolate', ['linear'], ['zoom'], 2, 0.7, 7, 1.1], 'line-opacity': 0.38, 'line-dasharray': [2.2, 1.6] },
 
     // ── Risk corridor ─────────────────────────────────────────────────────────
     riskRouteGlow: { 'line-color': colors.routeRed, 'line-width': ['interpolate', ['linear'], ['zoom'], 2, 9, 7, 12], 'line-opacity': 0.38, 'line-blur': 6 },
@@ -78,9 +78,9 @@ export function nmpLayerPaint() {
     routeArrows: { 'icon-color': ['match', ['get', 'kind'], 'RISK_CORRIDOR', colors.routeOrange, 'AIR_SURVEILLANCE_CORRIDOR', colors.routeBlue, colors.routeCyan], 'icon-halo-color': colors.ink, 'icon-halo-width': 1.2, 'icon-halo-blur': 0.35, 'icon-opacity': 0.9 },
     airRouteArrows: { 'icon-color': ['match', ['get', 'severity'], 'CRITICAL', colors.routeRed, 'HIGH', colors.routeRed, 'MEDIUM', colors.routeOrange, colors.routeBlue], 'icon-halo-color': colors.ink, 'icon-halo-width': 1.1, 'icon-halo-blur': 0.35, 'icon-opacity': 0.88 },
 
-    boundaryGlow: { 'line-color': colors.cyan, 'line-width': 11, 'line-opacity': 0.22, 'line-blur': 8 },
-    boundaryCasing: { 'line-color': casing, 'line-width': 4.5, 'line-opacity': 0.78, 'line-blur': 0.4 },
-    boundaryCore: { 'line-color': colors.cyan, 'line-width': 2.1, 'line-opacity': 1 },
+    boundaryGlow: { 'line-color': colors.cyan, 'line-width': 4, 'line-opacity': 0.12, 'line-blur': 4 },
+    boundaryCasing: { 'line-color': casing, 'line-width': 2, 'line-opacity': 0.5, 'line-blur': 0.15 },
+    boundaryCore: { 'line-color': colors.cyan, 'line-width': 0.9, 'line-opacity': 0.6, 'line-dasharray': [8, 4] },
     patrolFill: { 'fill-color': colors.teal, 'fill-opacity': 0.045 },
     patrolLine: { 'line-color': colors.teal, 'line-width': 1.3, 'line-opacity': 0.6, 'line-dasharray': [4, 3] },
     watchFill: { 'fill-color': alertSeverity, 'fill-opacity': 0.16 },
