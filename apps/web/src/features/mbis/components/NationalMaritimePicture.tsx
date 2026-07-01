@@ -227,7 +227,7 @@ function NmpOperationalSurface(props: TSurfaceProps) {
           </div>
           <div className="layer-legend"><span><i className="legend-dot legend-dot--critical" />Risiko tinggi</span><span><i className="legend-dot legend-dot--high" />Risiko sedang</span><span><i className="legend-dot legend-dot--low" />Risiko rendah</span><span><i className="legend-dot legend-dot--normal" />Aman / normal</span></div>
           <div className={`source-fusion ${props.sourceExpanded ? 'is-expanded' : ''}`}>
-            <span>FUSI MULTI-SUMBER</span><strong>{sourceFusion.toFixed(1)}%</strong><progress max="100" value={sourceFusion} />
+            <span>masih</span><strong>{sourceFusion.toFixed(1)}%</strong><progress max="100" value={sourceFusion} />
             {props.sourceExpanded && <div>{props.replayFixture.sourceHealth.map((source) => <small key={source.id}><i className={`source-dot source-dot--${source.status.toLowerCase()}`} />{source.name}<b>{source.status}</b></small>)}</div>}
             <button type="button" onClick={() => props.setSourceExpanded((value) => !value)}>{props.sourceExpanded ? 'Ringkas fusi' : 'Lihat detail fusi'} <i className={`ph ph-caret-${props.sourceExpanded ? 'up' : 'right'}`} /></button>
           </div>
