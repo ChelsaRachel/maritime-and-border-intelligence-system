@@ -197,7 +197,7 @@ function NmpOperationalSurface(props: TSurfaceProps) {
         )}
       </div>
 
-      <div className="nmp-alert-ticker glass-panel" aria-live="polite">
+      <div className={`nmp-alert-ticker nmp-alert-ticker--${latestAlert.severity.toLowerCase()} glass-panel`} aria-live="polite">
         <i className="ph-fill ph-warning" />
         <span>{latestAlert.severity}</span>
         <button type="button" onClick={() => selectAlert(latestAlert.id)}>{latestAlert.title} · {latestAlert.entityName}</button>
@@ -237,12 +237,12 @@ function NmpOperationalSurface(props: TSurfaceProps) {
       <NmpTacticalPopup entity={selected} alert={selectedAlert} onClose={() => { props.setSelectedId(null); setSelectedAlert(null) }} />
 
       <aside className="nmp-metrics glass-panel" aria-label="Ringkasan operasional National Maritime Picture">
-        <article><span>TOTAL KAPAL · AIS</span><strong>{props.entitiesFixture.vessels.length.toLocaleString('id-ID')}</strong><small className="text-low">▲ 12.4% vs baseline</small><i className="metric-spark metric-spark--cyan" /></article>
-        <article><span>KAPAL RISIKO TINGGI</span><strong className="text-critical">{highRiskCount}</strong><small className="text-critical">▲ 8.7% dalam 24 jam</small><i className="metric-spark metric-spark--red" /></article>
-        <article><span>ANOMALI AKTIF</span><strong className="text-high">{props.intelligence.anomalies.length}</strong><small className="text-high">{replay.frame.eventCount} pada frame aktif</small><i className="metric-spark metric-spark--orange" /></article>
+        <article><span>TOTAL KAPAL · AIS</span><strong>{props.entitiesFixture.vessels.length.toLocaleString('id-ID')}</strong><small className="text-low">▲ 12.4% vs baseline</small></article>
+        <article><span>KAPAL RISIKO TINGGI</span><strong className="text-critical">{highRiskCount}</strong><small className="text-critical">▲ 8.7% dalam 24 jam</small></article>
+        <article><span>ANOMALI AKTIF</span><strong className="text-high">{props.intelligence.anomalies.length}</strong><small className="text-high">{replay.frame.eventCount} pada frame aktif</small></article>
         <article><span>STATUS CHOKE POINT</span><strong>{props.geography.chokepoints.filter((item) => item.risk === 'CRITICAL').length} / {props.geography.chokepoints.length}</strong><small>Pengawasan diperketat</small><i className="metric-ring" /></article>
-        <article><span>PESAWAT TERDETEKSI</span><strong>{props.entitiesFixture.aircraft.length}</strong><small className="text-low">{replay.frame.aircraftCount} aktif pada frame</small><i className="metric-spark metric-spark--green" /></article>
-        <article><span>AKTIVITAS PERAIRAN</span><strong>{replay.frame.activity}</strong><small>{replay.frame.vesselCount} target bergerak</small><i className="metric-spark metric-spark--cyan" /></article>
+        <article><span>PESAWAT TERDETEKSI</span><strong>{props.entitiesFixture.aircraft.length}</strong><small className="text-low">{replay.frame.aircraftCount} aktif pada frame</small></article>
+        <article><span>AKTIVITAS PERAIRAN</span><strong>{replay.frame.activity}</strong><small>{replay.frame.vesselCount} target bergerak</small></article>
         <article><span>ALERT TERAKHIR</span><strong className="text-critical">{formatShortTime(latestAlert.timestamp)} WIB</strong><small>{latestAlert.entityName}</small><i className="ph ph-bell-ringing" /></article>
       </aside>
 
