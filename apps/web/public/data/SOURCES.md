@@ -57,3 +57,11 @@ The route, jurisdiction, zone, and facility geometries are simplified for tactic
 - VesselFinder public particulars used for selected anchor profiles: https://www.vesselfinder.com/vessels/details/9811000, https://www.vesselfinder.com/vessels/details/9455791, https://www.vesselfinder.com/vessels/details/9106651, https://www.vesselfinder.com/vessels/details/9827968, https://www.vesselfinder.com/vessels/details/9827956, https://www.vesselfinder.com/vessels/details/9139684, https://www.vesselfinder.com/vessels/details/9032147, https://www.vesselfinder.com/vessels/details/9226487, https://www.vesselfinder.com/vessels/details/9124548, https://www.vesselfinder.com/vessels/details/9269609
 
 `mbis-vessel-intelligence.json` contains 10 public-reference anchor profiles and 42 clearly marked `synthetic-enriched` profiles. Synthetic operational histories, risk scores, AIS gaps, incidents, and positions are demonstration fixtures and must not be interpreted as current registry, navigational, enforcement, or sanctions findings.
+
+### Vessel profile imagery
+
+- Vessel photos are sourced from Wikimedia Commons file pages discovered through web search and the Commons Media API. The fixture stores the resulting `upload.wikimedia.org` thumbnail URL in each vessel profile.
+- `EVER GIVEN` and `KM DOROLONDA` use photographs of the named vessel (`imageMatch: exact`).
+- Other profiles use a researched photograph matching the vessel class—container ship, crude/product tanker, passenger ship, bulk carrier, general cargo, fishing vessel, or LPG tanker—and are explicitly marked `imageMatch: representative-type`. This avoids falsely presenting a different photographed hull as the named synthetic vessel.
+- Source discovery references: [Ever Given category](https://commons.wikimedia.org/wiki/Category:Ever_Given_(ship,_2018)), [Ever Given cropped photograph](https://commons.wikimedia.org/wiki/File:EVER_GIVEN_(49643352087)_(cropped).jpg), [PELNI KM Dorolonda at Bitung](https://commons.wikimedia.org/wiki/File:Pelni_KM_Dorolonda_PortBitung.jpg), and [Wikimedia Commons API](https://commons.wikimedia.org/w/api.php).
+- Licensing and photographer attribution remain available on each corresponding Commons file page; the remote thumbnail filename maps directly to that page.

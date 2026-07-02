@@ -53,6 +53,74 @@ const operators = [
   ['Borneo Energy Transport', 'Borneo Fleet Services'], ['Arafura Fisheries Cooperative', 'Arafura Vessel Management'],
 ]
 
+const exactVesselImages = {
+  'EVER GIVEN': 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/EVER_GIVEN_%2849643352087%29_%28cropped%29.jpg/960px-EVER_GIVEN_%2849643352087%29_%28cropped%29.jpg',
+  'KM DOROLONDA': 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Pelni_KM_Dorolonda_PortBitung.jpg/960px-Pelni_KM_Dorolonda_PortBitung.jpg',
+}
+
+const vesselImagePools = {
+  'Container Ship': [
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Container_Ship.jpg/960px-Container_Ship.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Container_ship_in_Kronstadt.jpg/960px-Container_ship_in_Kronstadt.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/6/66/Container_ship_passing_the_channel.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Container_ship_exiting_Mombasa_port%2C_Kenya_01.jpg/960px-Container_ship_exiting_Mombasa_port%2C_Kenya_01.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/MAERSK_HANOI_Container_Ship_%28Port_Koper_SIKOP%2C_2023%29.jpg/960px-MAERSK_HANOI_Container_Ship_%28Port_Koper_SIKOP%2C_2023%29.jpg',
+  ],
+  'Crude Oil Tanker': [
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Oil_Tanker_in_New_York_Harbour.jpg/960px-Oil_Tanker_in_New_York_Harbour.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Oil_tanker_ship_%27Alkinoos%27_%28IMO_9792864%29_at_the_anchorage_of_the_Port_of_Haifa%2C_Israel_-_2023-07-01_%28DSC5705%29.jpg/960px-Oil_tanker_ship_%27Alkinoos%27_%28IMO_9792864%29_at_the_anchorage_of_the_Port_of_Haifa%2C_Israel_-_2023-07-01_%28DSC5705%29.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Crude_oil_tanker_Eagle_San_Diego.jpg/960px-Crude_oil_tanker_Eagle_San_Diego.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/2022-09-04_01_ACADIAN_-_IMO_9298715_tanker_%E2%80%93_St._John%E2%80%99s_NL_Canada.jpg/960px-2022-09-04_01_ACADIAN_-_IMO_9298715_tanker_%E2%80%93_St._John%E2%80%99s_NL_Canada.jpg',
+  ],
+  'Product Tanker': [
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Tanker_Sten_Suomi_at_a_fuel_depot_in_Stockholm.jpg/960px-Tanker_Sten_Suomi_at_a_fuel_depot_in_Stockholm.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Oil_Products_Tanker_MP_MR_Tanker_2_at_BP_Oil_Refinery_Jetty%2C_Kwinana%2C_October_2023_02.jpg/960px-Oil_Products_Tanker_MP_MR_Tanker_2_at_BP_Oil_Refinery_Jetty%2C_Kwinana%2C_October_2023_02.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Oil_Products_Tanker_MP_MR_Tanker_2_at_BP_Oil_Refinery_Jetty%2C_Kwinana%2C_October_2023_01.jpg/960px-Oil_Products_Tanker_MP_MR_Tanker_2_at_BP_Oil_Refinery_Jetty%2C_Kwinana%2C_October_2023_01.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Anna_Chemical_Oil_tanker_-_IMO_7384986_on_De%C3%BBle_%283%29.jpg/960px-Anna_Chemical_Oil_tanker_-_IMO_7384986_on_De%C3%BBle_%283%29.jpg',
+  ],
+  'Passenger Ship': [
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/KM_Dorolonda_at_port_of_Pantoloan.jpg/960px-KM_Dorolonda_at_port_of_Pantoloan.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/2022-04-29_WSDOT_ferry%2C_MV_SALISH_-_IMO_9618329_-_Coupeville_WA_USA.jpg/960px-2022-04-29_WSDOT_ferry%2C_MV_SALISH_-_IMO_9618329_-_Coupeville_WA_USA.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Aarhus_to_Sams%C3%B8_passenger_ferry_Lille%C3%B8re_in_Aarhus_harbour_Denmark_01.jpg/960px-Aarhus_to_Sams%C3%B8_passenger_ferry_Lille%C3%B8re_in_Aarhus_harbour_Denmark_01.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Sevastopol_Type_1438_passenger_ship_IMG_4248_1725.jpg/960px-Sevastopol_Type_1438_passenger_ship_IMG_4248_1725.jpg',
+  ],
+  'Bulk Carrier': [
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Feodosiya_port_Bulk_carrier_Era_IMG_3090_1725.jpg/960px-Feodosiya_port_Bulk_carrier_Era_IMG_3090_1725.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Bulk_carrier_Crimson_Princess_and_ship_loader_at_Kwinana_Bulk_Jetty%2C_July_2021_01.jpg/960px-Bulk_carrier_Crimson_Princess_and_ship_loader_at_Kwinana_Bulk_Jetty%2C_July_2021_01.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Daiwan_Wisdom_%28IMO_9427134%29.jpg/960px-Daiwan_Wisdom_%28IMO_9427134%29.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/A_bulk_carrier_anchored_in_the_Columbia_River.jpg/960px-A_bulk_carrier_anchored_in_the_Columbia_River.jpg',
+  ],
+  'General Cargo': [
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Rio_Tagus_%28ship%2C_1979%29%2C_S%C3%A8te_cf11.jpg/960px-Rio_Tagus_%28ship%2C_1979%29%2C_S%C3%A8te_cf11.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/2021-11-06_02_GULLAAS_-_IMO_8700993_in_Bergen%2C_Norway.jpg/960px-2021-11-06_02_GULLAAS_-_IMO_8700993_in_Bergen%2C_Norway.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/2022-01-09_ELM_K_-_IMO_9614294.jpg/960px-2022-01-09_ELM_K_-_IMO_9614294.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/2024-12-20_01_BBC_ROSARIO_-_IMO_9337224_%E2%80%93_Ogden_Point_BC_CAN.jpg/960px-2024-12-20_01_BBC_ROSARIO_-_IMO_9337224_%E2%80%93_Ogden_Point_BC_CAN.jpg',
+  ],
+  'Fishing Vessel': [
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Fishing_Boat_at_The_Arabian_Sea.JPG/960px-Fishing_Boat_at_The_Arabian_Sea.JPG',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/French_Fishing_Vessel_%27Alf%27_in_the_Irish_Sea_MOD_45155246.jpg/960px-French_Fishing_Vessel_%27Alf%27_in_the_Irish_Sea_MOD_45155246.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Barcospesqueros-puertoMDP-00188_01.jpg/960px-Barcospesqueros-puertoMDP-00188_01.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Small_fishing_vessel_in_a_choppy_sea_on_Carlingford_Lough_-_geograph.org.uk_-_6312228.jpg/960px-Small_fishing_vessel_in_a_choppy_sea_on_Carlingford_Lough_-_geograph.org.uk_-_6312228.jpg',
+  ],
+  'LPG Tanker': [
+    'https://upload.wikimedia.org/wikipedia/commons/8/80/A_Zodiac_Maritime_Agencies_Lpg_Ship_Part_Of_The_Fleet_Amassed_%2833494087%29.jpeg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Mooring_of_the_LPG_Tanker_BW_Cedar_at_the_Kwinana_Bulk_Terminal%2C_September_2020_03.jpg/960px-Mooring_of_the_LPG_Tanker_BW_Cedar_at_the_Kwinana_Bulk_Terminal%2C_September_2020_03.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Mooring_of_the_LPG_Tanker_BW_Cedar_at_the_Kwinana_Bulk_Terminal%2C_September_2020_01.jpg/960px-Mooring_of_the_LPG_Tanker_BW_Cedar_at_the_Kwinana_Bulk_Terminal%2C_September_2020_01.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Mooring_of_the_LPG_Tanker_BW_Cedar_at_the_Kwinana_Bulk_Terminal%2C_September_2020_06.jpg/960px-Mooring_of_the_LPG_Tanker_BW_Cedar_at_the_Kwinana_Bulk_Terminal%2C_September_2020_06.jpg',
+  ],
+}
+
+function imageFor(vessel, index) {
+  const exact = exactVesselImages[vessel.name]
+  const pool = vesselImagePools[vessel.type] ?? vesselImagePools['General Cargo']
+  const nameHash = [...vessel.name].reduce((sum, character) => sum + character.charCodeAt(0), index)
+  return {
+    url: exact ?? pool[nameHash % pool.length],
+    match: exact ? 'exact' : 'representative-type',
+    source: 'Wikimedia Commons',
+  }
+}
+
 const areas = {
   Natuna: { center: [108.2, 4.3], ports: [['Tanjung Priok', 'Indonesia'], ['Batam', 'Indonesia'], ['Singapore', 'Singapore'], ['Kijang', 'Indonesia'], ['Tanjung Pelepas', 'Malaysia']] },
   Malaka: { center: [101.8, 2.4], ports: [['Belawan', 'Indonesia'], ['Dumai', 'Indonesia'], ['Singapore', 'Singapore'], ['Port Klang', 'Malaysia'], ['Tanjung Pelepas', 'Malaysia']] },
@@ -138,6 +206,7 @@ function recordsFor(vessel, index) {
   }))
   const incidentCount = risk.level === 'CRITICAL' ? 3 : risk.level === 'HIGH' ? 2 : risk.level === 'MEDIUM' ? 1 : 0
   const incidentTypes = ['Gangguan sinyal AIS', 'Deviasi koridor pelayaran', 'Rendezvous tanpa deklarasi', 'Anomali identitas registry']
+  const image = imageFor(vessel, index)
   return {
     vesselProfile: {
       id: `VSL-${String(index + 1).padStart(3, '0')}`,
@@ -155,7 +224,9 @@ function recordsFor(vessel, index) {
       builtYear: vessel.built,
       operator: vessel.operator,
       manager: vessel.manager,
-      image: '/images/vessel-silhouette.svg',
+      image: image.url,
+      imageMatch: image.match,
+      imageSource: image.source,
       areaOperation: vessel.area,
       dataBasis: vessel.basis,
       lastKnownPosition: {

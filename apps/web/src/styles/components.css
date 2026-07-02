@@ -214,16 +214,18 @@ progress::-moz-progress-bar { background: linear-gradient(90deg,var(--signal-cya
 .vessel-toolbar__advanced { display: flex; min-height: 44px; align-items: center; gap: 8px; padding: 5px 8px; border-top: 1px solid var(--wire); background: rgba(2,11,18,.82); }
 .vessel-toolbar__advanced > span { margin-left: auto; color: var(--text-tertiary); font-family: var(--font-mono); font-size: 8px; }.vessel-toolbar__advanced > button { display: inline-flex; height: 30px; align-items: center; gap: 5px; padding: 0 10px; border: 1px solid var(--wire); color: var(--text-secondary); background: transparent; font-size: 8px; cursor: pointer; }
 .vessel-dashboard { display: grid; grid-template-columns: repeat(12,minmax(0,1fr)); gap: 8px; }
+.vessel-dashboard > .intel-panel { display: flex; flex-direction: column; }
+.vessel-dashboard > .intel-panel > .intel-panel__body { flex: 1; }
 .operations-workspace--vessel .intel-panel__header { min-height: 45px; padding: 7px 10px; }.operations-workspace--vessel .intel-panel__header h2 { font-size: 10.5px; }.operations-workspace--vessel .intel-panel__eyebrow { font-size: 7px; }
 .operations-workspace--vessel .intel-panel__body { padding: 9px; }
-.vessel-profile-card { display: flex; flex-direction: column; gap: 8px; }.vessel-profile-card > img { width: 100%; height: 92px; border: 1px solid var(--wire); object-fit: cover; }
-.vessel-profile-card__heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }.vessel-profile-card__heading h2 { margin: 0; color: var(--text-primary); font-size: 14px; }.vessel-profile-card__heading span { display: block; margin-top: 2px; color: var(--text-secondary); font-size: 9px; }
-.vessel-profile-card dl { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); margin: 0; border-top: 1px solid var(--wire); border-left: 1px solid var(--wire); }.vessel-profile-card dl div { min-width: 0; padding: 5px 6px; border-right: 1px solid var(--wire); border-bottom: 1px solid var(--wire); }.vessel-profile-card dt { color: var(--text-tertiary); font-family: var(--font-mono); font-size: 6.5px; text-transform: uppercase; }.vessel-profile-card dd { margin: 2px 0 0; overflow: hidden; color: var(--text-primary); font-size: 8px; text-overflow: ellipsis; white-space: nowrap; }
-.vessel-position { display: flex; flex-direction: column; gap: 3px; padding: 7px; border: 1px solid var(--wire); background: rgba(0,224,255,.025); }.vessel-position span { color: var(--text-tertiary); font-family: var(--font-mono); font-size: 6.5px; }.vessel-position strong { color: var(--signal-cyan-soft); font-family: var(--font-mono); font-size: 8.5px; }.vessel-position small { color: var(--text-secondary); font-size: 7.5px; }
-.operations-workspace--vessel .vessel-voyage-panel .intel-panel__body { display: grid; height: 342px; grid-template-rows: minmax(0,1fr) 62px; padding: 0; }.vessel-voyage-map { min-height: 0; }.vessel-voyage-map > div { height: 100%; }
+.vessel-profile-card { display: grid; grid-template-columns: 142px minmax(0,1fr); align-items: start; gap: 8px; }.vessel-profile-card > img { width: 142px; height: 142px; grid-row: 1 / span 2; border: 1px solid var(--wire); background: var(--ocean-950); object-fit: cover; object-position: center; }
+.vessel-profile-card__heading { display: flex; min-width: 0; align-items: flex-start; justify-content: space-between; gap: 8px; }.vessel-profile-card__heading h2 { margin: 0; color: var(--text-primary); font-size: 14px; }.vessel-profile-card__heading span { display: block; margin-top: 2px; color: var(--text-secondary); font-size: 9px; }
+.vessel-profile-card dl { display: grid; min-width: 0; grid-template-columns: repeat(2,minmax(0,1fr)); margin: 0; border-top: 1px solid var(--wire); border-left: 1px solid var(--wire); }.vessel-profile-card dl div { min-width: 0; padding: 5px 6px; border-right: 1px solid var(--wire); border-bottom: 1px solid var(--wire); }.vessel-profile-card dt { color: var(--text-tertiary); font-family: var(--font-mono); font-size: 6.5px; text-transform: uppercase; }.vessel-profile-card dd { margin: 2px 0 0; overflow: hidden; color: var(--text-primary); font-size: 8px; text-overflow: ellipsis; white-space: nowrap; }
+.vessel-position { display: flex; grid-column: 1 / -1; flex-direction: column; gap: 3px; padding: 7px; border: 1px solid var(--wire); background: rgba(0,224,255,.025); }.vessel-position span { color: var(--text-tertiary); font-family: var(--font-mono); font-size: 6.5px; }.vessel-position strong { color: var(--signal-cyan-soft); font-family: var(--font-mono); font-size: 8.5px; }.vessel-position small { color: var(--text-secondary); font-size: 7.5px; }
+.operations-workspace--vessel .vessel-voyage-panel .intel-panel__body { display: grid; height: auto; min-height: 342px; grid-template-rows: minmax(0,1fr) 62px; padding: 0; }.vessel-voyage-map { min-height: 0; }.vessel-voyage-map > div { height: 100%; }
 .voyage-metrics { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); border-top: 1px solid var(--wire); }.voyage-metrics article { display: flex; min-width: 0; align-items: center; justify-content: center; flex-direction: column; padding: 6px 4px; border-right: 1px solid var(--wire); }.voyage-metrics article:last-child { border-right: 0; }.voyage-metrics span { color: var(--text-tertiary); font-size: 6.5px; }.voyage-metrics strong { margin-top: 4px; overflow: hidden; max-width: 100%; color: var(--text-primary); font-family: var(--font-mono); font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }.voyage-metrics small { color: var(--text-tertiary); font-size: 7px; }
 .vessel-risk-panel .intel-panel__body { display: flex; min-height: 342px; align-items: center; justify-content: center; flex-direction: column; }.vessel-risk-gauge { --gauge-color: var(--severity-low); position: relative; display: grid; width: 126px; height: 126px; place-items: center; border-radius: 50%; background: conic-gradient(from 225deg,var(--gauge-color) calc(var(--risk-score) * 0.75%),rgba(25,55,67,.45) 0 75%,transparent 0); transform: rotate(0deg); }.vessel-risk-gauge::before { position: absolute; inset: 13px; content: ''; border-radius: 50%; background: var(--ocean-925); }.vessel-risk-gauge > div { position: relative; }.vessel-risk-gauge strong { font-family: var(--font-mono); font-size: 30px; }.vessel-risk-gauge span { color: var(--text-tertiary); font-family: var(--font-mono); font-size: 9px; }.vessel-risk-gauge--medium { --gauge-color: var(--severity-medium); }.vessel-risk-gauge--high { --gauge-color: var(--severity-high); }.vessel-risk-gauge--critical { --gauge-color: var(--severity-critical); }.vessel-risk-panel .intel-panel__body > b { margin-top: 8px; color: var(--gauge-color,var(--severity-high)); font-family: var(--font-mono); font-size: 10px; }.vessel-risk-panel .intel-panel__body > small { margin-top: 10px; color: var(--text-tertiary); font-size: 7px; text-align: center; }
-.vessel-risk-factor-panel .intel-panel__body { min-height: 342px; }.vessel-risk-factors { display: flex; flex-direction: column; gap: 5px; }.risk-factor { --factor-color: var(--severity-low); display: grid; min-height: 57px; grid-template-columns: 30px minmax(0,1fr) auto; align-items: center; gap: 7px; padding: 6px; border: 1px solid var(--wire); background: color-mix(in srgb,var(--factor-color) 4%,transparent); }.risk-factor--medium { --factor-color: var(--severity-medium); }.risk-factor--high { --factor-color: var(--severity-high); }.risk-factor--critical { --factor-color: var(--severity-critical); }.risk-factor > i { display: grid; width: 28px; height: 28px; place-items: center; border: 1px solid var(--factor-color); color: var(--factor-color); font-size: 14px; }.risk-factor > div { min-width: 0; }.risk-factor strong,.risk-factor span,.risk-factor small { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }.risk-factor strong { font-size: 9px; }.risk-factor span { margin-top: 2px; color: var(--text-secondary); font-size: 7.5px; }.risk-factor small { margin-top: 2px; color: var(--text-tertiary); font-size: 6.5px; }
+.vessel-risk-factor-panel .intel-panel__body { min-height: 342px; }.vessel-risk-factors { display: flex; height: 100%; flex-direction: column; gap: 5px; }.risk-factor { --factor-color: var(--severity-low); display: grid; min-height: 57px; flex: 1; grid-template-columns: 30px minmax(0,1fr) auto; align-items: center; gap: 7px; padding: 6px; border: 1px solid var(--wire); background: color-mix(in srgb,var(--factor-color) 4%,transparent); }.risk-factor--medium { --factor-color: var(--severity-medium); }.risk-factor--high { --factor-color: var(--severity-high); }.risk-factor--critical { --factor-color: var(--severity-critical); }.risk-factor > i { display: grid; width: 28px; height: 28px; place-items: center; border: 1px solid var(--factor-color); color: var(--factor-color); font-size: 14px; }.risk-factor > div { min-width: 0; }.risk-factor strong,.risk-factor span,.risk-factor small { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }.risk-factor strong { font-size: 9px; }.risk-factor span { margin-top: 2px; color: var(--text-secondary); font-size: 7.5px; }.risk-factor small { margin-top: 2px; color: var(--text-tertiary); font-size: 6.5px; }
 .vessel-table-panel .intel-panel__body { min-height: 190px; }.vessel-table-wrap { width: 100%; overflow-x: auto; }.vessel-table { width: 100%; border-collapse: collapse; font-size: 7.5px; white-space: nowrap; }.vessel-table th { padding: 6px; border-bottom: 1px solid var(--wire-strong); color: var(--text-tertiary); font-family: var(--font-mono); font-size: 6.5px; font-weight: 500; text-align: left; }.vessel-table td { max-width: 165px; overflow: hidden; padding: 7px 6px; border-bottom: 1px solid rgba(54,190,220,.09); color: var(--text-secondary); text-overflow: ellipsis; }.vessel-table tbody tr:hover td { color: var(--text-primary); background: rgba(0,224,255,.025); }
 .vessel-history-list { display: flex; flex-direction: column; }.vessel-history-list article { position: relative; display: grid; min-height: 52px; grid-template-columns: 8px 70px minmax(0,1fr); align-items: center; gap: 7px; border-bottom: 1px solid var(--wire); }.vessel-history-list article > i { width: 7px; height: 7px; border: 2px solid var(--signal-cyan); border-radius: 50%; box-shadow: 0 0 7px var(--signal-cyan); }.vessel-history-list article > span { color: var(--text-tertiary); font-family: var(--font-mono); font-size: 7px; }.vessel-history-list strong,.vessel-history-list small { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }.vessel-history-list strong { font-size: 8.5px; }.vessel-history-list small { margin-top: 2px; color: var(--text-secondary); font-size: 7px; }
 .vessel-flag-history article { display: grid; min-height: 52px; grid-template-columns: 72px 1fr; align-items: center; gap: 4px; padding: 5px 0; border-bottom: 1px solid var(--wire); }.vessel-flag-history span { color: var(--text-tertiary); font-family: var(--font-mono); font-size: 7px; }.vessel-flag-history strong { font-size: 8.5px; }.vessel-flag-history small { grid-column: 2; color: var(--text-secondary); font-size: 7px; }
@@ -231,6 +233,75 @@ progress::-moz-progress-bar { background: linear-gradient(90deg,var(--signal-cya
 .vessel-evidence-panel .intel-panel__body { min-height: 190px; }.vessel-evidence-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 6px; }.vessel-evidence-grid article { display: flex; min-width: 0; min-height: 83px; flex-direction: column; padding: 7px; border: 1px solid var(--wire); background: rgba(0,224,255,.025); }.vessel-evidence-grid article > i { color: var(--signal-cyan); font-size: 16px; }.vessel-evidence-grid span { margin-top: 4px; color: var(--signal-cyan-soft); font-family: var(--font-mono); font-size: 7px; }.vessel-evidence-grid strong { margin-top: 4px; font-size: 9px; }.vessel-evidence-grid small,.vessel-evidence-grid em { overflow: hidden; color: var(--text-secondary); font-size: 6.5px; font-style: normal; text-overflow: ellipsis; white-space: nowrap; }.vessel-evidence-grid em { margin-top: auto; color: var(--text-tertiary); }.vessel-analyst-note { margin-top: 8px; padding-top: 7px; border-top: 1px solid var(--wire); }.vessel-analyst-note span { color: var(--text-tertiary); font-family: var(--font-mono); font-size: 6.5px; }.vessel-analyst-note p { margin: 3px 0; color: var(--text-secondary); font-size: 7.5px; line-height: 1.45; }.vessel-analyst-note small { color: var(--text-tertiary); font-size: 6.5px; }
 .vessel-incident-list { display: flex; max-height: 190px; flex-direction: column; gap: 6px; overflow-y: auto; }.vessel-incident-list article { padding: 7px; border: 1px solid var(--wire); }.vessel-incident-list header { display: flex; align-items: center; justify-content: space-between; }.vessel-incident-list time { color: var(--text-tertiary); font-family: var(--font-mono); font-size: 6.5px; }.vessel-incident-list strong { display: block; margin-top: 4px; font-size: 8.5px; }.vessel-incident-list span { display: flex; align-items: center; gap: 4px; margin-top: 3px; color: var(--signal-cyan-soft); font-size: 7px; }.vessel-incident-list p { margin: 4px 0 0; color: var(--text-secondary); font-size: 7px; line-height: 1.4; }
 .vessel-panel-empty,.vessel-empty-state { display: flex; align-items: center; justify-content: center; flex-direction: column; color: var(--text-secondary); text-align: center; }.vessel-panel-empty { min-height: 170px; gap: 8px; }.vessel-panel-empty i { color: var(--severity-low); font-size: 30px; }.vessel-panel-empty span { font-size: 9px; }.vessel-empty-state { min-height: 520px; gap: 10px; border: 1px solid var(--wire); background: rgba(2,14,23,.8); }.vessel-empty-state i { color: var(--signal-cyan); font-size: 42px; }.vessel-empty-state strong { color: var(--text-primary); font-size: 15px; }.vessel-empty-state span { font-size: 10px; }.vessel-empty-state button { margin-top: 5px; padding: 8px 14px; border: 1px solid var(--signal-cyan); color: var(--signal-cyan); background: transparent; cursor: pointer; }
+
+/* Vessel Intelligence — readable typography without loosening tactical density. */
+.operations-workspace--vessel .vessel-toolbar__search input { font-size: 12px; }
+.operations-workspace--vessel .vessel-toolbar__filter,
+.operations-workspace--vessel .vessel-toolbar__action,
+.operations-workspace--vessel .vessel-toolbar__select select { font-size: 11px; }
+.operations-workspace--vessel .vessel-toolbar__filter b { font-size: 9px; }
+.operations-workspace--vessel .vessel-toolbar__more > div button { font-size: 11px; }
+.operations-workspace--vessel .vessel-toolbar__advanced > span,
+.operations-workspace--vessel .vessel-toolbar__advanced > button { font-size: 10px; }
+.operations-workspace--vessel .vessel-search-results header { font-size: 9.5px; }
+.operations-workspace--vessel .vessel-search-results > button strong { font-size: 12px; }
+.operations-workspace--vessel .vessel-search-results > button small { font-size: 9px; }
+.operations-workspace--vessel .risk-text { font-size: 8.5px; }
+
+.operations-workspace--vessel .intel-panel__header h2 { font-size: 13px; }
+.operations-workspace--vessel .intel-panel__eyebrow { font-size: 8.5px; }
+.operations-workspace--vessel .severity-badge--compact { font-size: 8.5px; }
+
+.operations-workspace--vessel .vessel-profile-card__heading h2 { font-size: 17px; }
+.operations-workspace--vessel .vessel-profile-card__heading span { font-size: 11px; }
+.operations-workspace--vessel .vessel-profile-card dt { font-size: 8.5px; }
+.operations-workspace--vessel .vessel-profile-card dd { font-size: 10.5px; }
+.operations-workspace--vessel .vessel-position span { font-size: 8px; }
+.operations-workspace--vessel .vessel-position strong { font-size: 11px; }
+.operations-workspace--vessel .vessel-position small { font-size: 9.5px; }
+
+.operations-workspace--vessel .voyage-metrics span { font-size: 8.5px; }
+.operations-workspace--vessel .voyage-metrics strong { font-size: 14px; }
+.operations-workspace--vessel .voyage-metrics small { font-size: 9px; }
+.operations-workspace--vessel .vessel-risk-gauge strong { font-size: 38px; }
+.operations-workspace--vessel .vessel-risk-gauge span { font-size: 11px; }
+.operations-workspace--vessel .vessel-risk-panel .intel-panel__body > b { font-size: 12px; }
+.operations-workspace--vessel .vessel-risk-panel .intel-panel__body > small { font-size: 9px; }
+
+.operations-workspace--vessel .risk-factor > i { font-size: 16px; }
+.operations-workspace--vessel .risk-factor strong { font-size: 11.5px; }
+.operations-workspace--vessel .risk-factor span { font-size: 9.5px; }
+.operations-workspace--vessel .risk-factor small { font-size: 8.5px; }
+
+.operations-workspace--vessel .vessel-table { font-size: 10px; }
+.operations-workspace--vessel .vessel-table th { font-size: 8.5px; }
+.operations-workspace--vessel .vessel-table td { line-height: 1.35; }
+.operations-workspace--vessel .vessel-history-list article > span { font-size: 8.5px; }
+.operations-workspace--vessel .vessel-history-list strong { font-size: 10.5px; }
+.operations-workspace--vessel .vessel-history-list small { font-size: 9px; }
+.operations-workspace--vessel .vessel-flag-history span { font-size: 8.5px; }
+.operations-workspace--vessel .vessel-flag-history strong { font-size: 10.5px; }
+.operations-workspace--vessel .vessel-flag-history small { font-size: 9px; }
+
+.operations-workspace--vessel .vessel-graph__column strong { font-size: 9.5px; }
+.operations-workspace--vessel .vessel-graph__column small { font-size: 8px; }
+.operations-workspace--vessel .vessel-graph__core strong { font-size: 10px; }
+.operations-workspace--vessel .vessel-graph__core small { font-size: 7.5px; }
+
+.operations-workspace--vessel .vessel-evidence-grid span { font-size: 9px; }
+.operations-workspace--vessel .vessel-evidence-grid strong { font-size: 11px; }
+.operations-workspace--vessel .vessel-evidence-grid small,
+.operations-workspace--vessel .vessel-evidence-grid em { font-size: 8.5px; }
+.operations-workspace--vessel .vessel-analyst-note span { font-size: 8.5px; }
+.operations-workspace--vessel .vessel-analyst-note p { font-size: 10px; }
+.operations-workspace--vessel .vessel-analyst-note small { font-size: 8.5px; }
+.operations-workspace--vessel .vessel-incident-list time { font-size: 8.5px; }
+.operations-workspace--vessel .vessel-incident-list strong { font-size: 11px; }
+.operations-workspace--vessel .vessel-incident-list span,
+.operations-workspace--vessel .vessel-incident-list p { font-size: 9px; }
+.operations-workspace--vessel .vessel-panel-empty span { font-size: 11px; }
+.operations-workspace--vessel .vessel-empty-state strong { font-size: 18px; }
+.operations-workspace--vessel .vessel-empty-state span { font-size: 12px; }
 @media (max-width:1500px) { .vessel-toolbar__select { width: 112px; }.vessel-toolbar__action { padding: 0 7px; }.vessel-toolbar__search { width: 280px; min-width: 240px; } }
 
 /* Border Intelligence — readable 1920×1080 operational density. */
