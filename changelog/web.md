@@ -6,6 +6,12 @@ Append-only. Newest entries at the top. Updated whenever a frontend task is crea
 
 ---
 
+### 2026-07-02 · Vessel Intelligence data-driven workspace · COMPLETE
+
+**Event:** Rebuilt Vessel Intelligence around synchronized search, filters, and multi-source vessel profiles
+**Files:** `apps/web/src/features/mbis/vessel-intelligence/`, `apps/web/public/data/mbis-vessel-intelligence.json`, `apps/web/scripts/generate-vessel-intelligence.mjs`, `apps/web/public/images/vessel-silhouette.svg`, `apps/web/src/services/mbis.service.ts`, `apps/web/src/services/mock-endpoints.ts`, `apps/web/src/stores/useMbisStore.ts`, `apps/web/src/types/mbis.d.ts`, `apps/web/src/features/mbis/components/OperationsWorkspace.tsx`, `apps/web/src/styles/components.css`, `apps/web/public/data/SOURCES.md`
+> Added 52 complete local vessel records, research-grounded public anchors, realistic synthetic enrichment, real-time multi-field search, seven functional filter dimensions, synchronized vessel selection across eleven intelligence panels, watchlist state, JSON report export, empty state, local vessel imagery, and a Satellite Streets/Globe voyage map. No backend or live API was introduced.
+
 ### 2026-07-01 · Land Border Situation Map · COMPLETE
 
 **Event:** Rebuilt the Border Intelligence map around operational land-border corridors

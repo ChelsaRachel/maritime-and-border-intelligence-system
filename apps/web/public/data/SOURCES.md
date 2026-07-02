@@ -39,3 +39,21 @@ All operational records in this folder are static synthetic data for a frontend 
 | `nmp-replay.json` | 96 quarter-hour replay frames, maritime weather, and multi-source health |
 
 The route, jurisdiction, zone, and facility geometries are simplified for tactical UI rendering and are not suitable for navigation, enforcement, or legal boundary determination.
+
+## Vessel Intelligence references
+
+- IMO — permanent ship identification number scheme and public GISIS lookup context: https://www.imo.org/en/ourwork/msas/pages/imo-identification-number-scheme.aspx
+- IMO — AIS carriage, identity, and position-reporting purpose: https://www.imo.org/en/ourwork/safety/pages/ais.aspx
+- Global Fishing Watch — public vessel identity data and identity-spoofing caveats: https://globalfishingwatch.org/datasets-and-code-vessel-identity/
+- Global Fishing Watch — AIS disabling methodology and distinction from reception gaps: https://globalfishingwatch.org/research-project-disabled-signals/
+- Global Fishing Watch — port visits, AIS gap events, encounters, and risk API methodology: https://globalfishingwatch.org/our-apis/documentation
+- Global Fishing Watch — IUU risk indicators including disabling, unexplained gaps, and identity overlap: https://globalfishingwatch.org/platform-update/iuu-fishing-risk-insights-dataset-release/
+- PELNI — official passenger/cargo fleet inventory and build-year reference: https://ppid.pelni.co.id/wp-content/uploads/2022/09/Armada-Kapal-PELNI.pdf
+- PELNI — official 3-in-1 vessel role and Dobonsolo/Ciremai route context: https://www.pelni.co.id/ship-3-in-1
+- Samudera Indonesia Ship Management — official fleet names across container, tanker, bulk, OSV, and gas-carrier categories: https://www.samudera.id/sisman/id/1/daftararmada
+- PT TEMAS — operational fleet scale and Indonesian container-network context: https://temas.id/en
+- KKP — Arafura transshipment enforcement and vessel-risk context: https://kkp.go.id/news/news-detail/kkp-bekukan-izin-11-kapal-terduga-transhipment-di-arafura-mqMp.html
+- KKP DIVA-TUNA — Indonesian authorized tuna-vessel registry context: https://integrasi.djpt.kkp.go.id/tunavessel/
+- VesselFinder public particulars used for selected anchor profiles: https://www.vesselfinder.com/vessels/details/9811000, https://www.vesselfinder.com/vessels/details/9455791, https://www.vesselfinder.com/vessels/details/9106651, https://www.vesselfinder.com/vessels/details/9827968, https://www.vesselfinder.com/vessels/details/9827956, https://www.vesselfinder.com/vessels/details/9139684, https://www.vesselfinder.com/vessels/details/9032147, https://www.vesselfinder.com/vessels/details/9226487, https://www.vesselfinder.com/vessels/details/9124548, https://www.vesselfinder.com/vessels/details/9269609
+
+`mbis-vessel-intelligence.json` contains 10 public-reference anchor profiles and 42 clearly marked `synthetic-enriched` profiles. Synthetic operational histories, risk scores, AIS gaps, incidents, and positions are demonstration fixtures and must not be interpreted as current registry, navigational, enforcement, or sanctions findings.

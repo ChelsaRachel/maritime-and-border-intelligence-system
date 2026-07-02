@@ -55,4 +55,5 @@ export interface IMbisFixtureState {
   nmpGeography: import('@/features/mbis/types/nmp.types').INmpGeographyFixture | null
   nmpIntelligence: import('@/features/mbis/types/nmp.types').INmpIntelligenceFixture | null
   nmpReplay: import('@/features/mbis/types/nmp.types').INmpReplayFixture | null
+  vesselIntelligence: import('@/features/mbis/vessel-intelligence').IVesselIntelligenceRecord[] | null
 }

@@ -7,4 +7,5 @@ export const MOCK_ENDPOINTS = {
   NMP_GEOGRAPHY: 'nmp-geography.json',
   NMP_INTELLIGENCE: 'nmp-intelligence.json',
   NMP_REPLAY: 'nmp-replay.json',
+  VESSEL_INTELLIGENCE: 'mbis-vessel-intelligence.json',
 } as const

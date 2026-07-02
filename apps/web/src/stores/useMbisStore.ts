@@ -18,6 +18,7 @@ export const useMbisStore = create<IMbisStore>((set, get) => ({
   nmpGeography: null,
   nmpIntelligence: null,
   nmpReplay: null,
+  vesselIntelligence: null,
   loading: false,
   loaded: false,
   error: null,

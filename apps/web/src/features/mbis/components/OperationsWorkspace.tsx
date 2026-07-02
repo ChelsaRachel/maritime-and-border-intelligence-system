@@ -9,6 +9,7 @@ import { SeverityBadge } from '@/components/common/SeverityBadge'
 import { TacticalMap } from '@/features/tactical/components/TacticalMap'
 import { GeofenceWarnings } from '@/features/mbis/components/GeofenceWarnings'
 import { LandBorderSituationMap } from '@/features/mbis/components/LandBorderSituationMap'
+import { VesselIntelligenceWorkspace } from '@/features/mbis/vessel-intelligence'
 import { useAuthStore } from '@/stores/useAuthStore'
 import { useMbisStore } from '@/stores/useMbisStore'
 import { type CSSProperties, useMemo, useState } from 'react'
@@ -29,11 +30,11 @@ function ScoreRing({ score, label }: { score: number; label: string }) {
 }
 
 export function OperationsWorkspace({ module }: { module: TWorkspaceModule }) {
-  const { border, entities, operations, overview, loading, error } = useMbisStore()
+  const { border, entities, operations, overview, vesselIntelligence, loading, error } = useMbisStore()
   const user = useAuthStore((state) => state.user)
   const [selectedAnomalyId, setSelectedAnomalyId] = useState('ANM-2026-0629-001')
   const [thresholds, setThresholds] = useState({ ais: 15, loitering: 3, route: 15, zone: 1, cluster: 10 })
-  const ready = Boolean(border && entities && operations && overview)
+  const ready = Boolean(border && entities && operations && overview && vesselIntelligence)
   const anomaly = entities?.anomalies.find((item: any) => item.id === selectedAnomalyId) ?? entities?.anomalies[0]
 
   const threatPoints = useMemo(() => operations ? operations.threat.regions.map((item: any, index: number) => ({ id: `THR-${index}`, name: item.name, coordinates: item.coordinates, severity: item.score >= 75 ? 'CRITICAL' : item.score >= 60 ? 'HIGH' : 'MEDIUM', score: item.score })) : [], [operations])
@@ -51,20 +52,7 @@ export function OperationsWorkspace({ module }: { module: TWorkspaceModule }) {
     </div>
   )
 
-  const renderVessel = () => {
-    const vessel = entities!.vesselProfile
-    return <div className="workspace-grid workspace-grid--vessel">
-      <Panel title="Vessel Profile" eyebrow="Watchlisted entity" className="span-4"><div className="entity-profile"><div className="entity-silhouette"><i className="ph ph-boat" /></div><div><span className="mono-label">{vessel.mmsi} · {vessel.callSign}</span><h2>{vessel.name}</h2><p>{vessel.type} · {vessel.flag}</p><SeverityBadge value="ACTIVE WATCH" /></div></div><dl className="key-values"><div><dt>IMO</dt><dd>{vessel.imo}</dd></div><div><dt>Dimensions</dt><dd>{vessel.lengthM} × {vessel.beamM} m</dd></div><div><dt>Operator</dt><dd>{vessel.operator}</dd></div><div><dt>Last position</dt><dd>{vessel.lastPosition}</dd></div></dl></Panel>
-      <Panel title="90-day Voyage Track" eyebrow="Port calls and risk segments" className="span-5 map-panel"><TacticalMap id="vessel" points={[{ id: vessel.id, name: vessel.name, coordinates: vessel.track[vessel.track.length - 1], severity: 'CRITICAL' }]} routes={[{ id: 'VSL-TRACK', name: `${vessel.name} 90d track`, coordinates: vessel.track, risk: 'HIGH' }]} center={[108.3, 1.7]} zoom={3.3} compact /></Panel>
-      <Panel title="Deterministic Risk Score" eyebrow="Weighted factors" className="span-3 score-panel"><ScoreRing score={vessel.riskScore} label={vessel.riskLabel} /><small>Updated {vessel.lastSeen}</small></Panel>
-      <Panel title="Risk Factors" eyebrow="Explainable evidence" className="span-4"><RowList rows={vessel.riskFactors.map((item: any) => ({ ...item, title: item.label, detail: item.evidence }))} /></Panel>
-      <Panel title="Port History" eyebrow="Latest calls" className="span-8"><DataTable columns={[{key:'date',label:'UTC DATE'},{key:'port',label:'PORT'},{key:'country',label:'COUNTRY'},{key:'arrival',label:'ARRIVAL'},{key:'departure',label:'DEPARTURE'},{key:'duration',label:'DURATION'}]} rows={vessel.ports} /></Panel>
-      <Panel title="AIS Gap Log" eyebrow="90-day reception analysis" className="span-5"><DataTable columns={[{key:'start',label:'START'},{key:'duration',label:'DURATION'},{key:'location',label:'LOCATION'},{key:'status',label:'ASSESSMENT'}]} rows={vessel.aisGaps} /></Panel>
-      <Panel title="Ownership & Operator" eyebrow="Entity history" className="span-4"><RowList rows={vessel.ownership.map((item: any) => ({ ...item, name: item.owner, detail: `${item.period} · ${item.operator}` }))} /></Panel>
-      <Panel title="Relationship Graph" eyebrow="Linked intelligence" className="span-3"><div className="relationship-core"><span>{vessel.name}</span>{vessel.relationships.map((item: any) => <article key={item.name}><i className="ph ph-git-branch" /><div><strong>{item.name}</strong><small>{item.relation}</small></div></article>)}</div></Panel>
-      <Panel title="Evidence & Verification" eyebrow="Multi-source" className="span-12"><div className="evidence-grid">{vessel.evidence.map((item: any) => <article key={item.source}><i className="ph ph-seal-check" /><span>{item.source}</span><strong>{item.availability}</strong><SeverityBadge value={item.status} compact /></article>)}</div></Panel>
-    </div>
-  }
+  const renderVessel = () => <VesselIntelligenceWorkspace vessels={vesselIntelligence!} />
 
   const renderAircraft = () => {
     const aircraft = entities!.aircraftProfile
