@@ -39,7 +39,6 @@ export default function LoginPage() {
     <main className="login-screen">
       <div className="login-radar" aria-hidden="true"><span /><i /><i /><i /></div>
       <section className="login-intro">
-        <div className="login-brand"><img src="/logo.svg" alt="Logo MBIS" /><div><strong>MBIS</strong><span>Maritime & Border Intelligence System</span></div></div>
         <div className="login-kicker"><i />NATIONAL INTELLIGENCE FUSION ENVIRONMENT</div>
         <h1>Unified maritime and border<br /><em>operational picture.</em></h1>
         <p>Antarmuka command intelligence untuk pemantauan lintas-domain, triase anomali, early warning, dan produk intelijen eksekutif.</p>

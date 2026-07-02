@@ -60,10 +60,6 @@
 .login-screen::before { position: absolute; inset: 0; content: ''; opacity: .18; background-image: linear-gradient(rgba(0,224,255,.11) 1px, transparent 1px), linear-gradient(90deg, rgba(0,224,255,.11) 1px, transparent 1px); background-size: 42px 42px; mask-image: linear-gradient(90deg, black, transparent 72%); }
 .login-screen::after { position: absolute; inset: 0; pointer-events: none; content: ''; background: repeating-linear-gradient(0deg, transparent 0, transparent 3px, rgba(0,0,0,.11) 4px); }
 .login-intro { position: relative; z-index: 2; display: flex; max-width: 860px; align-self: center; flex-direction: column; padding: clamp(40px,7vw,110px); }
-.login-brand { position: absolute; top: -120px; left: clamp(40px,7vw,110px); display: flex; align-items: center; gap: 15px; }
-.login-brand img { width: 62px; height: 62px; object-fit: contain; filter: drop-shadow(0 0 16px rgba(0,224,255,.35)); }
-.login-brand strong { display: block; font-family: var(--font-mono); font-size: 31px; letter-spacing: .18em; }
-.login-brand span { display: block; color: var(--text-secondary); font-size: 11px; }
 .login-kicker { display: flex; align-items: center; gap: 10px; color: var(--signal-cyan); font-family: var(--font-mono); font-size: 10px; letter-spacing: .2em; }
 .login-kicker i { width: 32px; height: 1px; background: var(--signal-cyan); box-shadow: 0 0 8px var(--signal-cyan); }
 .login-intro h1 { margin: 24px 0 18px; font-size: clamp(40px,4.2vw,74px); font-weight: 600; line-height: 1.05; letter-spacing: -.045em; }
@@ -902,21 +898,25 @@ progress::-moz-progress-bar { background: linear-gradient(90deg,var(--signal-cya
 .operations-workspace--warning .brief-form textarea { font-size: 14px; }
 .operations-workspace--warning .brief-form button { font-size: 13px; }
 
-.operations-workspace--threat .domain-cards article > span { font-size: 10px; }
-.operations-workspace--threat .domain-cards article > strong { font-size: 28px; }
-.operations-workspace--threat .domain-cards article > strong small { font-size: 10px; }
-.operations-workspace--threat .domain-cards article em { font-size: 9px; }
-.operations-workspace--threat .national-index span { font-size: 10px; }
-.operations-workspace--threat .national-index strong { font-size: 18px; }
-.operations-workspace--threat .national-index em { font-size: 9px; }
+.operations-workspace--threat .intel-panel__header h2 { font-size: 17px; }
+.operations-workspace--threat .intel-panel__eyebrow { font-size: 11px; }
+.operations-workspace--threat .severity-badge { font-size: 12px; }
+.operations-workspace--threat .severity-badge--compact { font-size: 11px; }
+.operations-workspace--threat .domain-cards article > span { font-size: 12px; }
+.operations-workspace--threat .domain-cards article > strong { font-size: 32px; }
+.operations-workspace--threat .domain-cards article > strong small { font-size: 12px; }
+.operations-workspace--threat .domain-cards article em { font-size: 11px; }
+.operations-workspace--threat .national-index span { font-size: 12px; }
+.operations-workspace--threat .national-index strong { font-size: 22px; }
+.operations-workspace--threat .national-index em { font-size: 11px; }
 .operations-workspace--threat .multi-series { height: 100%; }
 .operations-workspace--threat .multi-series article { flex: 1; }
-.operations-workspace--threat .multi-series span { font-size: 10px; }
+.operations-workspace--threat .multi-series span { font-size: 12px; }
 .operations-workspace--threat .factor-list { height: 100%; }
-.operations-workspace--threat .factor-list label { flex: 1; font-size: 11px; }
-.operations-workspace--threat .factor-list b { font-size: 10px; }
-.operations-workspace--threat .data-table { font-size: 11px; }
-.operations-workspace--threat .data-table th { font-size: 9.5px; }
+.operations-workspace--threat .factor-list label { flex: 1; font-size: 13px; }
+.operations-workspace--threat .factor-list b { font-size: 12px; }
+.operations-workspace--threat .data-table { font-size: 12.5px; }
+.operations-workspace--threat .data-table th { font-size: 11px; }
 .operations-workspace--threat .data-table td { line-height: 1.4; }
 .operations-workspace--threat .threat-analysis-panel > .intel-panel__body { height: 238px; flex: 0 0 238px; overflow: hidden; }
 .operations-workspace--threat .threat-regional-scroll { height: 100%; }
@@ -925,14 +925,14 @@ progress::-moz-progress-bar { background: linear-gradient(90deg,var(--signal-cya
 .operations-workspace--threat .threat-forecast-panel .data-table { height: 100%; }
 .operations-workspace--threat .row-list { height: 100%; }
 .operations-workspace--threat .row-list article { flex: 1; }
-.operations-workspace--threat .row-list strong { font-size: 12px; }
-.operations-workspace--threat .row-list small { font-size: 10px; }
+.operations-workspace--threat .row-list strong { font-size: 14px; }
+.operations-workspace--threat .row-list small { font-size: 12px; }
 .operations-workspace--threat .row-list time,
-.operations-workspace--threat .row-list b { font-size: 9px; }
-.operations-workspace--threat .scenario-surface section span { font-size: 9px; }
-.operations-workspace--threat .scenario-surface section strong { font-size: 13px; }
-.operations-workspace--threat .scenario-surface section p { font-size: 11px; line-height: 1.45; }
-.operations-workspace--threat .scenario-surface section button { font-size: 10px; }
+.operations-workspace--threat .row-list b { font-size: 11px; }
+.operations-workspace--threat .scenario-surface section span { font-size: 11px; }
+.operations-workspace--threat .scenario-surface section strong { font-size: 16px; }
+.operations-workspace--threat .scenario-surface section p { font-size: 13px; line-height: 1.45; }
+.operations-workspace--threat .scenario-surface section button { font-size: 12px; }
 
 .operations-workspace--reporting .report-builder { height: 100%; }
 .operations-workspace--reporting .report-builder aside button { flex: 1; font-size: 11px; }
