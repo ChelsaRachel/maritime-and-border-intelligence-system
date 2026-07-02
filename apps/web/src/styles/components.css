@@ -556,7 +556,6 @@ progress::-moz-progress-bar { background: linear-gradient(90deg,var(--signal-cya
 .operations-workspace--border .mini-metrics article { min-height: 92px; padding: 15px; }
 .operations-workspace--border .mini-metrics span { font-size: 10px; }
 .operations-workspace--border .mini-metrics strong { margin-top: 9px; font-size: 27px; }
-.operations-workspace--border .map-contract-chip span { padding: 4px 7px; font-size: 8px; }
 .operations-workspace--border .workspace-footer { padding-top: 16px; font-size: 9px; }
 
 /* Border Intelligence — native Mapbox land-border situation canvas. */
@@ -614,8 +613,6 @@ progress::-moz-progress-bar { background: linear-gradient(90deg,var(--signal-cya
 .tactical-map { position: relative; width: 100%; height: 100%; min-height: 0; overflow: hidden; background: var(--ocean-950); }
 .tactical-map__canvas { position: absolute; inset: 0; }
 .tactical-map__scan { position: absolute; z-index: 2; inset: 0; pointer-events: none; opacity: .25; background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,224,255,.03) 4px); }
-.map-contract-chip { position: absolute; z-index: 4; left: 8px; bottom: 8px; display: flex; gap: 4px; pointer-events: none; }
-.map-contract-chip span { padding: 3px 5px; border: 1px solid var(--wire); color: var(--signal-cyan-soft); background: rgba(2,10,18,.8); font-family: var(--font-mono); font-size: 6px; letter-spacing: .05em; }
 .map-error { position: absolute; z-index: 8; left: 50%; top: 12px; padding: 7px 10px; transform: translateX(-50%); border: 1px solid var(--severity-critical); color: var(--severity-critical); background: var(--surface-glass-strong); font-size: 9px; }
 .map-fallback { display: flex; width: 100%; height: 100%; min-height: 240px; align-items: center; justify-content: center; flex-direction: column; gap: 8px; border: 1px dashed var(--wire-strong); color: var(--signal-cyan); background: radial-gradient(circle, rgba(0,224,255,.07), transparent 46%), var(--ocean-925); }
 .map-fallback i { font-size: 32px; }.map-fallback strong { font-family: var(--font-mono); font-size: 10px; }.map-fallback span { color: var(--text-secondary); font-size: 9px; }
@@ -714,6 +711,53 @@ progress::-moz-progress-bar { background: linear-gradient(90deg,var(--signal-cya
 .aircraft-card > i { display: block; margin: 10px 0; color: var(--signal-cyan); font-size: 56px; text-align: center; text-shadow: 0 0 18px rgba(0,224,255,.4); }.aircraft-card h2 { margin: 8px 0 0; font-family: var(--font-mono); font-size: 20px; }.aircraft-card > span { color: var(--text-secondary); font-family: var(--font-mono); font-size: 8px; }.aircraft-card dl { display: grid; grid-template-columns: repeat(2,1fr); gap: 1px; margin-top: 12px; background: var(--wire); }.aircraft-card dl div { padding: 8px; background: var(--ocean-925); }.aircraft-card dt { color: var(--text-tertiary); font-size: 7px; }.aircraft-card dd { margin: 2px 0 0; font-family: var(--font-mono); font-size: 10px; }
 .reason-list { display: flex; flex-direction: column; gap: 6px; margin: 9px 0 0; padding: 0; list-style: none; }.reason-list li { position: relative; padding-left: 12px; color: var(--text-secondary); font-size: 8px; }.reason-list li::before { position: absolute; left: 0; top: 5px; width: 4px; height: 4px; content: ''; border-radius: 50%; background: var(--severity-critical); box-shadow: 0 0 6px var(--severity-critical); }
 .flight-chart,.trend-lines { display: flex; height: 170px; align-items: end; gap: 12px; padding: 12px; border-bottom: 1px solid var(--wire); }.flight-chart div,.trend-lines div { position: relative; display: flex; flex: 1; height: 100%; align-items: end; justify-content: center; gap: 3px; }.flight-chart i,.trend-lines i { display: block; width: 4px; background: var(--signal-cyan); }.flight-chart b,.trend-lines b { display: block; width: 4px; background: var(--severity-high); }.flight-chart span,.trend-lines span { position: absolute; bottom: -19px; color: var(--text-tertiary); font-family: var(--font-mono); font-size: 7px; }
+
+/* Aircraft Intelligence — larger typography within unchanged widget geometry. */
+.operations-workspace--aircraft .workspace-grid--aircraft > .intel-panel { display: flex; flex-direction: column; }
+.operations-workspace--aircraft .workspace-grid--aircraft > .intel-panel > .intel-panel__body { flex: 1; }
+.operations-workspace--aircraft .intel-panel__header h2 { font-size: 14px; }
+.operations-workspace--aircraft .intel-panel__eyebrow { font-size: 9px; }
+.operations-workspace--aircraft .intel-panel__action { font-size: 10px; }
+.operations-workspace--aircraft .severity-badge { font-size: 10px; }
+.operations-workspace--aircraft .severity-badge--compact { font-size: 9px; }
+
+.operations-workspace--aircraft .aircraft-card { display: flex; height: 100%; flex-direction: column; }
+.operations-workspace--aircraft .aircraft-card > i { margin: 12px 0; font-size: 78px; }
+.operations-workspace--aircraft .aircraft-card h2 { font-size: 25px; }
+.operations-workspace--aircraft .aircraft-card > span { font-size: 11px; }
+.operations-workspace--aircraft .aircraft-card dl { margin-top: auto; }
+.operations-workspace--aircraft .aircraft-card dt { font-size: 10px; }
+.operations-workspace--aircraft .aircraft-card dd { font-size: 14px; }
+
+.operations-workspace--aircraft .score-panel .intel-panel__body { justify-content: space-evenly; }
+.operations-workspace--aircraft .score-ring { width: 158px; height: 158px; }
+.operations-workspace--aircraft .score-ring::before { inset: 13px; }
+.operations-workspace--aircraft .score-ring > div strong { font-size: 38px; }
+.operations-workspace--aircraft .score-ring > div span { font-size: 10px; }
+.operations-workspace--aircraft .score-ring > small { bottom: 39px; font-size: 9px; }
+.operations-workspace--aircraft .reason-list { width: 100%; }
+.operations-workspace--aircraft .reason-list li { font-size: 11px; line-height: 1.45; }
+
+.operations-workspace--aircraft .row-list { height: 100%; }
+.operations-workspace--aircraft .row-list article { flex: 1; }
+.operations-workspace--aircraft .row-list strong { font-size: 12px; }
+.operations-workspace--aircraft .row-list small { font-size: 10px; }
+.operations-workspace--aircraft .row-list time,
+.operations-workspace--aircraft .row-list b { font-size: 9px; }
+.operations-workspace--aircraft .row-index { font-size: 9px; }
+
+.operations-workspace--aircraft .data-table { font-size: 11px; }
+.operations-workspace--aircraft .data-table th { font-size: 9.5px; }
+.operations-workspace--aircraft .data-table td { line-height: 1.4; }
+.operations-workspace--aircraft .flight-chart { height: 100%; min-height: 170px; }
+.operations-workspace--aircraft .flight-chart i,
+.operations-workspace--aircraft .flight-chart b { width: 6px; }
+.operations-workspace--aircraft .flight-chart span { font-size: 10px; }
+
+.operations-workspace--aircraft .source-health { height: 100%; justify-content: space-between; }
+.operations-workspace--aircraft .source-health span { font-size: 11px; }
+.operations-workspace--aircraft .source-health span b { font-size: 10px; }
+.operations-workspace--aircraft .workspace-footer { font-size: 9px; }
 .source-health { display: flex; align-items: center; flex-direction: column; gap: 7px; }.source-health span { display: flex; width: 100%; justify-content: space-between; padding: 5px; border-bottom: 1px solid var(--wire); color: var(--text-secondary); font-size: 8px; }.source-health span b { color: var(--severity-low); font-family: var(--font-mono); font-size: 7px; }
 .anomaly-list { display: flex; max-height: 635px; flex-direction: column; overflow: auto; }.anomaly-list button { display: flex; min-height: 57px; align-items: center; gap: 8px; padding: 7px; border: 1px solid transparent; border-bottom-color: var(--wire); color: var(--text-secondary); background: transparent; cursor: pointer; text-align: left; }.anomaly-list button > i { color: var(--severity-high); font-size: 18px; }.anomaly-list button > div { min-width: 0; flex: 1; }.anomaly-list strong,.anomaly-list small { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }.anomaly-list strong { color: var(--text-primary); font-size: 9px; }.anomaly-list small { margin-top: 2px; color: var(--text-tertiary); font-size: 7px; }.anomaly-list button:hover,.anomaly-list button.is-selected { border-color: var(--severity-critical); background: rgba(255,66,80,.06); }
 .anomaly-hero { display: flex; align-items: center; justify-content: space-between; }.anomaly-hero h2 { margin: 8px 0 3px; font-size: 14px; }.anomaly-hero p { margin: 0; color: var(--text-secondary); font-size: 9px; }.anomaly-hero .score-ring { width: 90px; height: 90px; }.anomaly-hero .score-ring::before { inset: 8px; }.anomaly-hero .score-ring > div strong { font-size: 22px; }.anomaly-hero .score-ring > small { bottom: 21px; font-size: 6px; }
@@ -729,6 +773,156 @@ progress::-moz-progress-bar { background: linear-gradient(90deg,var(--signal-cya
 .classification-block { display: flex; flex-direction: column; gap: 7px; }.classification-block > span:not(.severity-badge) { margin-top: 6px; color: var(--text-tertiary); font-family: var(--font-mono); font-size: 7px; }.classification-block > strong { padding: 7px; border: 1px solid var(--wire); font-size: 8px; }
 .approval-flow { display: flex; flex-direction: column; }.approval-flow article { position: relative; display: flex; gap: 8px; min-height: 50px; }.approval-flow article::after { position: absolute; top: 24px; bottom: 0; left: 11px; width: 1px; content: ''; background: var(--wire-strong); }.approval-flow article:last-child::after { display: none; }.approval-flow article > b { position: relative; z-index: 1; display: grid; width: 24px; height: 24px; place-items: center; border: 1px solid var(--wire-strong); border-radius: 50%; color: var(--text-tertiary); background: var(--ocean-925); font-family: var(--font-mono); font-size: 8px; }.approval-flow article strong,.approval-flow article small { display:block;font-size:8px}.approval-flow article small{color:var(--text-tertiary)}.approval-flow--done > b{border-color:var(--severity-low);color:var(--severity-low)}.approval-flow--active > b{border-color:var(--signal-cyan);color:var(--signal-cyan);box-shadow:0 0 8px rgba(0,224,255,.35)}
 .quality-orbit,.source-health { display:flex;align-items:center;flex-direction:column;gap:7px}.quality-orbit > span { display:flex;width:100%;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--wire);color:var(--text-secondary);font-size:8px}.quality-orbit > span i{width:5px;height:5px;margin-top:3px;border-radius:50%;background:var(--severity-low);box-shadow:0 0 6px var(--severity-low)}.quality-orbit > span b{margin-left:auto;color:var(--signal-teal);font-family:var(--font-mono)}
+
+/* Anomaly, Early Warning, Threat, and Reporting — readable content in unchanged cards. */
+.operations-workspace--anomaly .intel-panel,
+.operations-workspace--warning .intel-panel,
+.operations-workspace--threat .intel-panel,
+.operations-workspace--reporting .intel-panel { display: flex; flex-direction: column; }
+.operations-workspace--anomaly .intel-panel > .intel-panel__body,
+.operations-workspace--warning .intel-panel > .intel-panel__body,
+.operations-workspace--threat .intel-panel > .intel-panel__body,
+.operations-workspace--reporting .intel-panel > .intel-panel__body { flex: 1; }
+.operations-workspace--anomaly .intel-panel__header h2,
+.operations-workspace--warning .intel-panel__header h2,
+.operations-workspace--threat .intel-panel__header h2,
+.operations-workspace--reporting .intel-panel__header h2 { font-size: 14px; }
+.operations-workspace--anomaly .intel-panel__eyebrow,
+.operations-workspace--warning .intel-panel__eyebrow,
+.operations-workspace--threat .intel-panel__eyebrow,
+.operations-workspace--reporting .intel-panel__eyebrow { font-size: 9px; }
+.operations-workspace--anomaly .severity-badge,
+.operations-workspace--warning .severity-badge,
+.operations-workspace--threat .severity-badge,
+.operations-workspace--reporting .severity-badge { font-size: 10px; }
+.operations-workspace--anomaly .severity-badge--compact,
+.operations-workspace--warning .severity-badge--compact,
+.operations-workspace--threat .severity-badge--compact,
+.operations-workspace--reporting .severity-badge--compact { font-size: 9px; }
+
+.operations-workspace--anomaly .anomaly-list { height: 100%; max-height: none; }
+.operations-workspace--anomaly .anomaly-list button { flex: 1; }
+.operations-workspace--anomaly .anomaly-list button > i { font-size: 22px; }
+.operations-workspace--anomaly .anomaly-list strong { font-size: 12px; }
+.operations-workspace--anomaly .anomaly-list small { font-size: 10px; }
+.operations-workspace--anomaly .anomaly-hero h2 { font-size: 18px; }
+.operations-workspace--anomaly .anomaly-hero p { font-size: 12px; }
+.operations-workspace--anomaly .anomaly-hero .score-ring { width: 112px; height: 112px; }
+.operations-workspace--anomaly .anomaly-hero .score-ring > div strong { font-size: 29px; }
+.operations-workspace--anomaly .anomaly-hero .score-ring > div span { font-size: 9px; }
+.operations-workspace--anomaly .anomaly-hero .score-ring > small { bottom: 27px; font-size: 8px; }
+.operations-workspace--anomaly .key-values dt { font-size: 9px; }
+.operations-workspace--anomaly .key-values dd { font-size: 11px; }
+.operations-workspace--anomaly .reason-list li { font-size: 11px; line-height: 1.45; }
+.operations-workspace--anomaly .factor-list,
+.operations-workspace--anomaly .threshold-list { height: 100%; }
+.operations-workspace--anomaly .factor-list label,
+.operations-workspace--anomaly .threshold-list label { flex: 1; }
+.operations-workspace--anomaly .factor-list label { font-size: 11px; }
+.operations-workspace--anomaly .factor-list b { font-size: 10px; }
+.operations-workspace--anomaly .threshold-list label span { font-size: 10px; }
+.operations-workspace--anomaly .panel-button { font-size: 10px; }
+.operations-workspace--anomaly .correlation-line { height: 100%; }
+.operations-workspace--anomaly .correlation-line article { justify-content: center; }
+.operations-workspace--anomaly .correlation-line article strong { font-size: 11px; }
+.operations-workspace--anomaly .correlation-line article small { font-size: 9px; }
+
+.operations-workspace--warning .metric-card__label,
+.operations-workspace--reporting .metric-card__label { font-size: 10px; }
+.operations-workspace--warning .metric-card__value,
+.operations-workspace--reporting .metric-card__value { font-size: 30px; }
+.operations-workspace--warning .metric-card__footer,
+.operations-workspace--reporting .metric-card__footer { font-size: 9px; }
+.operations-workspace--warning .row-list,
+.operations-workspace--reporting .row-list { height: 100%; }
+.operations-workspace--warning .row-list article,
+.operations-workspace--reporting .row-list article { flex: 1; }
+.operations-workspace--warning .row-list strong,
+.operations-workspace--reporting .row-list strong { font-size: 12px; }
+.operations-workspace--warning .row-list small,
+.operations-workspace--reporting .row-list small { font-size: 10px; }
+.operations-workspace--warning .row-list time,
+.operations-workspace--warning .row-list b,
+.operations-workspace--reporting .row-list time,
+.operations-workspace--reporting .row-list b { font-size: 9px; }
+.operations-workspace--warning .row-index,
+.operations-workspace--reporting .row-index { font-size: 9px; }
+.operations-workspace--warning .domain-distribution { height: 100%; }
+.operations-workspace--warning .domain-distribution label { flex: 1; font-size: 11px; }
+.operations-workspace--warning .domain-distribution b { font-size: 10px; }
+.operations-workspace--warning .trend-lines span { font-size: 10px; }
+.operations-workspace--warning .quick-actions,
+.operations-workspace--reporting .quick-actions { height: 100%; }
+.operations-workspace--warning .quick-actions button i,
+.operations-workspace--reporting .quick-actions button i { font-size: 24px; }
+.operations-workspace--warning .quick-actions button span,
+.operations-workspace--reporting .quick-actions button span { font-size: 11px; }
+
+.operations-workspace--warning .brief-form,
+.operations-workspace--reporting .brief-form { height: 100%; }
+.operations-workspace--warning .brief-form label,
+.operations-workspace--reporting .brief-form label { font-size: 10px; }
+.operations-workspace--warning .brief-form input,
+.operations-workspace--warning .brief-form select,
+.operations-workspace--warning .brief-form textarea,
+.operations-workspace--reporting .brief-form input,
+.operations-workspace--reporting .brief-form select,
+.operations-workspace--reporting .brief-form textarea { font-size: 12px; }
+.operations-workspace--warning .brief-form button,
+.operations-workspace--reporting .brief-form button { margin-top: auto; font-size: 11px; }
+
+.operations-workspace--threat .domain-cards article > span { font-size: 10px; }
+.operations-workspace--threat .domain-cards article > strong { font-size: 28px; }
+.operations-workspace--threat .domain-cards article > strong small { font-size: 10px; }
+.operations-workspace--threat .domain-cards article em { font-size: 9px; }
+.operations-workspace--threat .national-index span { font-size: 10px; }
+.operations-workspace--threat .national-index strong { font-size: 18px; }
+.operations-workspace--threat .national-index em { font-size: 9px; }
+.operations-workspace--threat .multi-series { height: 100%; }
+.operations-workspace--threat .multi-series article { flex: 1; }
+.operations-workspace--threat .multi-series span { font-size: 10px; }
+.operations-workspace--threat .factor-list { height: 100%; }
+.operations-workspace--threat .factor-list label { flex: 1; font-size: 11px; }
+.operations-workspace--threat .factor-list b { font-size: 10px; }
+.operations-workspace--threat .data-table { font-size: 11px; }
+.operations-workspace--threat .data-table th { font-size: 9.5px; }
+.operations-workspace--threat .data-table td { line-height: 1.4; }
+.operations-workspace--threat .threat-analysis-panel > .intel-panel__body { height: 238px; flex: 0 0 238px; overflow: hidden; }
+.operations-workspace--threat .threat-regional-scroll { height: 100%; }
+.operations-workspace--threat .threat-regional-scroll .data-table-wrap { overflow: visible; }
+.operations-workspace--threat .threat-forecast-panel .data-table-wrap,
+.operations-workspace--threat .threat-forecast-panel .data-table { height: 100%; }
+.operations-workspace--threat .row-list { height: 100%; }
+.operations-workspace--threat .row-list article { flex: 1; }
+.operations-workspace--threat .row-list strong { font-size: 12px; }
+.operations-workspace--threat .row-list small { font-size: 10px; }
+.operations-workspace--threat .row-list time,
+.operations-workspace--threat .row-list b { font-size: 9px; }
+.operations-workspace--threat .scenario-surface section span { font-size: 9px; }
+.operations-workspace--threat .scenario-surface section strong { font-size: 13px; }
+.operations-workspace--threat .scenario-surface section p { font-size: 11px; line-height: 1.45; }
+.operations-workspace--threat .scenario-surface section button { font-size: 10px; }
+
+.operations-workspace--reporting .report-builder { height: 100%; }
+.operations-workspace--reporting .report-builder aside button { flex: 1; font-size: 11px; }
+.operations-workspace--reporting .report-builder section article { flex: 1; }
+.operations-workspace--reporting .report-builder section strong { font-size: 11px; }
+.operations-workspace--reporting .report-builder section small { font-size: 9.5px; }
+.operations-workspace--reporting .classification-block { height: 100%; justify-content: space-between; }
+.operations-workspace--reporting .classification-block > span:not(.severity-badge) { font-size: 10px; }
+.operations-workspace--reporting .classification-block > strong { font-size: 11px; }
+.operations-workspace--reporting .approval-flow { height: 100%; }
+.operations-workspace--reporting .approval-flow article { flex: 1; }
+.operations-workspace--reporting .approval-flow article > b { font-size: 10px; }
+.operations-workspace--reporting .approval-flow article strong { font-size: 11px; }
+.operations-workspace--reporting .approval-flow article small { font-size: 9.5px; }
+.operations-workspace--reporting .data-table { font-size: 11px; }
+.operations-workspace--reporting .data-table th { font-size: 9.5px; }
+.operations-workspace--reporting .data-table td { line-height: 1.4; }
+.operations-workspace--anomaly .workspace-footer,
+.operations-workspace--warning .workspace-footer,
+.operations-workspace--threat .workspace-footer,
+.operations-workspace--reporting .workspace-footer { font-size: 9px; }
 .contract-code { display:flex;flex-direction:column;gap:7px}.contract-code code{padding:8px;border-left:2px solid var(--signal-cyan);color:var(--signal-cyan-soft);background:rgba(0,224,255,.04);font-family:var(--font-mono);font-size:8px}.scope-lock { display:flex;align-items:center;flex-direction:column;padding:10px;text-align:center}.scope-lock i{color:var(--severity-medium);font-size:42px}.scope-lock strong{margin-top:8px;color:var(--severity-medium);font-family:var(--font-mono);font-size:10px}.scope-lock p{color:var(--text-secondary);font-size:8px;line-height:1.6}
 .policy-list { display:flex;flex-direction:column;gap:7px}.policy-list article{display:flex;align-items:center;gap:9px;padding:9px;border:1px solid var(--wire)}.policy-list article > i{color:var(--signal-cyan);font-size:19px}.policy-list article > div{min-width:0;flex:1}.policy-list strong,.policy-list small{display:block;font-size:8px}.policy-list small{color:var(--text-secondary)}.security-baseline{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.security-baseline span{display:flex;align-items:center;gap:7px;padding:8px;border:1px solid var(--wire);color:var(--text-secondary);font-size:8px}.security-baseline i{color:var(--severity-low);font-size:15px}
 

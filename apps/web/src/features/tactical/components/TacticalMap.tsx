@@ -152,7 +152,6 @@ export function TacticalMap({ id, points = EMPTY_POINTS, routes = EMPTY_ROUTES, 
     <div className="tactical-map" role="region" aria-label="Peta situasi taktis">
       <div ref={hostRef} className="tactical-map__canvas" />
       <div className="tactical-map__scan" aria-hidden="true" />
-      <div className="map-contract-chip"><span>MAPBOX SATELLITE STREETS V12</span><span>GLOBE</span><span>TACTICAL OVERLAY</span></div>
       {mapError && <div className="map-error" role="alert">{mapError}</div>}
     </div>
   )
