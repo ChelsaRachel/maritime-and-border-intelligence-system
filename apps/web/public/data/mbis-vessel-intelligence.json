@@ -22,6 +22,343 @@
   "data": [
     {
       "vesselProfile": {
+        "id": "VSL-004",
+        "name": "SINAR PENIDA",
+        "mmsi": "525109003",
+        "imo": "9827968",
+        "callSign": "YCDQ2",
+        "flag": {
+          "country": "Indonesia",
+          "emoji": "🇮🇩"
+        },
+        "status": "UNDER_REVIEW",
+        "type": "Container Ship",
+        "gt": 6846,
+        "dwt": 8364,
+        "lengthMeter": 117.1,
+        "beamMeter": 21.8,
+        "builtYear": 2018,
+        "operator": "Samudera Shipping Line",
+        "manager": "Samudera Indonesia Ship Management",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/MAERSK_HANOI_Container_Ship_%28Port_Koper_SIKOP%2C_2023%29.jpg/960px-MAERSK_HANOI_Container_Ship_%28Port_Koper_SIKOP%2C_2023%29.jpg",
+        "imageMatch": "representative-type",
+        "imageSource": "Wikimedia Commons",
+        "areaOperation": "Malaka",
+        "dataBasis": "public-reference",
+        "lastKnownPosition": {
+          "datetime": "02 Jul 2026 09:13 WIB",
+          "latitude": "3.2267° N",
+          "longitude": "104.2556° E",
+          "location": "Malaka",
+          "sog": "11.3 kn",
+          "cog": "106°",
+          "coordinates": [
+            104.2556,
+            3.2267
+          ]
+        }
+      },
+      "voyageHistory": {
+        "periodDays": 90,
+        "distanceNm": 5199,
+        "portsVisited": 8,
+        "countriesVisited": 5,
+        "averageSpeedKn": 12.1,
+        "timeAtSea": "21 hari 7 jam",
+        "track": [
+          [
+            99.1169,
+            1.4192
+          ],
+          [
+            99.5892,
+            1.5301
+          ],
+          [
+            100.1449,
+            1.788
+          ],
+          [
+            100.8065,
+            2.1305
+          ],
+          [
+            101.4988,
+            2.4173
+          ],
+          [
+            102.1187,
+            2.5595
+          ],
+          [
+            102.6295,
+            2.601
+          ],
+          [
+            103.0947,
+            2.6784
+          ],
+          [
+            103.62,
+            2.8951
+          ],
+          [
+            104.2556,
+            3.2267
+          ]
+        ]
+      },
+      "riskScoreAI": {
+        "score": 67,
+        "level": "HIGH",
+        "updatedAt": "02 Jul 2026 09:24 WIB",
+        "modelVersion": "MBIS-RISK-2.4"
+      },
+      "riskFactors": [
+        {
+          "id": "AIS_GAP",
+          "label": "Frekuensi AIS Gap",
+          "description": "4 kejadian dalam 90 hari",
+          "severity": "HIGH",
+          "evidence": "1j 21m pada Malaka"
+        },
+        {
+          "id": "ROUTE",
+          "label": "Deviasi Rute",
+          "description": "Pola lintasan menyimpang dari koridor deklarasi",
+          "severity": "HIGH",
+          "evidence": "11 NM dari baseline rute"
+        },
+        {
+          "id": "PORT",
+          "label": "Panggilan Pelabuhan",
+          "description": "5 pelabuhan dianalisis",
+          "severity": "LOW",
+          "evidence": "Panggilan terakhir Belawan, Indonesia"
+        },
+        {
+          "id": "FLAG",
+          "label": "Riwayat Bendera",
+          "description": "Registry relatif stabil",
+          "severity": "LOW",
+          "evidence": "4 entri perubahan bendera"
+        },
+        {
+          "id": "INCIDENT",
+          "label": "Keterkaitan Insiden",
+          "description": "2 insiden terkait",
+          "severity": "MEDIUM",
+          "evidence": "Anomali identitas registry"
+        }
+      ],
+      "portHistory": {
+        "periodDays": 120,
+        "calls": [
+          {
+            "date": "28 Jun 2026",
+            "port": "Belawan",
+            "country": "Indonesia",
+            "arrival": "03:15",
+            "departure": "11:29",
+            "duration": "8j 23m"
+          },
+          {
+            "date": "24 Jun 2026",
+            "port": "Dumai",
+            "country": "Indonesia",
+            "arrival": "05:15",
+            "departure": "13:29",
+            "duration": "9j 23m"
+          },
+          {
+            "date": "20 Jun 2026",
+            "port": "Singapore",
+            "country": "Singapore",
+            "arrival": "07:15",
+            "departure": "15:29",
+            "duration": "10j 23m"
+          },
+          {
+            "date": "16 Jun 2026",
+            "port": "Port Klang",
+            "country": "Malaysia",
+            "arrival": "09:15",
+            "departure": "17:29",
+            "duration": "11j 23m"
+          },
+          {
+            "date": "12 Jun 2026",
+            "port": "Tanjung Pelepas",
+            "country": "Malaysia",
+            "arrival": "11:15",
+            "departure": "19:29",
+            "duration": "12j 23m"
+          }
+        ]
+      },
+      "ownershipOperatorHistory": [
+        {
+          "period": "2021–sekarang",
+          "owner": "Samudera Shipping Line",
+          "operator": "Samudera Indonesia Ship Management",
+          "role": "Operator aktif"
+        },
+        {
+          "period": "2017–2021",
+          "owner": "Dumai Maritime Holdings",
+          "operator": "Samudera Shipping Line",
+          "role": "Pemilik sebelumnya"
+        },
+        {
+          "period": "2012–2017",
+          "owner": "Indonesia Oceanic Capital",
+          "operator": "Indonesia Ship Services",
+          "role": "Registered owner"
+        }
+      ],
+      "flagChangeHistory": [
+        {
+          "period": "2021–sekarang",
+          "flag": {
+            "country": "Indonesia",
+            "emoji": "🇮🇩"
+          },
+          "note": "Bendera aktif"
+        }
+      ],
+      "intelligenceGraph": {
+        "ports": [
+          {
+            "name": "Belawan",
+            "relation": "4 kunjungan · Indonesia"
+          },
+          {
+            "name": "Dumai",
+            "relation": "5 kunjungan · Indonesia"
+          },
+          {
+            "name": "Singapore",
+            "relation": "6 kunjungan · Singapore"
+          }
+        ],
+        "organizations": [
+          {
+            "name": "Samudera Shipping Line",
+            "relation": "Operator"
+          },
+          {
+            "name": "Samudera Indonesia Ship Management",
+            "relation": "Manager"
+          }
+        ],
+        "vessels": [
+          {
+            "name": "MERIDIAN SULAWESI",
+            "relation": "1 encounter terverifikasi"
+          },
+          {
+            "name": "ARAFURA SENTOSA",
+            "relation": "2 encounter terverifikasi"
+          }
+        ]
+      },
+      "aisGapLogs": {
+        "periodDays": 90,
+        "total": 4,
+        "records": [
+          {
+            "id": "AIS-004-1",
+            "start": "27 Jun 2026 02:18",
+            "end": "27 Jun 2026 03:42",
+            "duration": "1j 21m",
+            "location": "Malaka",
+            "status": "MENCURIGAKAN"
+          },
+          {
+            "id": "AIS-004-2",
+            "start": "24 Jun 2026 05:18",
+            "end": "24 Jun 2026 06:42",
+            "duration": "2j 21m",
+            "location": "Malaka — koridor pendekatan",
+            "status": "MENCURIGAKAN"
+          },
+          {
+            "id": "AIS-004-3",
+            "start": "21 Jun 2026 08:18",
+            "end": "21 Jun 2026 09:42",
+            "duration": "3j 21m",
+            "location": "Malaka",
+            "status": "TERJELASKAN"
+          },
+          {
+            "id": "AIS-004-4",
+            "start": "18 Jun 2026 11:18",
+            "end": "18 Jun 2026 12:42",
+            "duration": "4j 21m",
+            "location": "Malaka — koridor pendekatan",
+            "status": "TERJELASKAN"
+          }
+        ]
+      },
+      "evidenceVerification": [
+        {
+          "source": "AIS",
+          "count": 17,
+          "latest": "02 Jul 2026 09:18 WIB",
+          "verification": "Terverifikasi",
+          "status": "ONLINE"
+        },
+        {
+          "source": "REGISTRY",
+          "count": 7,
+          "latest": "01 Jul 2026 18:40 WIB",
+          "verification": "Referensi publik",
+          "status": "ONLINE"
+        },
+        {
+          "source": "OSINT",
+          "count": 9,
+          "latest": "02 Jul 2026 07:31 WIB",
+          "verification": "Terkorelasi",
+          "status": "ONLINE"
+        },
+        {
+          "source": "SATELLITE",
+          "count": 5,
+          "latest": "02 Jul 2026 06:55 WIB",
+          "verification": "Terverifikasi visual",
+          "status": "ONLINE"
+        }
+      ],
+      "analystNote": {
+        "author": "Analis Maritim D-04",
+        "updatedAt": "02 Jul 2026 09:26 WIB",
+        "note": "Pertahankan pemantauan intensif pada koridor Malaka; verifikasi AIS gap dan korelasikan dengan jadwal pelabuhan berikutnya."
+      },
+      "relatedIncidents": {
+        "total": 2,
+        "records": [
+          {
+            "id": "INC-VSL-004-1",
+            "date": "18 Jun 2026",
+            "type": "Anomali identitas registry",
+            "location": "Malaka",
+            "description": "SINAR PENIDA terdeteksi dalam korelasi multi-sumber yang memerlukan verifikasi analis.",
+            "riskLevel": "HIGH"
+          },
+          {
+            "id": "INC-VSL-004-2",
+            "date": "14 Jun 2026",
+            "type": "Gangguan sinyal AIS",
+            "location": "Malaka",
+            "description": "SINAR PENIDA terdeteksi dalam korelasi multi-sumber yang memerlukan pemantauan lanjutan.",
+            "riskLevel": "MEDIUM"
+          }
+        ]
+      }
+    },
+    {
+      "vesselProfile": {
         "id": "VSL-001",
         "name": "EVER GIVEN",
         "mmsi": "353136000",
@@ -938,343 +1275,6 @@
             "type": "Rendezvous tanpa deklarasi",
             "location": "Laut Jawa",
             "description": "PALU SIPAT terdeteksi dalam korelasi multi-sumber yang memerlukan verifikasi analis.",
-            "riskLevel": "MEDIUM"
-          }
-        ]
-      }
-    },
-    {
-      "vesselProfile": {
-        "id": "VSL-004",
-        "name": "SINAR PENIDA",
-        "mmsi": "525109003",
-        "imo": "9827968",
-        "callSign": "YCDQ2",
-        "flag": {
-          "country": "Indonesia",
-          "emoji": "🇮🇩"
-        },
-        "status": "UNDER_REVIEW",
-        "type": "Container Ship",
-        "gt": 6846,
-        "dwt": 8364,
-        "lengthMeter": 117.1,
-        "beamMeter": 21.8,
-        "builtYear": 2018,
-        "operator": "Samudera Shipping Line",
-        "manager": "Samudera Indonesia Ship Management",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/MAERSK_HANOI_Container_Ship_%28Port_Koper_SIKOP%2C_2023%29.jpg/960px-MAERSK_HANOI_Container_Ship_%28Port_Koper_SIKOP%2C_2023%29.jpg",
-        "imageMatch": "representative-type",
-        "imageSource": "Wikimedia Commons",
-        "areaOperation": "Malaka",
-        "dataBasis": "public-reference",
-        "lastKnownPosition": {
-          "datetime": "02 Jul 2026 09:13 WIB",
-          "latitude": "3.2267° N",
-          "longitude": "104.2556° E",
-          "location": "Malaka",
-          "sog": "11.3 kn",
-          "cog": "106°",
-          "coordinates": [
-            104.2556,
-            3.2267
-          ]
-        }
-      },
-      "voyageHistory": {
-        "periodDays": 90,
-        "distanceNm": 5199,
-        "portsVisited": 8,
-        "countriesVisited": 5,
-        "averageSpeedKn": 12.1,
-        "timeAtSea": "21 hari 7 jam",
-        "track": [
-          [
-            99.1169,
-            1.4192
-          ],
-          [
-            99.5892,
-            1.5301
-          ],
-          [
-            100.1449,
-            1.788
-          ],
-          [
-            100.8065,
-            2.1305
-          ],
-          [
-            101.4988,
-            2.4173
-          ],
-          [
-            102.1187,
-            2.5595
-          ],
-          [
-            102.6295,
-            2.601
-          ],
-          [
-            103.0947,
-            2.6784
-          ],
-          [
-            103.62,
-            2.8951
-          ],
-          [
-            104.2556,
-            3.2267
-          ]
-        ]
-      },
-      "riskScoreAI": {
-        "score": 67,
-        "level": "HIGH",
-        "updatedAt": "02 Jul 2026 09:24 WIB",
-        "modelVersion": "MBIS-RISK-2.4"
-      },
-      "riskFactors": [
-        {
-          "id": "AIS_GAP",
-          "label": "Frekuensi AIS Gap",
-          "description": "4 kejadian dalam 90 hari",
-          "severity": "HIGH",
-          "evidence": "1j 21m pada Malaka"
-        },
-        {
-          "id": "ROUTE",
-          "label": "Deviasi Rute",
-          "description": "Pola lintasan menyimpang dari koridor deklarasi",
-          "severity": "HIGH",
-          "evidence": "11 NM dari baseline rute"
-        },
-        {
-          "id": "PORT",
-          "label": "Panggilan Pelabuhan",
-          "description": "5 pelabuhan dianalisis",
-          "severity": "LOW",
-          "evidence": "Panggilan terakhir Belawan, Indonesia"
-        },
-        {
-          "id": "FLAG",
-          "label": "Riwayat Bendera",
-          "description": "Registry relatif stabil",
-          "severity": "LOW",
-          "evidence": "4 entri perubahan bendera"
-        },
-        {
-          "id": "INCIDENT",
-          "label": "Keterkaitan Insiden",
-          "description": "2 insiden terkait",
-          "severity": "MEDIUM",
-          "evidence": "Anomali identitas registry"
-        }
-      ],
-      "portHistory": {
-        "periodDays": 120,
-        "calls": [
-          {
-            "date": "28 Jun 2026",
-            "port": "Belawan",
-            "country": "Indonesia",
-            "arrival": "03:15",
-            "departure": "11:29",
-            "duration": "8j 23m"
-          },
-          {
-            "date": "24 Jun 2026",
-            "port": "Dumai",
-            "country": "Indonesia",
-            "arrival": "05:15",
-            "departure": "13:29",
-            "duration": "9j 23m"
-          },
-          {
-            "date": "20 Jun 2026",
-            "port": "Singapore",
-            "country": "Singapore",
-            "arrival": "07:15",
-            "departure": "15:29",
-            "duration": "10j 23m"
-          },
-          {
-            "date": "16 Jun 2026",
-            "port": "Port Klang",
-            "country": "Malaysia",
-            "arrival": "09:15",
-            "departure": "17:29",
-            "duration": "11j 23m"
-          },
-          {
-            "date": "12 Jun 2026",
-            "port": "Tanjung Pelepas",
-            "country": "Malaysia",
-            "arrival": "11:15",
-            "departure": "19:29",
-            "duration": "12j 23m"
-          }
-        ]
-      },
-      "ownershipOperatorHistory": [
-        {
-          "period": "2021–sekarang",
-          "owner": "Samudera Shipping Line",
-          "operator": "Samudera Indonesia Ship Management",
-          "role": "Operator aktif"
-        },
-        {
-          "period": "2017–2021",
-          "owner": "Dumai Maritime Holdings",
-          "operator": "Samudera Shipping Line",
-          "role": "Pemilik sebelumnya"
-        },
-        {
-          "period": "2012–2017",
-          "owner": "Indonesia Oceanic Capital",
-          "operator": "Indonesia Ship Services",
-          "role": "Registered owner"
-        }
-      ],
-      "flagChangeHistory": [
-        {
-          "period": "2021–sekarang",
-          "flag": {
-            "country": "Indonesia",
-            "emoji": "🇮🇩"
-          },
-          "note": "Bendera aktif"
-        }
-      ],
-      "intelligenceGraph": {
-        "ports": [
-          {
-            "name": "Belawan",
-            "relation": "4 kunjungan · Indonesia"
-          },
-          {
-            "name": "Dumai",
-            "relation": "5 kunjungan · Indonesia"
-          },
-          {
-            "name": "Singapore",
-            "relation": "6 kunjungan · Singapore"
-          }
-        ],
-        "organizations": [
-          {
-            "name": "Samudera Shipping Line",
-            "relation": "Operator"
-          },
-          {
-            "name": "Samudera Indonesia Ship Management",
-            "relation": "Manager"
-          }
-        ],
-        "vessels": [
-          {
-            "name": "MERIDIAN SULAWESI",
-            "relation": "1 encounter terverifikasi"
-          },
-          {
-            "name": "ARAFURA SENTOSA",
-            "relation": "2 encounter terverifikasi"
-          }
-        ]
-      },
-      "aisGapLogs": {
-        "periodDays": 90,
-        "total": 4,
-        "records": [
-          {
-            "id": "AIS-004-1",
-            "start": "27 Jun 2026 02:18",
-            "end": "27 Jun 2026 03:42",
-            "duration": "1j 21m",
-            "location": "Malaka",
-            "status": "MENCURIGAKAN"
-          },
-          {
-            "id": "AIS-004-2",
-            "start": "24 Jun 2026 05:18",
-            "end": "24 Jun 2026 06:42",
-            "duration": "2j 21m",
-            "location": "Malaka — koridor pendekatan",
-            "status": "MENCURIGAKAN"
-          },
-          {
-            "id": "AIS-004-3",
-            "start": "21 Jun 2026 08:18",
-            "end": "21 Jun 2026 09:42",
-            "duration": "3j 21m",
-            "location": "Malaka",
-            "status": "TERJELASKAN"
-          },
-          {
-            "id": "AIS-004-4",
-            "start": "18 Jun 2026 11:18",
-            "end": "18 Jun 2026 12:42",
-            "duration": "4j 21m",
-            "location": "Malaka — koridor pendekatan",
-            "status": "TERJELASKAN"
-          }
-        ]
-      },
-      "evidenceVerification": [
-        {
-          "source": "AIS",
-          "count": 17,
-          "latest": "02 Jul 2026 09:18 WIB",
-          "verification": "Terverifikasi",
-          "status": "ONLINE"
-        },
-        {
-          "source": "REGISTRY",
-          "count": 7,
-          "latest": "01 Jul 2026 18:40 WIB",
-          "verification": "Referensi publik",
-          "status": "ONLINE"
-        },
-        {
-          "source": "OSINT",
-          "count": 9,
-          "latest": "02 Jul 2026 07:31 WIB",
-          "verification": "Terkorelasi",
-          "status": "ONLINE"
-        },
-        {
-          "source": "SATELLITE",
-          "count": 5,
-          "latest": "02 Jul 2026 06:55 WIB",
-          "verification": "Terverifikasi visual",
-          "status": "ONLINE"
-        }
-      ],
-      "analystNote": {
-        "author": "Analis Maritim D-04",
-        "updatedAt": "02 Jul 2026 09:26 WIB",
-        "note": "Pertahankan pemantauan intensif pada koridor Malaka; verifikasi AIS gap dan korelasikan dengan jadwal pelabuhan berikutnya."
-      },
-      "relatedIncidents": {
-        "total": 2,
-        "records": [
-          {
-            "id": "INC-VSL-004-1",
-            "date": "18 Jun 2026",
-            "type": "Anomali identitas registry",
-            "location": "Malaka",
-            "description": "SINAR PENIDA terdeteksi dalam korelasi multi-sumber yang memerlukan verifikasi analis.",
-            "riskLevel": "HIGH"
-          },
-          {
-            "id": "INC-VSL-004-2",
-            "date": "14 Jun 2026",
-            "type": "Gangguan sinyal AIS",
-            "location": "Malaka",
-            "description": "SINAR PENIDA terdeteksi dalam korelasi multi-sumber yang memerlukan pemantauan lanjutan.",
             "riskLevel": "MEDIUM"
           }
         ]
