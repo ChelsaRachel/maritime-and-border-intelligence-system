@@ -50,11 +50,21 @@ module.exports = merge(common, {
   },
   plugins: [
     new rspack.DefinePlugin({
+      'process': JSON.stringify({
+        env: {
+          NODE_ENV: process.env.NODE_ENV || 'production',
+          ENV_TARGET: process.env.ENV_TARGET || 'production',
+        },
+      }),
+      'process.env': JSON.stringify({
+        NODE_ENV: process.env.NODE_ENV || 'production',
+        ENV_TARGET: process.env.ENV_TARGET || 'production',
+      }),
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'production'),
       'process.env.ENV_TARGET': JSON.stringify(process.env.ENV_TARGET || 'production'),
       ...Object.entries(dotenv.config({ path: path.resolve(__dirname, '../../.env') }).parsed || {}).reduce((acc: any, [key, value]) => {
-        acc[`process.env.${key}`] = JSON.stringify(value);
-        return acc;
+        acc[`process.env.${key}`] = JSON.stringify(value)
+        return acc
       }, {}),
     }),
     new rspack.HtmlRspackPlugin({
