@@ -9,7 +9,8 @@
     "build:prod": "cross-env NODE_ENV=production ENV_TARGET=production rspack build --config rspack.prod.ts && gzipper compress --verbose ./build",
     "typecheck": "tsc --noEmit",
     "build:prod.analyze": "NODE_ENV=production-analyze rspack build --config rspack.prod.ts && gzipper compress --verbose ./build",
-    "find-deadcode": "ts-prune"
+    "find-deadcode": "ts-prune",
+    "build": "npm run build:prod"
   },
   "dependencies": {
     "@babel/standalone": "^7.26.10",
