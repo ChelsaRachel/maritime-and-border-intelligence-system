@@ -732,9 +732,10 @@ progress::-moz-progress-bar { background: linear-gradient(90deg,var(--signal-cya
 .operations-workspace--aircraft .score-panel .intel-panel__body { justify-content: space-evenly; }
 .operations-workspace--aircraft .score-ring { width: 158px; height: 158px; }
 .operations-workspace--aircraft .score-ring::before { inset: 13px; }
+.operations-workspace--aircraft .score-ring > div { transform: translateY(-9px); }
 .operations-workspace--aircraft .score-ring > div strong { font-size: 38px; }
 .operations-workspace--aircraft .score-ring > div span { font-size: 10px; }
-.operations-workspace--aircraft .score-ring > small { bottom: 39px; font-size: 9px; }
+.operations-workspace--aircraft .score-ring > small { bottom: 30px; font-size: 9px; }
 .operations-workspace--aircraft .reason-list { width: 100%; }
 .operations-workspace--aircraft .reason-list li { font-size: 11px; line-height: 1.45; }
 
