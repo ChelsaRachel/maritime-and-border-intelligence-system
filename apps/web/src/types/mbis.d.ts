@@ -50,6 +50,7 @@ export interface IMbisFixtureState {
   overview: TFixtureRecord | null
   border: TFixtureRecord | null
   entities: TFixtureRecord | null
+  detectionThresholds: TFixtureRecord | null
   operations: TFixtureRecord | null
   nmpEntities: import('@/features/mbis/types/nmp.types').INmpEntitiesFixture | null
   nmpGeography: import('@/features/mbis/types/nmp.types').INmpGeographyFixture | null

@@ -31,12 +31,25 @@ function ScoreRing({ score, label }: { score: number; label: string }) {
 }
 
 export function OperationsWorkspace({ module }: { module: TWorkspaceModule }) {
-  const { border, entities, operations, overview, vesselIntelligence, loading, error } = useMbisStore()
+  const { border, entities, detectionThresholds, operations, overview, vesselIntelligence, loading, error } = useMbisStore()
   const user = useAuthStore((state) => state.user)
   const [selectedAnomalyId, setSelectedAnomalyId] = useState('ANM-2026-0629-001')
-  const [thresholds, setThresholds] = useState({ ais: 15, loitering: 3, route: 15, zone: 1, cluster: 10 })
-  const ready = Boolean(border && entities && operations && overview && vesselIntelligence)
+  const [thresholdOverrides, setThresholdOverrides] = useState<Record<string, number>>({})
+  const ready = Boolean(border && entities && detectionThresholds && operations && overview && vesselIntelligence)
   const anomaly = entities?.anomalies.find((item: any) => item.id === selectedAnomalyId) ?? entities?.anomalies[0]
+
+  const thresholdParams: any[] = detectionThresholds?.parameters ?? []
+  // Effective threshold per parameter = admin override (slider) or FRD/research default from the config fixture.
+  const thresholds = useMemo(() => {
+    const map: Record<string, number> = {}
+    thresholdParams.forEach((param: any) => { map[param.key] = thresholdOverrides[param.key] ?? param.default })
+    return map
+  }, [thresholdParams, thresholdOverrides])
+  // F-M5-02: an anomaly is "detected" while its measured metric meets/exceeds the configured threshold.
+  const isSuppressed = (item: any) => item?.thresholdKey && typeof item.metric === 'number' && item.metric < (thresholds[item.thresholdKey] ?? Number.NEGATIVE_INFINITY)
+  const anomalyList: any[] = entities?.anomalies ?? []
+  const activeCount = anomalyList.filter((item: any) => !isSuppressed(item)).length
+  const suppressedCount = anomalyList.length - activeCount
 
   const threatPoints = useMemo(() => operations ? operations.threat.regions.map((item: any, index: number) => ({ id: `THR-${index}`, name: item.name, coordinates: item.coordinates, severity: item.score >= 75 ? 'CRITICAL' : item.score >= 60 ? 'HIGH' : 'MEDIUM', score: item.score })) : [], [operations])
   const aircraftPoints = useMemo(() => overview ? overview.aircraft.map((item: any) => ({ ...item, name: item.callSign, severity: item.status })) : [], [overview])
@@ -70,13 +83,13 @@ export function OperationsWorkspace({ module }: { module: TWorkspaceModule }) {
   }
 
   const renderAnomaly = () => <div className="workspace-grid workspace-grid--anomaly">
-    <Panel title="Active Anomaly List" eyebrow={`${entities!.anomalies.length} rule types represented`} className="span-4"><div className="anomaly-list">{entities!.anomalies.map((item: any) => <button type="button" key={item.id} onClick={() => setSelectedAnomalyId(item.id)} className={item.id === anomaly.id ? 'is-selected' : ''}><i className="ph ph-warning-diamond" /><div><strong>{item.code} / {item.type}</strong><small>{item.location} · {item.detectedAt}</small></div><SeverityBadge value={item.severity} compact /></button>)}</div></Panel>
+    <Panel title="Active Anomaly List" eyebrow={`${activeCount} active · ${suppressedCount} below threshold`} className="span-4"><div className="anomaly-list">{entities!.anomalies.map((item: any) => { const suppressed = isSuppressed(item); return <button type="button" key={item.id} onClick={() => setSelectedAnomalyId(item.id)} className={`${item.id === anomaly.id ? 'is-selected' : ''}${suppressed ? ' is-suppressed' : ''}`}><i className="ph ph-warning-diamond" /><div><strong>{item.code} / {item.type}</strong><small>{suppressed ? `Below threshold · ${item.metric}${item.metricUnit} < ${thresholds[item.thresholdKey]}${item.metricUnit}` : `${item.location} · ${item.detectedAt}`}</small></div><SeverityBadge value={suppressed ? 'NORMAL' : item.severity} compact /></button> })}</div></Panel>
     <div className="span-6 anomaly-detail">
       <Panel title={`${anomaly.code} / ${anomaly.type}`} eyebrow={`Detail anomaly · ${anomaly.id}`}><div className="anomaly-hero"><div><SeverityBadge value={anomaly.severity} /><h2>{anomaly.summary}</h2><p>{anomaly.entity} · {anomaly.location}</p></div><ScoreRing score={anomaly.confidence} label="CONFIDENCE" /></div></Panel>
       <div className="workspace-grid nested-grid"><Panel title="Primary Information" className="span-5"><dl className="key-values"><div><dt>Domain</dt><dd>{anomaly.domain}</dd></div><div><dt>Status</dt><dd>{anomaly.status}</dd></div><div><dt>Detection</dt><dd>{anomaly.detectedAt}</dd></div><div><dt>Entity</dt><dd>{anomaly.entity}</dd></div></dl></Panel><Panel title="Anomaly Location" className="span-7 map-panel"><TacticalMap id="anomaly" points={[{ id: anomaly.id, name: anomaly.type, coordinates: anomaly.coordinates, severity: anomaly.severity }]} center={anomaly.coordinates} zoom={6.2} compact /></Panel></div>
       <div className="workspace-grid nested-grid"><Panel title="Supporting Evidence" className="span-5"><ul className="reason-list">{anomaly.evidence.map((item: string) => <li key={item}>{item}</li>)}</ul></Panel><Panel title="Explainable Model Factors" className="span-7"><div className="factor-list">{anomaly.modelFactors.map((value: number, index: number) => <label key={index}><span>Behavior factor {index + 1}</span><progress max="1" value={value} /><b>{value.toFixed(2)}</b></label>)}</div></Panel></div>
     </div>
-    <Panel title="Detection Thresholds" eyebrow="Frontend simulation" className="span-2"><div className="threshold-list">{Object.entries(thresholds).map(([key, value]) => <label key={key}><span>{key.toUpperCase()} <b>{value}</b></span><input type="range" min="1" max="60" value={value} onChange={(event) => setThresholds((state) => ({ ...state, [key]: Number(event.target.value) }))} /></label>)}</div><button className="panel-button" type="button">Save local configuration</button></Panel>
+    <Panel title="Detection Thresholds" eyebrow="Configurable · F-M5-02" className="span-2"><div className="threshold-list">{thresholdParams.map((param: any) => <label key={param.key} title={param.description}><span>{param.shortLabel} <b>{thresholds[param.key]}{param.unit === 'entities' ? '' : ` ${param.unit}`}</b></span><input type="range" min={param.min} max={param.max} step={param.step} value={thresholds[param.key]} onChange={(event) => setThresholdOverrides((state) => ({ ...state, [param.key]: Number(event.target.value) }))} /></label>)}</div><button className="panel-button" type="button" onClick={() => setThresholdOverrides({})}>Reset to defaults</button></Panel>
     <Panel title="Anomaly Correlation" eyebrow="Shared entity / probable relation" className="span-12"><div className="correlation-line">{entities!.anomalies.slice(0, 6).map((item: any) => <article key={item.id} className={item.id === anomaly.id ? 'is-active' : ''}><i /><strong>{item.type}</strong><small>{item.code}</small></article>)}</div></Panel>
   </div>
 

@@ -13,6 +13,7 @@ export const useMbisStore = create<IMbisStore>((set, get) => ({
   overview: null,
   border: null,
   entities: null,
+  detectionThresholds: null,
   operations: null,
   nmpEntities: null,
   nmpGeography: null,

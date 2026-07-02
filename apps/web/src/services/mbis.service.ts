@@ -11,10 +11,11 @@ function firstRecord<T>(envelope: IMockEnvelope<T>): T {
 
 export const mbisService = {
   loadAll: async () => {
-    const [overview, border, entities, operations, nmpEntities, nmpGeography, nmpIntelligence, nmpReplay, vesselIntelligence] = await Promise.all([
+    const [overview, border, entities, detectionThresholds, operations, nmpEntities, nmpGeography, nmpIntelligence, nmpReplay, vesselIntelligence] = await Promise.all([
       mockRequest<IMockEnvelope<TFixtureRecord>>(MOCK_ENDPOINTS.OVERVIEW),
       mockRequest<IMockEnvelope<TFixtureRecord>>(MOCK_ENDPOINTS.BORDER),
       mockRequest<IMockEnvelope<TFixtureRecord>>(MOCK_ENDPOINTS.ENTITIES),
+      mockRequest<IMockEnvelope<TFixtureRecord>>(MOCK_ENDPOINTS.DETECTION_THRESHOLDS),
       mockRequest<IMockEnvelope<TFixtureRecord>>(MOCK_ENDPOINTS.OPERATIONS),
       mockRequest<IMockEnvelope<INmpEntitiesFixture>>(MOCK_ENDPOINTS.NMP_ENTITIES),
       mockRequest<IMockEnvelope<INmpGeographyFixture>>(MOCK_ENDPOINTS.NMP_GEOGRAPHY),
@@ -27,6 +28,7 @@ export const mbisService = {
       overview: firstRecord(overview),
       border: firstRecord(border),
       entities: firstRecord(entities),
+      detectionThresholds: firstRecord(detectionThresholds),
       operations: firstRecord(operations),
       nmpEntities: firstRecord(nmpEntities) as INmpEntitiesFixture,
       nmpGeography: firstRecord(nmpGeography) as INmpGeographyFixture,

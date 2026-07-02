@@ -1,0 +1,110 @@
+{
+  "metaData": {
+    "status": true,
+    "title": "Anomaly Detection Engine — Configurable Thresholds (F-M5-02)",
+    "generatedAt": "2026-07-02T10:00:00+07:00",
+    "classification": "INTERNAL // DEMONSTRATION",
+    "synthetic": true,
+    "referenceBasis": [
+      "FRD Maritime Border Intelligence System §3.5.1 Jenis Anomali (AN-01..AN-10)",
+      "FRD F-M5-02 Configurable Thresholds — Administrator dapat mengkonfigurasi parameter deteksi (waktu, jarak, frekuensi) tanpa modifikasi kode",
+      "Global Fishing Watch — AIS gaps flagged >24h; port-stop gaps use 4h+; going-dark analysis",
+      "Global Fishing Watch — vessels not moving faster than 3 knots transmit at anchored/moored interval (loitering speed floor)",
+      "Maritime deviation analysis — ports under 100 NM of a main route considered low deviation; vessel-risk systems use ~10 km deviation upper limit",
+      "STS transfer / rendezvous detection — proximity buffers commonly 100 m to 500 m held for a threshold dwell time",
+      "Cluster / multi-entity activity — configurable minimum concurrent entity count in a geo-temporal window"
+    ]
+  },
+  "data": [
+    {
+      "note": "Defaults align with FRD AN-01..AN-10. Each parameter governs one or more anomaly rule codes. An anomaly is 'detected' (active) while its measured metric >= the configured threshold; raising a threshold suppresses instances that no longer exceed it.",
+      "parameters": [
+        {
+          "key": "ais",
+          "label": "AIS-Off Gap",
+          "shortLabel": "AIS",
+          "domain": "MARITIME",
+          "unit": "h",
+          "unitLabel": "hours",
+          "default": 6,
+          "min": 1,
+          "max": 48,
+          "step": 1,
+          "governs": ["AIS-001"],
+          "anomalyType": "AIS Off / Dark Vessel (AN-01)",
+          "description": "Minimum continuous AIS signal loss before a vessel is flagged as dark.",
+          "reference": "FRD AN-01 default 6h. Global Fishing Watch flags AIS gaps >24h and treats 4h+ gaps as port stops.",
+          "source": "https://globalfishingwatch.org/data/going-dark-when-vessels-turn-off-ais-broadcasts/"
+        },
+        {
+          "key": "loitering",
+          "label": "Loitering Dwell",
+          "shortLabel": "LOITERING",
+          "domain": "MARITIME",
+          "unit": "h",
+          "unitLabel": "hours",
+          "default": 3,
+          "min": 1,
+          "max": 12,
+          "step": 1,
+          "governs": ["ANM-002"],
+          "anomalyType": "Loitering Vessel (AN-02)",
+          "description": "Minimum time a vessel moves below the loitering speed floor (<3 kn) in one area before it is flagged.",
+          "reference": "FRD AN-02 (<2 kn sustained). GFW: vessels not exceeding ~3 kn are treated as anchored/moored, the loitering speed floor.",
+          "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10557514/"
+        },
+        {
+          "key": "route",
+          "label": "Route Deviation",
+          "shortLabel": "ROUTE",
+          "domain": "MARITIME / AIR",
+          "unit": "NM",
+          "unitLabel": "nautical miles",
+          "default": 15,
+          "min": 1,
+          "max": 50,
+          "step": 1,
+          "governs": ["ANM-004", "ANM-009"],
+          "anomalyType": "Route / Flight-plan Deviation (AN-04, AN-09)",
+          "description": "Maximum lateral distance from the registered corridor / flight plan before a deviation alert fires.",
+          "reference": "FRD AN-04 (X NM from standard lane). Maritime-deviation research: <100 NM low deviation; vessel-risk systems use ~10 km (≈5.4 NM) upper limit.",
+          "source": "https://porteconomicsmanagement.org/pemp/contents/part6/ports-and-container-shipping/maritime-deviation/"
+        },
+        {
+          "key": "zone",
+          "label": "Restricted-Zone Dwell",
+          "shortLabel": "ZONE",
+          "domain": "MARITIME",
+          "unit": "min",
+          "unitLabel": "minutes",
+          "default": 10,
+          "min": 1,
+          "max": 60,
+          "step": 1,
+          "governs": ["ANM-005"],
+          "anomalyType": "Entry into Restricted Zone (AN-05)",
+          "description": "Minimum time an unauthorised entity stays inside a restricted/disputed zone before it is flagged.",
+          "reference": "FRD AN-05 (entry without clearance). A dwell floor filters brief transits from sustained unauthorised presence.",
+          "source": "https://globalfishingwatch.org/our-map/"
+        },
+        {
+          "key": "cluster",
+          "label": "Cluster Size",
+          "shortLabel": "CLUSTER",
+          "domain": "MULTI",
+          "unit": "entities",
+          "unitLabel": "entities",
+          "default": 8,
+          "min": 3,
+          "max": 30,
+          "step": 1,
+          "governs": ["ANM-010"],
+          "anomalyType": "Cluster Activity (AN-10)",
+          "description": "Minimum number of concurrent entities in one geo-temporal window before a cluster is flagged.",
+          "reference": "FRD AN-10 (significant multi-entity increase in a small area/time). Configurable concurrent-entity count per rendezvous/cluster analysis.",
+          "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9785623/"
+        }
+      ]
+    }
+  ]
+}
