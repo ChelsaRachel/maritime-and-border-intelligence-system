@@ -749,10 +749,10 @@ progress::-moz-progress-bar { background: linear-gradient(90deg,var(--signal-cya
 .operations-workspace--aircraft .data-table { font-size: 11px; }
 .operations-workspace--aircraft .data-table th { font-size: 9.5px; }
 .operations-workspace--aircraft .data-table td { line-height: 1.4; }
-.operations-workspace--aircraft .flight-chart { height: 100%; min-height: 170px; }
+.operations-workspace--aircraft .flight-chart { height: 100%; min-height: 170px; margin-bottom: 28px; }
 .operations-workspace--aircraft .flight-chart i,
 .operations-workspace--aircraft .flight-chart b { width: 10px; }
-.operations-workspace--aircraft .flight-chart span { font-size: 10px; }
+.operations-workspace--aircraft .flight-chart span { font-size: 10px; bottom: -22px; line-height: 1; }
 
 .operations-workspace--aircraft .source-health { height: 100%; justify-content: space-between; }
 .operations-workspace--aircraft .source-health span { font-size: 11px; }
