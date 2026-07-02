@@ -67,12 +67,20 @@ export function BorderIncidentTimeline({ points, incidents }: { points: IBorderT
   )
 
   const openDetail = () => {
-    setModalDay(activeIso ?? 'all')
+    setModalDay('all')
     setOpen(true)
   }
 
   const hovered = hoverIso ? points.find((p) => p.iso === hoverIso) : null
   const hoveredCoord = coords.find((c) => c.point.iso === hoverIso)
+  const hoveredIndex = hovered ? points.findIndex((p) => p.iso === hovered.iso) : -1
+  // Edge-aware tooltip placement so it never spills past the short chart frame.
+  const tipClass = hoveredCoord
+    ? [
+        hoveredIndex <= 1 ? 'is-left' : hoveredIndex >= points.length - 2 ? 'is-right' : '',
+        hoveredCoord.y / VB_H < 0.5 ? 'is-below' : 'is-above',
+      ].join(' ')
+    : ''
 
   return (
     <div className="incident-timeline">
@@ -118,7 +126,7 @@ export function BorderIncidentTimeline({ points, incidents }: { points: IBorderT
 
         {hovered && hoveredCoord && (
           <div
-            className="incident-timeline__tooltip"
+            className={`incident-timeline__tooltip ${tipClass}`}
             style={{ left: `${(hoveredCoord.x / VB_W) * 100}%`, top: `${(hoveredCoord.y / VB_H) * 100}%` }}
             role="status"
           >

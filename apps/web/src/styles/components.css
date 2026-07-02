@@ -289,7 +289,13 @@ progress::-moz-progress-bar { background: linear-gradient(90deg,var(--signal-cya
 .incident-timeline__node--tinggi { color: var(--severity-critical); }
 .incident-timeline__node--tinggi .incident-timeline__dot { box-shadow: 0 0 9px rgba(255,66,80,.75); }
 .incident-timeline__node--tinggi .incident-timeline__count { color: var(--severity-critical); }
-.incident-timeline__tooltip { position: absolute; z-index: 5; display: flex; flex-direction: column; gap: 3px; min-width: 150px; padding: 8px 10px; transform: translate(-50%, calc(-100% - 18px)); border: 1px solid var(--wire-strong); background: rgba(2,14,23,.97); box-shadow: 0 12px 30px rgba(0,0,0,.5); pointer-events: none; }
+/* Edge-aware tooltip: default above-centre, then flips below / anchors to a side near the frame edges. */
+.incident-timeline__tooltip { position: absolute; z-index: 6; display: flex; flex-direction: column; gap: 3px; min-width: 150px; max-width: 220px; padding: 8px 10px; transform: translate(-50%, calc(-100% - 16px)); border: 1px solid var(--wire-strong); background: rgba(2,14,23,.98); box-shadow: 0 12px 30px rgba(0,0,0,.55); pointer-events: none; }
+.incident-timeline__tooltip.is-below { transform: translate(-50%, 16px); }
+.incident-timeline__tooltip.is-left { transform: translate(-14px, calc(-100% - 16px)); }
+.incident-timeline__tooltip.is-left.is-below { transform: translate(-14px, 16px); }
+.incident-timeline__tooltip.is-right { transform: translate(calc(-100% + 14px), calc(-100% - 16px)); }
+.incident-timeline__tooltip.is-right.is-below { transform: translate(calc(-100% + 14px), 16px); }
 .incident-timeline__tooltip strong { color: var(--text-primary); font-size: 12px; }
 .incident-timeline__tip-level { font-family: var(--font-mono); font-size: 10px; font-weight: 600; }
 .incident-timeline__tip-level--rendah { color: var(--severity-low); }
