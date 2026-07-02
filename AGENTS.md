@@ -1,5 +1,6 @@
 # Project Guide
 
+
 > **CRITICAL FIRST STEP — MANDATORY BEFORE ANY CODE:**
 >
 > 1. Run `ls apps/` to list all app directories.
