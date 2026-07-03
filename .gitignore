@@ -1,6 +1,6 @@
 .claude
 design
-
+apps/web/rspack.prod.ts
 
 # Claude Code — personal settings
 .claude/settings.local.json
