@@ -2,6 +2,7 @@
 design
 apps/web/rspack.prod.ts
 .mcp.json
+FRD_Maritime_Border_Intelligence_System.md
 
 # Claude Code — personal settings
 .claude/settings.local.json
